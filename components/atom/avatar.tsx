@@ -1,62 +1,137 @@
-import { AvatarFallback, AvatarImage, Avatar as DefaultAvatar } from "@/components/ui/avatar";
+import {
+  AvatarFallback,
+  AvatarImage,
+  Avatar as DefaultAvatar,
+} from "@/components/ui/avatar";
+
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import Image from "next/image";
-import {ComponentProps} from "react";
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from "react";
 
-const avatarVariants = cva("block rounded-full overflow-hidden", {
-  variants: {
-    size: {
-      sm: "size-7",
-      md: "size-8",
-      lg: "size-9",
-      xl: "size-10"
-    }
-  },
-  defaultVariants: {
-    size: "md"
+import {
+  avatarFallbackImage,
+  avatarSizes,
+  avatarStatusStyles,
+  type AvatarSize,
+  type AvatarStatus,
+} from "./avatar.constants";
+
+
+const avatarVariants = cva(
+  "block overflow-hidden rounded-full",
+  {
+    variants: {
+      size: {
+        sm: avatarSizes.sm.avatar,
+        md: avatarSizes.md.avatar,
+        lg: avatarSizes.lg.avatar,
+        xl: avatarSizes.xl.avatar,
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
   }
-});
+);
+
 
 type AvatarVariantProps = VariantProps<typeof avatarVariants>;
-export type Size = AvatarVariantProps["size"];
 
-type Props = {
-  isOnline?: boolean;
-  onClick?: () => void;
-} & AvatarVariantProps & 
-  Pick<ComponentProps<typeof AvatarImage>, "alt" | "src">;
 
-export default function Avatar({size, isOnline, src, alt, onClick}: Props) {
-  return (
-    <div className="relative inline-block size-fit">
-      <DefaultAvatar className={cn(avatarVariants({ size }))} onClick={onClick}>
-        <AvatarImage 
-          className="aspect-square size-full object-cover" 
-          src={src}
-          alt={alt} 
-        />
-        <AvatarFallback>
-          <Image
-            className="aspect-square size-full object-cover"
-            src="https://avatars.githubusercontent.com/u/96566968?s=400&u=10a4cfb65e5de63911ba0362bda8096f1bbfeb63&v=4"
-            alt="avatar placeholder image"
-            width={40}
-            height={40}
-            />
-        </AvatarFallback>
-      </DefaultAvatar>
+export type AvatarProps =
+  ComponentPropsWithoutRef<typeof DefaultAvatar> &
+  AvatarVariantProps & {
+    status?: AvatarStatus;
+    fallback?: ReactNode;
+    src?: string;
+    alt?: string;
+  };
 
-      {isOnline && ( 
-        <span 
+
+const Avatar = forwardRef<
+  React.ElementRef<typeof DefaultAvatar>,
+  AvatarProps
+>(
+  (
+    {
+      size = "md",
+      status,
+      src,
+      alt = "Avatar",
+      fallback,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+
+    const currentSize =
+      (size ?? "md") as AvatarSize;
+
+
+    return (
+      <div className="relative inline-block size-fit">
+
+        <DefaultAvatar
+          ref={ref}
           className={cn(
-            "inline-block bg-green-400 rounded-full",
-            "absolute bottom-0 right-0", 
-            "border border-white",
-            size === "sm" || size === "md" ? "size-2" : "size-3"
+            avatarVariants({
+              size,
+            }),
+            className
           )}
-        />
-      )}
-    </div>
-  );
-}
+          {...props}
+        >
+
+          <AvatarImage
+            src={src}
+            alt={alt}
+            className="size-full object-cover aspect-square"
+          />
+
+
+          <AvatarFallback>
+            {fallback ?? (
+              <Image
+                src={avatarFallbackImage}
+                alt="Avatar placeholder"
+                width={40}
+                height={40}
+                className="size-full object-cover aspect-square"
+              />
+            )}
+          </AvatarFallback>
+
+        </DefaultAvatar>
+
+
+        {status && (
+          <span
+            aria-label={
+              avatarStatusStyles[status].label
+            }
+            className={cn(
+              "absolute bottom-0 right-0",
+              "rounded-full",
+              "border-2 border-background",
+              avatarStatusStyles[status].className,
+              avatarSizes[currentSize].indicator
+            )}
+          />
+        )}
+
+      </div>
+    );
+  }
+);
+
+
+Avatar.displayName = "Avatar";
+
+
+export default Avatar;
