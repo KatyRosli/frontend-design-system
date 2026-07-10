@@ -6,6 +6,15 @@ import { expect, fn } from "storybook/test";
 
 const sizeOptions: Size[] = ["sm", "md", "lg", "xl"];
 
+/**
+ * Reusable Avatar component
+ * that supports different sizes
+ * and render placeholder image
+ * when src attribute is not provided,
+ * and also it shows presence indicator
+ * when user is online.
+ * */
+
 const meta = {
   title: "Design System/Atom/Avatar",
   component: Avatar,
@@ -29,12 +38,12 @@ const meta = {
       description: "If true, avatar will have presence indicator."
     },
     size: {
-      description: "default md, it changes avatar size",
+      description: "Default md, it changes avatar size.",
       control: { type: "radio" },
       options: sizeOptions
     },
     onClick: {
-      description: "demo purpose, remove later"
+      description: "Demo purpose, remove later."
     }
   },
   tags: ["autodocs"]
