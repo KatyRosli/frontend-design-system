@@ -7,6 +7,7 @@ export const buttonSizes = {
 	},
 
 	md: {
+		// 44px - Apple's recommended minimum touch target
 		height: "h-11",
 		padding: "px-4",
 		text: "text-sm",
@@ -14,6 +15,7 @@ export const buttonSizes = {
 	},
 
 	lg: {
+		// 48px - Material Design touch target
 		height: "h-12",
 		padding: "px-6",
 		text: "text-base",

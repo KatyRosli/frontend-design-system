@@ -4,7 +4,7 @@ import { Geist } from "next/font/google";
 import { cn } from "../lib/utils";
 
 const geist = Geist({
-	variable: "--font-geist",
+	variable: "--font-sans",
 	subsets: ["latin"],
 });
 
@@ -16,8 +16,11 @@ const preview: Preview = {
 			return (
 				<div
 					className={cn(
-						"min-h-screen p-8",
-						isDark ? "dark bg-background" : "bg-background",
+						geist.variable,
+						"font-sans min-h-screen p-8",
+						isDark 
+							? "dark bg-background" 
+							: "bg-background",
 					)}
 				>
 					<Story />

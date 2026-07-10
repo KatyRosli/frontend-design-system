@@ -10,10 +10,12 @@ const buttonStyles = cva(
 		"items-center",
 		"justify-center",
 		"gap-2",
-		"font-medium", 
-    "tracking-tight",
+		"font-medium",
+		"tracking-normal",
 		"rounded-md",
 		"transition-all",
+
+    "cursor-pointer",
 
 		"focus-visible:outline",
 		"focus-visible:outline-2",
@@ -36,7 +38,7 @@ const buttonStyles = cva(
 
 				text: "bg-transparent text-foreground hover:bg-muted",
 
-				link: "bg-transparent p-0 hover:underline",
+				link: "bg-transparent p-0 underline text-primary",
 			},
 
 			size: {
@@ -85,9 +87,8 @@ const buttonStyles = cva(
 
 export type ButtonProps = ComponentProps<"button"> &
 	VariantProps<typeof buttonStyles> & {
-		leftIcon?: ReactNode;
-
-		rightIcon?: ReactNode;
+		icon?: ReactNode;
+    iconPosition?: "left" | "right"
 	};
 
 export default function Button({
@@ -97,9 +98,9 @@ export default function Button({
 
 	width,
 
-	leftIcon,
+	icon,
 
-	rightIcon,
+  iconPosition ="left",
 
 	children,
 
@@ -120,11 +121,11 @@ export default function Button({
 			)}
 			{...props}
 		>
-			{leftIcon}
+			{icon && iconPosition === "left" && icon}
 
 			{children}
 
-			{rightIcon}
+			{icon && iconPosition === "right" && icon}
 		</button>
 	);
 }
