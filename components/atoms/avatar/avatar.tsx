@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import {
+  ComponentRef,
   forwardRef,
   type ComponentPropsWithoutRef,
   type ReactNode,
@@ -54,7 +55,7 @@ export type AvatarProps =
 
 
 const Avatar = forwardRef<
-  React.ElementRef<typeof DefaultAvatar>,
+  ComponentRef<typeof DefaultAvatar>,
   AvatarProps
 >(
   (

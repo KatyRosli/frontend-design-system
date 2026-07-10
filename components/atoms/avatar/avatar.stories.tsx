@@ -1,8 +1,8 @@
-import Avatar from "@/components/atom/avatar";
+import Avatar from "@/components/atoms/avatar";
 import {
   avatarSizes,
   avatarStatusStyles,
-} from "@/components/atom/avatar.constants";
+} from "@/components/atoms/avatar";
 
 import { Button } from "@/components/ui/button";
 

@@ -23,19 +23,19 @@ export type AvatarSize = keyof typeof avatarSizes;
 export const avatarStatusStyles = {
   online: {
     label: "Online",
-    className: "bg-green-500",
+    className: "bg-success",
   },
   away: {
     label: "Away",
-    className: "bg-yellow-400",
+    className: "bg-warning",
   },
   busy: {
     label: "Busy",
-    className: "bg-red-500",
+    className: "bg-destructive",
   },
   offline: {
     label: "Offline",
-    className: "bg-gray-400",
+    className: "bg-offline",
   },
 } as const;
 
