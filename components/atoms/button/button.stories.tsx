@@ -5,6 +5,13 @@ import { fn } from "storybook/test";
 import Button from "./button";
 import { buttonVariants, buttonWidths } from "./button.constants";
 
+/**
+ * Reusable Button component that supports
+ * different variants, sizes, widths, and icon positions.
+ * It can render leading or trailing icons,
+ * handle disabled states, and adapt across responsive layouts.
+ */
+
 const meta = {
 	title: "Design System/Atoms/Button",
 
