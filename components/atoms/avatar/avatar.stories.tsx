@@ -1,21 +1,9 @@
 import Avatar from "@/components/atoms/avatar";
-import {
-  avatarSizes,
-  avatarStatusStyles,
-} from "@/components/atoms/avatar";
-
+import { avatarSizes, avatarStatusStyles } from "@/components/atoms/avatar";
 import { Button } from "@/components/ui/button";
-
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-
-import {
-  expect,
-  fn,
-} from "storybook/test";
-
-import {
-  useState,
-} from "react";
+import { expect, fn } from "storybook/test";
+import { useState } from "react";
 
 /**
  * Reusable Avatar component
@@ -27,264 +15,140 @@ import {
  * */
 
 const meta = {
-  title: "Design System/Atom/Avatar",
+	title: "Design System/Atoms/Avatar",
 
-  component: Avatar,
+	component: Avatar,
 
+	args: {
+		src: "https://avatars.githubusercontent.com/u/96566968?s=400&u=10a4cfb65e5de63911ba0362bda8096f1bbfeb63&v=4",
 
-  args: {
-    src:
-      "https://avatars.githubusercontent.com/u/96566968?s=400&u=10a4cfb65e5de63911ba0362bda8096f1bbfeb63&v=4",
+		alt: "Avatar image",
 
-    alt: "Avatar image",
+		size: "md",
 
-    size: "md",
+		status: undefined,
 
-    status: undefined,
+		onClick: fn(),
+	},
 
-    onClick: fn(),
-  },
+	argTypes: {
+		size: {
+			description: "Controls avatar size",
 
+			control: {
+				type: "radio",
+			},
 
-  argTypes: {
+			options: Object.keys(avatarSizes),
+		},
 
-    size: {
-      description:
-        "Controls avatar size",
+		status: {
+			description: "Shows presence indicator",
 
-      control: {
-        type: "radio",
-      },
+			control: {
+				type: "radio",
+			},
 
-      options: Object.keys(
-        avatarSizes
-      ),
-    },
+			options: [undefined, ...Object.keys(avatarStatusStyles)],
+		},
 
+		src: {
+			description: "Avatar image source",
+		},
 
-    status: {
-      description:
-        "Shows presence indicator",
+		fallback: {
+			control: false,
+		},
+	},
 
-      control: {
-        type: "radio",
-      },
-
-      options: [
-        undefined,
-        ...Object.keys(
-          avatarStatusStyles
-        ),
-      ],
-    },
-
-
-    src: {
-      description:
-        "Avatar image source",
-    },
-
-
-    fallback: {
-      control: false,
-    },
-
-  },
-
-
-  tags: [
-    "autodocs",
-  ],
-
-
+	tags: ["autodocs"],
 } satisfies Meta<typeof Avatar>;
-
 
 export default meta;
 
+type Story = StoryObj<typeof Avatar>;
 
-type Story =
-  StoryObj<typeof Avatar>;
-
-
-
-export const Default =
-{} satisfies Story;
-
-
+export const Default = {} satisfies Story;
 
 export const AllSizes = {
-
-  render: () => (
-
-    <div className="flex items-center gap-4">
-
-      {Object.keys(
-        avatarSizes
-      ).map((size) => (
-
-        <Avatar
-          key={size}
-          size={
-            size as keyof typeof avatarSizes
-          }
-        />
-
-      ))}
-
-    </div>
-
-  ),
-
+	render: () => (
+		<div className="flex items-center gap-4">
+			{Object.keys(avatarSizes).map((size) => (
+				<Avatar key={size} size={size as keyof typeof avatarSizes} />
+			))}
+		</div>
+	),
 } satisfies Story;
-
-
 
 export const AllStatuses = {
-
-  render: () => (
-
-    <div className="flex items-center gap-4">
-
-      {Object.keys(
-        avatarStatusStyles
-      ).map((status) => (
-
-        <Avatar
-          key={status}
-          status={
-            status as keyof typeof avatarStatusStyles
-          }
-        />
-
-      ))}
-
-    </div>
-
-  ),
-
+	render: () => (
+		<div className="flex items-center gap-4">
+			{Object.keys(avatarStatusStyles).map((status) => (
+				<Avatar
+					key={status}
+					status={status as keyof typeof avatarStatusStyles}
+				/>
+			))}
+		</div>
+	),
 } satisfies Story;
-
-
 
 export const Placeholder = {
-
-  args: {
-
-    src: undefined,
-
-  },
-
+	args: {
+		src: undefined,
+	},
 } satisfies Story;
-
-
 
 export const InitialsFallback = {
+	args: {
+		src: undefined,
 
-  args: {
-
-    src: undefined,
-
-    fallback: "KR",
-
-  },
-
+		fallback: "KR",
+	},
 } satisfies Story;
-
-
 
 export const BrokenImage = {
-
-  args: {
-
-    src: "invalid-image-url",
-
-  },
-
+	args: {
+		src: "invalid-image-url",
+	},
 } satisfies Story;
-
-
 
 export const Clickable = {
+	args: {
+		onClick: fn(),
+	},
 
-  args: {
-
-    onClick: fn(),
-
-  },
-
-  play: async ({
-    args,
-  }) => {
-
-    expect(
-      args.onClick
-    ).toHaveBeenCalledTimes(0);
-
-  },
-
+	play: async ({ args }) => {
+		expect(args.onClick).toHaveBeenCalledTimes(0);
+	},
 } satisfies Story;
 
-
-
 export const DynamicStatus = {
+	argTypes: {
+		status: {
+			control: false,
+		},
+	},
 
-  argTypes: {
+	render: (args) => {
+		const [status, setStatus] = useState<"online" | "offline">("offline");
 
-    status: {
-      control: false,
-    },
+		return (
+			<div className="flex flex-col gap-4">
+				<Avatar {...args} status={status} />
 
-  },
+				<p>Status: {status}</p>
 
-
-  render: (args) => {
-
-    const [
-      status,
-      setStatus,
-    ] = useState<
-      "online" | "offline"
-    >(
-      "offline"
-    );
-
-
-    return (
-
-      <div className="flex flex-col gap-4">
-
-        <Avatar
-          {...args}
-          status={status}
-        />
-
-
-        <p>
-          Status: {status}
-        </p>
-
-
-        <Button
-          onClick={() =>
-            setStatus(
-              previous =>
-                previous === "online"
-                  ? "offline"
-                  : "online"
-            )
-          }
-        >
-
-          Toggle status
-
-        </Button>
-
-      </div>
-
-    );
-
-  },
-
-
+				<Button
+					onClick={() =>
+						setStatus((previous) =>
+							previous === "online" ? "offline" : "online",
+						)
+					}
+				>
+					Toggle status
+				</Button>
+			</div>
+		);
+	},
 } satisfies Story;
