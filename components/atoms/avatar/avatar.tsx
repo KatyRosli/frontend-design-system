@@ -1,14 +1,7 @@
-import {
-	AvatarFallback,
-	AvatarImage,
-	Avatar as DefaultAvatar,
-} from "@/components/ui/avatar";
-
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import Image from "next/image";
 import {
-	ComponentRef,
 	forwardRef,
 	type ComponentPropsWithoutRef,
 	type ReactNode,
@@ -22,7 +15,7 @@ import {
 	type AvatarStatus,
 } from "./avatar.constants";
 
-const avatarVariants = cva("block overflow-hidden rounded-full", {
+const avatarVariants = cva("block overflow-hidden rounded-full bg-muted", {
 	variants: {
 		size: {
 			sm: avatarSizes.sm.avatar,
@@ -31,6 +24,7 @@ const avatarVariants = cva("block overflow-hidden rounded-full", {
 			xl: avatarSizes.xl.avatar,
 		},
 	},
+
 	defaultVariants: {
 		size: "md",
 	},
@@ -38,51 +32,64 @@ const avatarVariants = cva("block overflow-hidden rounded-full", {
 
 type AvatarVariantProps = VariantProps<typeof avatarVariants>;
 
-export type AvatarProps = ComponentPropsWithoutRef<typeof DefaultAvatar> &
+export type AvatarProps = ComponentPropsWithoutRef<"div"> &
 	AvatarVariantProps & {
 		status?: AvatarStatus;
+
 		fallback?: ReactNode;
+
 		src?: string;
+
 		alt?: string;
 	};
 
-const Avatar = forwardRef<ComponentRef<typeof DefaultAvatar>, AvatarProps>(
+const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
 	(
-		{ size = "md", status, src, alt = "Avatar", fallback, className, ...props },
+		{
+			size = "md",
+			status,
+			src,
+			alt = "Avatar",
+			fallback,
+			className,
+			children,
+			...props
+		},
 		ref,
 	) => {
 		const currentSize = (size ?? "md") as AvatarSize;
 
 		return (
-			<div className="relative inline-block size-fit">
-				<DefaultAvatar
-					ref={ref}
+			<div ref={ref} className="relative inline-block size-fit" {...props}>
+				<div
 					className={cn(
+						"relative",
 						avatarVariants({
 							size,
 						}),
 						className,
 					)}
-					{...props}
 				>
-					<AvatarImage
-						src={src}
-						alt={alt}
-						className="size-full object-cover aspect-square"
-					/>
-
-					<AvatarFallback>
-						{fallback ?? (
+					{src ? (
+						<Image
+							src={src}
+							alt={alt}
+							fill
+							sizes="100%"
+							className="object-cover"
+						/>
+					) : (
+						(fallback ?? (
 							<Image
 								src={avatarFallbackImage}
 								alt="Avatar placeholder"
-								width={40}
-								height={40}
-								className="size-full object-cover aspect-square"
+								fill
+								sizes="100%"
+								className="object-cover"
 							/>
-						)}
-					</AvatarFallback>
-				</DefaultAvatar>
+						))
+					)}
+				</div>
 
 				{status && (
 					<span

@@ -1,6 +1,10 @@
-import Avatar from "@/components/atoms/avatar";
-import { avatarSizes, avatarStatusStyles } from "@/components/atoms/avatar";
-import { Button } from "@/components/ui/button";
+import Avatar from "@/components/atoms/avatar/avatar";
+import {
+	avatarSizes,
+	avatarStatusStyles,
+} from "@/components/atoms/avatar/avatar.constants";
+import Button from "@/components/atoms/button/button";
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, fn } from "storybook/test";
 import { useState } from "react";
@@ -8,11 +12,11 @@ import { useState } from "react";
 /**
  * Reusable Avatar component
  * that supports different sizes
- * and render placeholder image
- * when src attribute is not provided,
- * and also it shows presence indicator
+ * and renders a placeholder image
+ * when src attribute is not provided.
+ * It also shows a presence indicator
  * when user is online.
- * */
+ */
 
 const meta = {
 	title: "Design System/Atoms/Avatar",
@@ -102,7 +106,6 @@ export const Placeholder = {
 export const InitialsFallback = {
 	args: {
 		src: undefined,
-
 		fallback: "KR",
 	},
 } satisfies Story;

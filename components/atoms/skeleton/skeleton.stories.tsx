@@ -3,10 +3,22 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Skeleton from "./skeleton";
 import { skeletonVariants, skeletonSizes } from "./skeleton.constants";
 
+/**
+ * Reusable Skeleton component that provides
+ * loading placeholders with support for different
+ * content shapes, custom dimensions, and responsive layouts.
+ *
+ * It improves perceived performance by displaying
+ * consistent loading states while content is being
+ * fetched or rendered.
+ */
+
 const meta = {
-	title: "Design System/Atom/Skeleton",
+	title: "Design System/Atoms/Skeleton",
 
 	component: Skeleton,
+
+  tags: ["autodocs"],
 
 	parameters: {
 		layout: "centered",
