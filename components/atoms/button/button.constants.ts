@@ -16,20 +16,9 @@ export const buttonSizes = {
 	},
 } as const;
 
+export const buttonVariants = ["primary", "secondary", "text", "link"] as const;
 
-export const buttonVariants = [
-	"primary",
-	"secondary",
-	"text",
-	"link",
-] as const;
-
-
-export const buttonWidths = [
-	"auto",
-	"full",
-] as const;
-
+export const buttonWidths = ["auto", "full"] as const;
 
 export type ButtonSize = keyof typeof buttonSizes;
 

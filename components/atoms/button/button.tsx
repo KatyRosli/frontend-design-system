@@ -5,7 +5,6 @@ import { type ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 import { buttonSizes } from "./button.constants";
 
-
 const buttonStyles = cva(
 	[
 		"inline-flex",
@@ -35,30 +34,22 @@ const buttonStyles = cva(
 	{
 		variants: {
 			variant: {
+				primary: "bg-primary text-primary-foreground shadow-md",
 
-				primary:
-					"bg-primary text-primary-foreground shadow-md",
+				secondary: "bg-secondary text-secondary-foreground shadow-md",
 
-				secondary:
-					"bg-secondary text-secondary-foreground shadow-md",
+				text: "bg-transparent text-foreground hover:bg-muted",
 
-				text:
-					"bg-transparent text-foreground hover:bg-muted",
-
-				link:
-					"bg-transparent p-0 h-auto text-primary underline",
+				link: "bg-transparent p-0 h-auto text-primary underline",
 			},
 
-
 			size: {
-
 				sm: `
 					${buttonSizes.sm.height}
 					${buttonSizes.sm.padding}
 					${buttonSizes.sm.text}
 					[&_svg]:${buttonSizes.sm.icon}
 				`,
-
 
 				lg: `
 					${buttonSizes.lg.height}
@@ -68,36 +59,27 @@ const buttonStyles = cva(
 				`,
 			},
 
-
 			width: {
+				auto: "w-auto",
 
-				auto:
-					"w-auto",
-
-				full:
-					"w-full",
+				full: "w-full",
 			},
 		},
-
 
 		defaultVariants: {
 			variant: "primary",
 			size: "lg",
 			width: "auto",
 		},
-	}
+	},
 );
 
-
-export type ButtonProps =
-	ComponentProps<"button"> &
+export type ButtonProps = ComponentProps<"button"> &
 	VariantProps<typeof buttonStyles> & {
-
 		icon?: ReactNode;
 
 		iconPosition?: "left" | "right";
 	};
-
 
 export default function Button({
 	variant,
@@ -112,42 +94,27 @@ export default function Button({
 	className,
 
 	...props
-
 }: ButtonProps) {
-
-
 	return (
-
 		<button
-
 			className={cn(
-
 				buttonStyles({
-
 					variant,
 
 					size,
 
 					width,
-
 				}),
 
-				className
-
+				className,
 			)}
-
 			{...props}
-
 		>
-
 			{icon && iconPosition === "left" && icon}
-
 
 			{children}
 
-
 			{icon && iconPosition === "right" && icon}
-
 		</button>
 	);
 }

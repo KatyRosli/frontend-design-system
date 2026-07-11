@@ -1,19 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import {
-	ArrowRight,
-	Bell,
-	Plus,
-	Trash,
-} from "lucide-react";
+import { ArrowRight, Bell, Plus, Trash } from "lucide-react";
 
 import { fn } from "storybook/test";
 
 import Button from "./button";
 
-import {
-	buttonVariants,
-	buttonWidths,
-} from "./button.constants";
+import { buttonVariants, buttonWidths } from "./button.constants";
 
 /**
  * Reusable Button component that supports
@@ -23,307 +15,163 @@ import {
  */
 
 const meta = {
+	title: "Design System/Atoms/Button",
 
-	title:
-		"Design System/Atoms/Button",
+	component: Button,
 
-	component:
-		Button,
-
-
-	tags:
-		["autodocs"],
-
+	tags: ["autodocs"],
 
 	args: {
+		children: "Button",
 
-		children:
-			"Button",
+		variant: "primary",
 
-		variant:
-			"primary",
+		size: "lg",
 
-		size:
-			"lg",
+		width: "auto",
 
-		width:
-			"auto",
+		disabled: false,
 
-		disabled:
-			false,
-
-		onClick:
-			fn(),
-
+		onClick: fn(),
 	},
-
 
 	argTypes: {
-
-
 		variant: {
+			control: "radio",
 
-			control:
-			"radio",
+			options: buttonVariants,
 
-			options:
-			buttonVariants,
-
-			description:
-			"Button visual style.",
+			description: "Button visual style.",
 		},
-
 
 		size: {
+			control: "radio",
 
-			control:
-			"radio",
+			options: ["sm", "lg"],
 
-			options:
-			[
-				"sm",
-				"lg",
-			],
-
-			description:
-			"Responsive button size.",
+			description: "Responsive button size.",
 		},
-
 
 		width: {
+			control: "radio",
 
-			control:
-			"radio",
+			options: buttonWidths,
 
-			options:
-			buttonWidths,
-
-			description:
-			"Button width.",
+			description: "Button width.",
 		},
-
 
 		iconPosition: {
+			control: "radio",
 
-			control:
-			"radio",
+			options: ["left", "right"],
 
-			options:
-			[
-				"left",
-				"right",
-			],
-
-			description:
-			"Icon placement.",
+			description: "Icon placement.",
 		},
-
 
 		disabled: {
-
-			control:
-			"boolean",
+			control: "boolean",
 		},
-
 	},
-
 } satisfies Meta<typeof Button>;
-
 
 export default meta;
 
-
 type Story = StoryObj<typeof Button>;
-
-
 
 export const Playground: Story = {};
 
-
-
 export const Primary: Story = {};
 
-
-
 export const Secondary: Story = {
-
 	args: {
+		variant: "secondary",
 
-		variant:
-			"secondary",
-
-		children:
-			"Edit profile",
-
+		children: "Edit profile",
 	},
-
 };
-
-
 
 export const Text: Story = {
-
 	args: {
+		variant: "text",
 
-		variant:
-			"text",
-
-		children:
-			"Like",
-
+		children: "Like",
 	},
-
 };
-
-
 
 export const Link: Story = {
-
 	args: {
+		variant: "link",
 
-		variant:
-			"link",
-
-		children:
-			"Read more",
-
+		children: "Read more",
 	},
-
 };
-
-
 
 export const Small: Story = {
-
 	args: {
+		size: "sm",
 
-		size:
-			"sm",
-
-		children:
-			"Small button",
-
+		children: "Small button",
 	},
-
 };
-
-
 
 export const Large: Story = {
-
 	args: {
+		size: "lg",
 
-		size:
-			"lg",
-
-		children:
-			"Large button",
-
+		children: "Large button",
 	},
-
 };
-
-
 
 export const LeadingIcon: Story = {
-
 	args: {
+		children: "Add item",
 
-		children:
-			"Add item",
+		icon: <Plus />,
 
-		icon:
-			<Plus />,
-
-		iconPosition:
-			"left",
-
+		iconPosition: "left",
 	},
-
 };
-
-
 
 export const TrailingIcon: Story = {
-
 	args: {
+		children: "Continue",
 
-		children:
-			"Continue",
+		icon: <ArrowRight />,
 
-		icon:
-			<ArrowRight />,
-
-		iconPosition:
-			"right",
-
+		iconPosition: "right",
 	},
-
 };
-
-
 
 export const IconOnly: Story = {
-
 	args: {
+		children: <Bell />,
 
-		children:
-			<Bell />,
+		size: "lg",
 
-		size:
-			"lg",
+		variant: "secondary",
 
-		variant:
-			"secondary",
-
-		"aria-label":
-			"Notifications",
-
+		"aria-label": "Notifications",
 	},
-
 };
-
-
 
 export const Danger: Story = {
-
 	args: {
+		children: "Delete",
 
-		children:
-			"Delete",
-
-		icon:
-			<Trash />,
-
+		icon: <Trash />,
 	},
-
 };
-
-
 
 export const FullWidth: Story = {
-
 	args: {
+		children: "Continue",
 
-		children:
-			"Continue",
-
-		width:
-			"full",
-
+		width: "full",
 	},
-
 };
 
-
-
 export const Disabled: Story = {
-
 	args: {
-
-		disabled:
-			true,
-
+		disabled: true,
 	},
-
 };

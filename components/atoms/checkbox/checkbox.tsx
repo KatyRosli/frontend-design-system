@@ -1,92 +1,94 @@
-import { Check } from "lucide-react";
-
+import { useEffect, useRef } from "react";
+import { Check, Minus } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { type ComponentProps, type ReactNode, useEffect, useRef } from "react";
+import { type ComponentProps, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
 import {
-	checkboxSizes,
+	checkboxConfig,
 	checkboxVariants,
-	type CheckboxSize,
+	type CheckboxVariant,
 } from "./checkbox.constants";
 
 const checkboxStyles = cva(
 	[
 		"peer",
+
 		"appearance-none",
+
 		"rounded-sm",
+
 		"border",
-		"transition",
+
+		"transition-colors",
 
 		"cursor-pointer",
 
 		"focus-visible:outline",
+
 		"focus-visible:outline-2",
+
 		"focus-visible:outline-primary",
+
 		"focus-visible:outline-offset-2",
 
-		"disabled:cursor-not-allowed",
-		"disabled:opacity-50",
-
 		"checked:bg-primary",
+
 		"checked:border-primary",
 
-		"indeterminate:bg-primary",
+		"disabled:bg-muted",
+
+		"disabled:border-muted-foreground/30",
+
+		"disabled:cursor-not-allowed",
 	],
 
 	{
 		variants: {
 			variant: checkboxVariants,
-
-			size: {
-				sm: checkboxSizes.sm.box,
-				md: checkboxSizes.md.box,
-				lg: checkboxSizes.lg.box,
-			},
 		},
 
 		defaultVariants: {
 			variant: "default",
-			size: "md",
 		},
 	},
 );
 
-export type CheckboxProps = Omit<ComponentProps<"input">, "size"> &
-	VariantProps<typeof checkboxStyles> & {
-		size?: CheckboxSize;
+export interface CheckboxProps
+	extends
+		Omit<ComponentProps<"input">, "size">,
+		VariantProps<typeof checkboxStyles> {
+	label?: ReactNode;
 
-		label?: ReactNode;
+	description?: ReactNode;
 
-		description?: ReactNode;
+	required?: boolean;
 
-		required?: boolean;
+	errorMessage?: ReactNode;
 
-		errorMessage?: ReactNode;
+	indeterminate?: boolean;
 
-		indeterminate?: boolean;
-	};
+	variant?: CheckboxVariant;
+}
 
 export default function Checkbox({
 	label,
 
 	description,
 
-	variant,
-
-	size = "md",
-
-	className,
-
-	disabled,
-
 	required,
 
 	errorMessage,
 
 	indeterminate = false,
+
+	variant,
+
+	className,
+
+	disabled,
 
 	...props
 }: CheckboxProps) {
@@ -100,28 +102,44 @@ export default function Checkbox({
 
 	return (
 		<label
+			aria-disabled={disabled}
 			className={cn(
 				"flex",
-
-				"items-start",
+				description
+				? "items-start"
+				: "items-center",
 
 				"select-none",
 
-				checkboxSizes[size].gap,
+				"cursor-pointer",
+
+				checkboxConfig.gap,
 
 				disabled && "cursor-not-allowed",
 			)}
 		>
-			<div className="relative flex items-center justify-center">
+			<div
+				className={cn(
+					"relative",
+
+					"flex",
+
+					"items-center",
+
+					"justify-center",
+
+					checkboxConfig.hitArea,
+				)}
+			>
 				<input
 					ref={inputRef}
 					type="checkbox"
 					className={cn(
 						checkboxStyles({
 							variant,
-
-							size,
 						}),
+
+						checkboxConfig.box,
 
 						className,
 					)}
@@ -131,17 +149,33 @@ export default function Checkbox({
 
 				<Check
 					className={cn(
-						"pointer-events-none",
-
 						"absolute",
 
 						"hidden",
 
+						"pointer-events-none",
+
 						"text-primary-foreground",
 
-						checkboxSizes[size].icon,
+						checkboxConfig.icon,
 
 						"peer-checked:block",
+					)}
+				/>
+
+				<Minus
+					className={cn(
+						"absolute",
+
+						"hidden",
+
+						"pointer-events-none",
+
+						"text-primary-foreground",
+
+						checkboxConfig.icon,
+
+						"peer-indeterminate:block",
 					)}
 				/>
 			</div>
@@ -151,8 +185,10 @@ export default function Checkbox({
 					<span
 						className={cn(
 							"font-medium",
-              "text-foreground",
-							checkboxSizes[size].text,
+
+							"text-foreground",
+
+							checkboxConfig.text,
 						)}
 					>
 						{label}
@@ -166,7 +202,7 @@ export default function Checkbox({
 						className={cn(
 							"text-muted-foreground",
 
-							checkboxSizes[size].description,
+							checkboxConfig.description,
 						)}
 					>
 						{description}

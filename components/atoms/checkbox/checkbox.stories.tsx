@@ -1,16 +1,10 @@
-import Checkbox from "./checkbox";
-
-import type {
-	Meta,
-	StoryObj,
-} from "@storybook/nextjs-vite";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { fn } from "storybook/test";
 
-import {
-	checkboxSizes,
-	checkboxVariants,
-} from "./checkbox.constants";
+import Checkbox from "./checkbox";
+
+import { checkboxVariants } from "./checkbox.constants";
 
 /**
  * Reusable Checkbox component that supports
@@ -21,182 +15,97 @@ import {
  */
 
 const meta = {
+	title: "Design System/Atoms/Checkbox",
 
-	title:
-		"Design System/Atoms/Checkbox",
+	component: Checkbox,
 
-	component:
-		Checkbox,
+	tags: ["autodocs"],
 
-	tags:[
-		"autodocs"
-	],
+	args: {
+		label: "Accept terms and conditions",
 
+		description: "I agree with the privacy policy.",
 
-	args:{
-
-		label:
-			"Accept terms and conditions",
-
-		description:
-			"I agree with the privacy policy.",
-
-		onChange:
-			fn(),
-
+		onChange: fn(),
 	},
 
-	argTypes:{
+	argTypes: {
+		variant: {
+			control: "radio",
 
+			options: Object.keys(checkboxVariants),
 
-		size:{
-
-			control:"radio",
-
-			options:
-				Object.keys(checkboxSizes) as Array<keyof typeof checkboxSizes>,
-
-			description:
-				"Controls checkbox size."
-
+			description: "Controls checkbox visual state.",
 		},
 
-
-
-		variant:{
-
-			control:"radio",
-
-			options:
-				Object.keys(checkboxVariants),
-
-			description:
-				"Controls checkbox visual state."
-
+		disabled: {
+			control: "boolean",
 		},
 
-
-
-		disabled:{
-
-			control:"boolean",
-
+		indeterminate: {
+			control: "boolean",
 		},
 
-
-		indeterminate:{
-
-			control:"boolean",
-
+		required: {
+			control: "boolean",
 		},
-
 	},
-
-
 } satisfies Meta<typeof Checkbox>;
-
-
 
 export default meta;
 
+type Story = StoryObj<typeof Checkbox>;
 
+export const Default: Story = {};
 
-type Story =
-StoryObj<typeof Checkbox>;
-
-
-
-export const Default = {} satisfies Story;
-
-
-
-export const Required = {
-
-	args:{
-
-		required:true,
-
-		label:
-			"Accept terms and conditions",
-
+export const Checked: Story = {
+	args: {
+		defaultChecked: true,
 	},
+};
 
-} satisfies Story;
+export const Indeterminate: Story = {
+	args: {
+		indeterminate: true,
 
+		label: "Select all items",
 
-
-export const Checked = {
-
-	args:{
-
-		defaultChecked:true,
-
+		description: "Some items are selected",
 	},
+};
 
-} satisfies Story;
+export const Disabled: Story = {
+	args: {
+		disabled: true,
 
+		label: "Marketing emails",
 
-
-export const Indeterminate = {
-
-	args:{
-
-		indeterminate:true,
-
-		label:
-			"Select all items",
-
-		description:
-			"Some items are selected",
-
+		description: "Disabled option",
 	},
+};
 
-} satisfies Story;
+export const Required: Story = {
+	args: {
+		required: true,
 
-
-
-export const Disabled = {
-
-	args:{
-
-		disabled:true,
-
-		label:
-			"Marketing emails",
-
+		label: "Accept terms and conditions",
 	},
+};
 
-} satisfies Story;
+export const Error: Story = {
+	args: {
+		variant: "error",
 
+		required: true,
 
+		label: "Accept terms",
 
-export const ErrorMessage = {
-
-	args:{
-
-		variant:"error",
-
-		required:true,
-
-		label:
-			"Accept terms and conditions",
-
-		errorMessage:
-			"You must accept before continuing.",
-
+		errorMessage: "You must accept before continuing.",
 	},
+};
 
-} satisfies Story;
-
-
-
-export const WithoutDescription = {
-
-	args:{
-
-		description:
-			undefined,
-
+export const WithoutDescription: Story = {
+	args: {
+		description: undefined,
 	},
-
-} satisfies Story;
+};
