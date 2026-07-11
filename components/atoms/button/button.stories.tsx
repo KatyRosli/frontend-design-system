@@ -1,9 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { ArrowRight, Bell, Plus, Trash } from "lucide-react";
+import {
+	ArrowRight,
+	Bell,
+	Plus,
+	Trash,
+} from "lucide-react";
+
 import { fn } from "storybook/test";
 
 import Button from "./button";
-import { buttonVariants, buttonWidths } from "./button.constants";
+
+import {
+	buttonVariants,
+	buttonWidths,
+} from "./button.constants";
 
 /**
  * Reusable Button component that supports
@@ -13,136 +23,307 @@ import { buttonVariants, buttonWidths } from "./button.constants";
  */
 
 const meta = {
-	title: "Design System/Atoms/Button",
 
-	component: Button,
+	title:
+		"Design System/Atoms/Button",
 
-	tags: ["autodocs"],
+	component:
+		Button,
+
+
+	tags:
+		["autodocs"],
+
 
 	args: {
-		children: "Button",
-		variant: "primary",
-		size: "md",
-		width: "auto",
-		disabled: false,
-		onClick: fn(),
+
+		children:
+			"Button",
+
+		variant:
+			"primary",
+
+		size:
+			"lg",
+
+		width:
+			"auto",
+
+		disabled:
+			false,
+
+		onClick:
+			fn(),
+
 	},
+
 
 	argTypes: {
+
+
 		variant: {
-			control: "radio",
-			options: buttonVariants,
-			description: "Visual style of the button.",
+
+			control:
+			"radio",
+
+			options:
+			buttonVariants,
+
+			description:
+			"Button visual style.",
 		},
+
 
 		size: {
-			control: "radio",
-			options: ["sm", "md", "lg", "icon-sm", "icon-md", "icon-lg"],
-			description: "Button size.",
+
+			control:
+			"radio",
+
+			options:
+			[
+				"sm",
+				"lg",
+			],
+
+			description:
+			"Responsive button size.",
 		},
 
-    iconPosition:{
-      control: {
-        type: "radio",
-      },
-      options:[
-        "left",
-        "right",
-      ],
-      description: "Button supports one optional icon. Icon can appear on the left or right side.",
-    },
 
 		width: {
-			control: "radio",
-			options: buttonWidths,
-			description: "Button width.",
+
+			control:
+			"radio",
+
+			options:
+			buttonWidths,
+
+			description:
+			"Button width.",
 		},
 
-		disabled: {
-			control: "boolean",
+
+		iconPosition: {
+
+			control:
+			"radio",
+
+			options:
+			[
+				"left",
+				"right",
+			],
+
+			description:
+			"Icon placement.",
 		},
+
+
+		disabled: {
+
+			control:
+			"boolean",
+		},
+
 	},
+
 } satisfies Meta<typeof Button>;
+
 
 export default meta;
 
+
 type Story = StoryObj<typeof Button>;
 
-export const Playground = {} satisfies Story;
 
-export const Primary = {} satisfies Story;
 
-export const Secondary = {
+export const Playground: Story = {};
+
+
+
+export const Primary: Story = {};
+
+
+
+export const Secondary: Story = {
+
 	args: {
-		variant: "secondary",
-		children: "Edit profile",
-	},
-} satisfies Story;
 
-export const Text = {
-	args: {
-		variant: "text",
-		children: "Like",
-	},
-} satisfies Story;
+		variant:
+			"secondary",
 
-export const Link = {
-	args: {
-		variant: "link",
-		children: "Read more",
-	},
-} satisfies Story;
+		children:
+			"Edit profile",
 
-export const LeadingIcon = {
-	args: {
-		children: "Add item",
-		icon: <Plus />,
-    iconPosition: "left",
 	},
-} satisfies Story;
 
-export const TrailingIcon = {
-	args: {
-		children: "Continue",
-		icon: <ArrowRight />,
-    iconPosition:"right",
-	},
-} satisfies Story;
+};
 
-export const BothIcons = {
-	args: {
-		children: <Bell />,
-		size: "icon-md",
-		variant: "secondary",
-	},
-} satisfies Story;
 
-export const IconOnly = {
-	args: {
-		children: <Bell />,
-		size: "icon-md",
-		variant: "secondary",
-		"aria-label": "Notifications",
-	},
-} satisfies Story;
 
-export const Danger = {
-	args: {
-		children: "Delete",
-		icon: <Trash />,
-    iconPosition: "left",
-	},
-} satisfies Story;
+export const Text: Story = {
 
-export const FullWidth = {
 	args: {
-		children: "Continue",
-		width: "full",
-	},
-} satisfies Story;
 
-export const Disabled = {
-	args: {
-		disabled: true,
+		variant:
+			"text",
+
+		children:
+			"Like",
+
 	},
-} satisfies Story;
+
+};
+
+
+
+export const Link: Story = {
+
+	args: {
+
+		variant:
+			"link",
+
+		children:
+			"Read more",
+
+	},
+
+};
+
+
+
+export const Small: Story = {
+
+	args: {
+
+		size:
+			"sm",
+
+		children:
+			"Small button",
+
+	},
+
+};
+
+
+
+export const Large: Story = {
+
+	args: {
+
+		size:
+			"lg",
+
+		children:
+			"Large button",
+
+	},
+
+};
+
+
+
+export const LeadingIcon: Story = {
+
+	args: {
+
+		children:
+			"Add item",
+
+		icon:
+			<Plus />,
+
+		iconPosition:
+			"left",
+
+	},
+
+};
+
+
+
+export const TrailingIcon: Story = {
+
+	args: {
+
+		children:
+			"Continue",
+
+		icon:
+			<ArrowRight />,
+
+		iconPosition:
+			"right",
+
+	},
+
+};
+
+
+
+export const IconOnly: Story = {
+
+	args: {
+
+		children:
+			<Bell />,
+
+		size:
+			"lg",
+
+		variant:
+			"secondary",
+
+		"aria-label":
+			"Notifications",
+
+	},
+
+};
+
+
+
+export const Danger: Story = {
+
+	args: {
+
+		children:
+			"Delete",
+
+		icon:
+			<Trash />,
+
+	},
+
+};
+
+
+
+export const FullWidth: Story = {
+
+	args: {
+
+		children:
+			"Continue",
+
+		width:
+			"full",
+
+	},
+
+};
+
+
+
+export const Disabled: Story = {
+
+	args: {
+
+		disabled:
+			true,
+
+	},
+
+};

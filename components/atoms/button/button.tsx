@@ -1,8 +1,10 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { type ReactNode } from "react";
 import { type ComponentProps } from "react";
+
 import { cn } from "@/lib/utils";
 import { buttonSizes } from "./button.constants";
+
 
 const buttonStyles = cva(
 	[
@@ -14,8 +16,9 @@ const buttonStyles = cva(
 		"tracking-normal",
 		"rounded-md",
 		"transition-all",
+		"shrink-0",
 
-    "cursor-pointer",
+		"cursor-pointer",
 
 		"focus-visible:outline",
 		"focus-visible:outline-2",
@@ -32,100 +35,119 @@ const buttonStyles = cva(
 	{
 		variants: {
 			variant: {
-				primary: "bg-primary text-primary-foreground shadow-md",
 
-				secondary: "bg-secondary text-secondary-foreground shadow-md",
+				primary:
+					"bg-primary text-primary-foreground shadow-md",
 
-				text: "bg-transparent text-foreground hover:bg-muted",
+				secondary:
+					"bg-secondary text-secondary-foreground shadow-md",
 
-				link: "bg-transparent p-0 underline text-primary",
+				text:
+					"bg-transparent text-foreground hover:bg-muted",
+
+				link:
+					"bg-transparent p-0 h-auto text-primary underline",
 			},
+
 
 			size: {
-				sm: `${buttonSizes.sm.height}
-          ${buttonSizes.sm.padding}
-          ${buttonSizes.sm.text}
-          [&_svg]:${buttonSizes.sm.icon}`,
 
-				md: `${buttonSizes.md.height}
-          ${buttonSizes.md.padding}
-          ${buttonSizes.md.text}
-          [&_svg]:${buttonSizes.md.icon}`,
+				sm: `
+					${buttonSizes.sm.height}
+					${buttonSizes.sm.padding}
+					${buttonSizes.sm.text}
+					[&_svg]:${buttonSizes.sm.icon}
+				`,
 
-				lg: `${buttonSizes.lg.height}
-          ${buttonSizes.lg.padding}
-          ${buttonSizes.lg.text}
-          [&_svg]:${buttonSizes.lg.icon}`,
 
-				"icon-sm": `${buttonSizes["icon-sm"].height}
-          ${buttonSizes["icon-sm"].padding}
-          [&_svg]:${buttonSizes["icon-sm"].icon}`,
-
-				"icon-md": `${buttonSizes["icon-md"].height}
-          ${buttonSizes["icon-md"].padding}
-          [&_svg]:${buttonSizes["icon-md"].icon}`,
-
-				"icon-lg": `${buttonSizes["icon-lg"].height}
-          ${buttonSizes["icon-lg"].padding}
-          [&_svg]:${buttonSizes["icon-lg"].icon}`,
+				lg: `
+					${buttonSizes.lg.height}
+					${buttonSizes.lg.padding}
+					${buttonSizes.lg.text}
+					[&_svg]:${buttonSizes.lg.icon}
+				`,
 			},
+
 
 			width: {
-				auto: "w-auto",
 
-				full: "w-full",
+				auto:
+					"w-auto",
+
+				full:
+					"w-full",
 			},
 		},
+
 
 		defaultVariants: {
 			variant: "primary",
-			size: "md",
+			size: "lg",
 			width: "auto",
 		},
-	},
+	}
 );
 
-export type ButtonProps = ComponentProps<"button"> &
+
+export type ButtonProps =
+	ComponentProps<"button"> &
 	VariantProps<typeof buttonStyles> & {
+
 		icon?: ReactNode;
-    iconPosition?: "left" | "right"
+
+		iconPosition?: "left" | "right";
 	};
+
 
 export default function Button({
 	variant,
-
 	size,
-
 	width,
 
 	icon,
-
-  iconPosition ="left",
+	iconPosition = "left",
 
 	children,
 
 	className,
 
 	...props
+
 }: ButtonProps) {
+
+
 	return (
+
 		<button
+
 			className={cn(
+
 				buttonStyles({
+
 					variant,
+
 					size,
+
 					width,
+
 				}),
 
-				className,
+				className
+
 			)}
+
 			{...props}
+
 		>
+
 			{icon && iconPosition === "left" && icon}
+
 
 			{children}
 
+
 			{icon && iconPosition === "right" && icon}
+
 		</button>
 	);
 }
