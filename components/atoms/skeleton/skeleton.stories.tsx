@@ -1,16 +1,20 @@
+import Skeleton from "@/components/atoms/skeleton";
+import { skeletonVariants } from "@/components/atoms/skeleton";
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import Skeleton from "./skeleton";
-import { skeletonVariants, skeletonSizes } from "./skeleton.constants";
-
 /**
- * Reusable Skeleton component that provides
- * loading placeholders with support for different
- * content shapes, custom dimensions, and responsive layouts.
+ * Reusable Skeleton component
+ * used as a loading placeholder.
  *
- * It improves perceived performance by displaying
- * consistent loading states while content is being
- * fetched or rendered.
+ * Supports different shapes:
+ * - text
+ * - circle
+ * - rectangle
+ *
+ * Dimensions should be controlled
+ * through className to match the
+ * component being replaced.
  */
 
 const meta = {
@@ -18,77 +22,86 @@ const meta = {
 
 	component: Skeleton,
 
-  tags: ["autodocs"],
-
-	parameters: {
-		layout: "centered",
+	args: {
+		variant: "rectangle",
+		className: "h-20 w-40",
 	},
 
 	argTypes: {
 		variant: {
-			control: "select",
-			options: Object.values(skeletonVariants),
+			description: "Controls skeleton shape",
+
+			control: {
+				type: "radio",
+			},
+
+			options: Object.keys(skeletonVariants),
 		},
 
-		size: {
-			control: "select",
-			options: Object.values(skeletonSizes),
-		},
-
-		width: {
-			control: "text",
-		},
-
-		height: {
-			control: "text",
+		className: {
+			description: "Controls skeleton dimensions using Tailwind classes",
 		},
 	},
 
-	args: {
-		variant: "rectangle",
-		size: "md",
-	},
+	tags: ["autodocs"],
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Skeleton>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const Text: Story = {
+export const Text = {
 	args: {
 		variant: "text",
-		width: "240px",
+		className: "h-4 w-60",
 	},
-};
+} satisfies Story;
 
-export const Circle: Story = {
+export const Circle = {
 	args: {
 		variant: "circle",
-		width: "48px",
-		height: "48px",
+		className: "size-10",
 	},
-};
+} satisfies Story;
 
-export const Rectangle: Story = {
+export const Rectangle = {
 	args: {
 		variant: "rectangle",
-		width: "320px",
-		height: "160px",
+		className: "h-40 w-full max-w-md",
 	},
-};
+} satisfies Story;
 
-export const Card: Story = {
+export const AvatarSkeleton = {
 	args: {
-		variant: "card",
+		variant: "circle",
+		className: "size-10",
 	},
-};
+} satisfies Story;
 
-export const CustomSize: Story = {
-	args: {
-		variant: "rectangle",
-		width: "500px",
-		height: "200px",
-	},
-};
+export const CardSkeleton = {
+	render: () => (
+		<div className="flex flex-col gap-4">
+			<Skeleton variant="rectangle" className="h-48 w-full max-w-sm" />
+
+			<Skeleton variant="text" className="h-4 w-3/4" />
+
+			<Skeleton variant="text" className="h-4 w-1/2" />
+		</div>
+	),
+} satisfies Story;
+
+export const ProfileSkeleton = {
+	render: () => (
+		<div className="flex items-center gap-4">
+			<Skeleton variant="circle" className="size-12" />
+
+			<div className="flex flex-col gap-2">
+				<Skeleton variant="text" className="h-4 w-40" />
+
+				<Skeleton variant="text" className="h-3 w-24" />
+			</div>
+		</div>
+	),
+} satisfies Story;
