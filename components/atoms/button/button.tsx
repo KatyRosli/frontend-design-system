@@ -4,6 +4,7 @@ import { type ComponentProps } from "react";
 
 import { cn } from "@/lib/utils";
 import { buttonSizes } from "./button.constants";
+import Spinner from "../spinner";
 
 const buttonStyles = cva(
 	[
@@ -77,22 +78,20 @@ const buttonStyles = cva(
 export type ButtonProps = ComponentProps<"button"> &
 	VariantProps<typeof buttonStyles> & {
 		icon?: ReactNode;
-
 		iconPosition?: "left" | "right";
+		loading?: boolean;
 	};
 
 export default function Button({
 	variant,
 	size,
 	width,
-
+	loading = false,
 	icon,
 	iconPosition = "left",
-
 	children,
-
 	className,
-
+	disabled,
 	...props
 }: ButtonProps) {
 	return (
@@ -100,21 +99,29 @@ export default function Button({
 			className={cn(
 				buttonStyles({
 					variant,
-
 					size,
-
 					width,
 				}),
 
 				className,
 			)}
+			disabled={disabled || loading}
+			aria-busy={loading}
 			{...props}
 		>
-			{icon && iconPosition === "left" && icon}
+			{loading && (
+				<Spinner
+					size="sm"
+					variant={variant === "primary" ? "inverse" : "default"}
+				/>
+			)}
+			<>
+				{icon && iconPosition === "left" && icon}
 
-			{children}
+				{children}
 
-			{icon && iconPosition === "right" && icon}
+				{icon && iconPosition === "right" && icon}
+			</>
 		</button>
 	);
 }

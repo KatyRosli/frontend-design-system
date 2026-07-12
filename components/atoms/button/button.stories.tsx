@@ -23,15 +23,11 @@ const meta = {
 
 	args: {
 		children: "Button",
-
 		variant: "primary",
-
 		size: "lg",
-
 		width: "auto",
-
 		disabled: false,
-
+		loading: false,
 		onClick: fn(),
 	},
 
@@ -70,6 +66,11 @@ const meta = {
 
 		disabled: {
 			control: "boolean",
+			description: "Shows disable interactions."
+		},
+		loading: {
+			control: "boolean",
+			description: "Shows loading spinner and disables interactions."
 		},
 	},
 } satisfies Meta<typeof Button>;
