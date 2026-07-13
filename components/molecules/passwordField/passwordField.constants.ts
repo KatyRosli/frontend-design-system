@@ -1,6 +1,5 @@
 import { cva } from "class-variance-authority";
 
-
 export const passwordFieldVariants = cva(
 	[
 		"inline-flex",
@@ -35,13 +34,6 @@ export const passwordFieldVariants = cva(
 	},
 );
 
+export const passwordFieldSizes = ["sm", "lg"] as const;
 
-export const passwordFieldSizes = [
-	"sm",
-	"lg",
-] as const;
-
-
-export type PasswordFieldSize =
-	(typeof passwordFieldSizes)[number];
-  
+export type PasswordFieldSize = (typeof passwordFieldSizes)[number];
