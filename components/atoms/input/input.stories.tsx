@@ -4,6 +4,8 @@ import Input from "./input";
 
 import { inputSizes, inputStates } from "./input.constants";
 
+import { Search } from "lucide-react";
+
 /**
  * Reusable Input component that supports
  * different sizes, validation states,
@@ -105,5 +107,20 @@ export const Password: Story = {
 		type: "password",
 
 		placeholder: "Enter password",
+	},
+};
+
+export const WithLeadingIcon: Story = {
+	args: {
+		placeholder: "Search...",
+		startAdornment: <Search className="h-4 w-4 text-muted-foreground" />,
+	},
+};
+
+export const WithTrailingIcon: Story = {
+	args: {
+		placeholder: "Search...",
+
+		endAdornment: <Search className="h-4 w-4 text-muted-foreground" />,
 	},
 };
