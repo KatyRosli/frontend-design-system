@@ -26,7 +26,6 @@ export const emptyStateIconVariants = cva(
 		"items-center",
 		"justify-center",
 		"rounded-full",
-		"bg-muted",
 		"text-muted-foreground",
 	],
 

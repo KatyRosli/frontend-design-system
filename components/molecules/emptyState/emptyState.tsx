@@ -61,6 +61,7 @@ const EmptyState = ({
 					flex
 					flex-col
 					gap-1
+          items-center
 				"
 			>
 				<h3
