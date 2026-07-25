@@ -4,6 +4,9 @@ A reusable React component library built with **React**, **TypeScript**, **Tailw
 
 Designed to provide accessible, consistent, and scalable UI components for modern web applications.
 
+<img width="1467" height="681" alt="Screenshot 2026-07-25 at 18 12 46" src="https://github.com/user-attachments/assets/439d2ca9-f6f1-4d28-8e3a-52cfc18185b6" />
+
+
 ## ✨ Features
 
 - ⚛️ React + TypeScript
@@ -196,128 +199,32 @@ npm run build-storybook
 Create the npm package:
 
 ```bash
-npm run build
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Output:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-dist/
-├── index.js
-└── index.d.ts
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-# Project Structure
+## Learn More
 
-```
-src
-├── components
-│   ├── atoms
-│   ├── molecules
-│   └── organisms
-│
-├── styles
-│   └── globals.css
-│
-├── lib
-│   └── utils.ts
-│
-└── index.ts
+To learn more about Next.js, take a look at the following resources:
 
-.storybook
-├── main.ts
-└── preview.tsx
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-# Component Guidelines
+## Deploy on Vercel
 
-When creating new components:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 1. Keep components composable
-
-Prefer:
-
-```tsx
-<FormField>
-  <Input />
-</FormField>
-```
-
-instead of:
-
-```tsx
-<InputWithLabel />
-```
-
-Small components should combine together.
-
----
-
-## 2. Use variants instead of duplicated components
-
-Example:
-
-```tsx
-<Button variant="primary">
-  Save
-</Button>
-
-<Button variant="secondary">
-  Cancel
-</Button>
-```
-
-Avoid:
-
-```
-PrimaryButton.tsx
-SecondaryButton.tsx
-```
-
----
-
-## 3. Keep styling inside components
-
-Components should own their styles:
-
-```
-Button
-├── button.tsx
-├── button.constants.ts
-└── button.stories.tsx
-```
-
----
-
-# Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| React | UI framework |
-| TypeScript | Type safety |
-| Tailwind CSS | Styling |
-| Class Variance Authority | Component variants |
-| Storybook | Documentation |
-| Vitest | Testing |
-| Vite | Package bundling |
-
----
-
-# License
-
-MIT License
-
-You are free to use, modify, and distribute this software.
-
----
-
-# Author
-
-Created by Katy Rosli
-
-GitHub:
-https://github.com/KatyRosli
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
