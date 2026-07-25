@@ -1,7 +1,7 @@
-import "../app/globals.css";
+import "../src/styles/globals.css";
 import type { Preview } from "@storybook/nextjs-vite";
 import { Geist } from "next/font/google";
-import { cn } from "../lib/utils";
+import { cn } from "../src/lib/utils";
 
 const geist = Geist({
 	variable: "--font-sans",

@@ -1,36 +1,32 @@
 {
-  "name": "my-app",
+  "name": "@katyrosli/design-system",
+  "description": "A reusable React design system built with Tailwind CSS.",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/styles/globals.css"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "vite build",
     "lint": "eslint",
+    "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_7b158c5cc523965"
+    "chromatic": "chromatic --project-token=chpt_7b158c5cc523965"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@base-ui/react": "^1.6.0",
     "@radix-ui/react-select": "^2.3.3",
     "@shadcn/react": "^0.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.1.1",
-    "date-fns": "^4.4.0",
-    "embla-carousel-react": "^8.6.0",
-    "input-otp": "^1.4.2",
     "lucide-react": "^1.24.0",
-    "next": "16.2.10",
-    "next-themes": "^0.4.6",
     "react": "19.2.4",
-    "react-day-picker": "^10.0.1",
     "react-dom": "19.2.4",
-    "react-resizable-panels": "^4.12.1",
-    "recharts": "^3.8.0",
-    "shadcn": "^4.13.0",
-    "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
     "tw-animate-css": "^1.4.0"
   },
@@ -50,13 +46,33 @@
     "@vitest/coverage-v8": "^4.1.10",
     "chromatic": "^18.1.0",
     "eslint": "^9",
-    "eslint-config-next": "16.2.10",
     "eslint-plugin-storybook": "^10.4.6",
     "playwright": "^1.61.1",
     "storybook": "^10.4.6",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vite": "^8.1.4",
+    "vite": "^8.1.5",
+    "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.1.10"
-  }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./src/styles/globals.css"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "ui",
+    "components",
+    "tailwind",
+    "storybook"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KatyRosli/frontend-design-system"
+  },
+  "license": "MIT"
 }
