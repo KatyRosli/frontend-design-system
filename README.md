@@ -1,36 +1,323 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KatyRosli Design System
 
-## Getting Started
+A reusable React component library built with **React**, **TypeScript**, **Tailwind CSS**, and **Storybook**.
 
-First, run the development server:
+Designed to provide accessible, consistent, and scalable UI components for modern web applications.
+
+## ✨ Features
+
+- ⚛️ React + TypeScript
+- 🎨 Tailwind CSS based styling
+- ♿ Accessible components
+- 📚 Storybook documentation
+- 🧩 Atomic Design architecture
+- 🎯 Type-safe component APIs
+- 🧪 Component testing support
+
+---
+
+# Installation
+
+Install the package using npm:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install @katyrosli/design-system
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or using pnpm:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm add @katyrosli/design-system
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+or yarn:
 
-## Learn More
+```bash
+yarn add @katyrosli/design-system
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Import the design system styles once in your application:
 
-## Deploy on Vercel
+```tsx
+import "@katyrosli/design-system/styles.css";
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Then import components:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+import {
+  Button,
+  Input,
+  Typography,
+} from "@katyrosli/design-system";
+```
+
+Example:
+
+```tsx
+export default function App() {
+  return (
+    <div>
+      <Typography variant="h1">
+        Welcome
+      </Typography>
+
+      <Button>
+        Get Started
+      </Button>
+    </div>
+  );
+}
+```
+
+---
+
+# Components
+
+## Atoms
+
+Small reusable building blocks.
+
+| Component | Description |
+|---|---|
+| Button | Primary user actions |
+| Input | Text input control |
+| Typography | Consistent text hierarchy |
+| Spinner | Loading indicator |
+
+---
+
+## Molecules
+
+Components combining multiple atoms.
+
+| Component | Description |
+|---|---|
+| FormField | Label, input, helper text, validation states |
+| PasswordField | Password input with visibility toggle |
+| EmptyState | Empty content placeholder |
+
+---
+
+## Organisms
+
+Complex UI sections composed from molecules and atoms.
+
+| Component | Description |
+|---|---|
+| LoginForm | Complete authentication form |
+
+---
+
+# Design Principles
+
+This design system follows:
+
+## Atomic Design
+
+Components are organised into:
+
+```
+components
+├── atoms
+│   ├── Button
+│   ├── Input
+│   └── Typography
+│
+├── molecules
+│   ├── FormField
+│   └── PasswordField
+│
+└── organisms
+    └── LoginForm
+```
+
+---
+
+## Accessibility First
+
+Components aim to follow:
+
+- Semantic HTML
+- Keyboard navigation
+- Accessible states
+- ARIA best practices
+
+---
+
+# Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/KatyRosli/frontend-design-system.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## Run Storybook
+
+Start local component documentation:
+
+```bash
+npm run storybook
+```
+
+Open:
+
+```
+http://localhost:6006
+```
+
+---
+
+## Build Storybook
+
+Generate production documentation:
+
+```bash
+npm run build-storybook
+```
+
+---
+
+## Build Package
+
+Create the npm package:
+
+```bash
+npm run build
+```
+
+Output:
+
+```
+dist/
+├── index.js
+└── index.d.ts
+```
+
+---
+
+# Project Structure
+
+```
+src
+├── components
+│   ├── atoms
+│   ├── molecules
+│   └── organisms
+│
+├── styles
+│   └── globals.css
+│
+├── lib
+│   └── utils.ts
+│
+└── index.ts
+
+.storybook
+├── main.ts
+└── preview.tsx
+```
+
+---
+
+# Component Guidelines
+
+When creating new components:
+
+## 1. Keep components composable
+
+Prefer:
+
+```tsx
+<FormField>
+  <Input />
+</FormField>
+```
+
+instead of:
+
+```tsx
+<InputWithLabel />
+```
+
+Small components should combine together.
+
+---
+
+## 2. Use variants instead of duplicated components
+
+Example:
+
+```tsx
+<Button variant="primary">
+  Save
+</Button>
+
+<Button variant="secondary">
+  Cancel
+</Button>
+```
+
+Avoid:
+
+```
+PrimaryButton.tsx
+SecondaryButton.tsx
+```
+
+---
+
+## 3. Keep styling inside components
+
+Components should own their styles:
+
+```
+Button
+├── button.tsx
+├── button.constants.ts
+└── button.stories.tsx
+```
+
+---
+
+# Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React | UI framework |
+| TypeScript | Type safety |
+| Tailwind CSS | Styling |
+| Class Variance Authority | Component variants |
+| Storybook | Documentation |
+| Vitest | Testing |
+| Vite | Package bundling |
+
+---
+
+# License
+
+MIT License
+
+You are free to use, modify, and distribute this software.
+
+---
+
+# Author
+
+Created by Katy Rosli
+
+GitHub:
+https://github.com/KatyRosli
