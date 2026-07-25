@@ -5,5 +5,10 @@ export type {
 } from "./typography";
 
 export type {
-	TypographyVariant,
+	typographyVariants,
+} from "./typography.constants";
+
+export type {
+  TypographyVariant,
+  TypographyElement,
 } from "./typography.constants";

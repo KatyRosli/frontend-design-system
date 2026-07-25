@@ -76,7 +76,7 @@ export const Playground: Story = {
 
 export const TypographyScale: Story = {
 	render: () => (
-		<div className="flex flex-col gap-8">
+		<div className="bg-background text-foreground p-8 min-h-screen">
 			<section>
 				<Typography
 					as="h1"
