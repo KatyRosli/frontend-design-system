@@ -55,6 +55,35 @@ const preview: Preview = {
 	},
 
 	parameters: {
+		options: {
+			storySort: {
+				order: [
+					"Documentations",
+					[
+						"Introduction",
+						"Design Principles",
+						"Accessibility",
+						"Voice and Tone",
+					],
+					"Foundations",
+					[
+						"Typography",
+						"Colors",
+						"Spacing",
+						"Icons",
+					],
+					"Components",
+					[
+						"Atoms",
+						["Avatar", "Button", "Checkbox", "Dropdown", "Input", "Skeleton", "Spinner"],
+						"Molecules",
+						["EmptyState", "FormField", "PasswordField"],
+						"Organisms",
+						["LoginForm"]
+					],
+				],
+			},
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
