@@ -5,7 +5,6 @@ export { default as Dropdown } from "./components/atoms/dropdown";
 export { default as Input } from "./components/atoms/input";
 export { default as Skeleton } from "./components/atoms/skeleton";
 export { default as Spinner } from "./components/atoms/spinner";
-export { default as Typography } from "./components/atoms/typography";
 
 export { default as emptyState } from "./components/molecules/emptyState";
 export { default as FormField } from "./components/molecules/formField";

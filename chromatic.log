@@ -1,0 +1,229 @@
+15:25:31.189 Chromatic CLI v18.1.0
+             https://www.chromatic.com/docs/cli 
+15:25:31.192 Authenticating with Chromatic 
+15:25:31.192     → Connecting to https://index.chromatic.com
+15:25:31.913 Authenticated with Chromatic
+15:25:31.913     → Using project token '****************3965'
+15:25:31.913 Retrieving git information
+15:25:31.914 execGitCommand: git --version
+15:25:31.929 execGitCommand result: 'git version 2.50.1 (Apple Git-155)'
+15:25:31.929 execGitCommand: git --no-pager log -n 1 --format="%H ## %ct ## %ae ## %an"
+15:25:31.942 execGitCommand result: '514a5b4a4ce677a51550c22026c573e28893511d ## 1785158408 ## katyrosli@gmail.com ## KatyRosli'
+15:25:31.942 execGitCommand: git branch --show-current
+15:25:31.952 execGitCommand result: 'main'
+15:25:31.969 execGitCommand: git --no-pager log -n 1 --skip=1 --format="%H"
+15:25:31.979 execGitCommand result: 'd58c32034036cad0210ed619a647727e668cc13c'
+15:25:31.979 git info: {"commit":{"commit":"514a5b4a4ce677a51550c22026c573e28893511d","committedAt":1785158408000,"committerEmail":"katyrosli@gmail.com","committerName":"KatyRosli"},"branch":"main","fromCI":false}
+15:25:31.979 execGitCommand: git config user.email
+15:25:31.989 execGitCommand result: 'katyrosli@gmail.com'
+15:25:31.989 execGitCommand: git diff --name-only --no-relative --diff-filter=d --cached
+15:25:31.990 execGitCommand: git diff --name-only --no-relative --diff-filter=d
+15:25:31.990 execGitCommand: git ls-files --others --exclude-standard
+15:25:32.002 execGitCommand result: 'src/index.ts'
+15:25:32.002 execGitCommand result: ''
+15:25:32.002 execGitCommand result: 'chromatic.log'
+15:25:32.002 execGitCommand: git hash-object --stdin-paths
+15:25:32.020 execGitCommand result: '3b592532417b92c4b35855bd917923bfcab4bebc
+             62c035cb2911b26e3376da3cac6a546629eb96e5'
+15:25:32.020 execGitCommand: git hash-object --stdin
+15:25:32.029 execGitCommand result: 'e8c462ae85e3501b5f198a611768529c3b0e363f'
+15:25:32.029 execGitCommand: git rev-parse --show-toplevel
+15:25:32.038 execGitCommand result: '/Users/katyrosli/Documents/programming/frontend-design-system'
+15:25:32.038 execGitCommandOneLine: git log --reverse --format=%cd --date=iso
+15:25:32.048 execGitCommandOneLine: git log --follow --reverse --format=%cd --date=iso -- .storybook
+15:25:32.060 execGitCommandCountLines: git shortlog -sn --all --since="6 months ago"
+15:25:32.073 execGitCommandCountLines: git ls-files -- "*page*.js" "*page*.jsx" "*page*.ts" "*page*.tsx" "*Page*.js" "*Page*.jsx" "*Page*.ts" "*Page*.tsx" "*screen*.js" "*screen*.jsx" "*screen*.ts" "*screen*.tsx" "*Screen*.js" "*Screen*.jsx" "*Screen*.ts" "*Screen*.tsx"
+15:25:32.086 execGitCommand: git config --get remote.origin.url
+15:25:32.095 execGitCommand result: 'https://github.com/KatyRosli/frontend-design-system.git'
+15:25:32.417 App firstBuild: %o, lastBuild: %o {"committedAt":1689100021000} {"commit":"ff7abf9217470f3e53e12d3eb82c607e30d8d7ed","committedAt":1784997415000}
+15:25:32.417 execGitCommand: git cat-file -e "ff7abf9217470f3e53e12d3eb82c607e30d8d7ed^{commit}"
+15:25:32.431 execGitCommand result: ''
+15:25:32.431 Adding last branch build commit ff7abf9217470f3e53e12d3eb82c607e30d8d7ed to commits with builds
+15:25:32.431 step: checking 20 up to 1689100021
+15:25:32.431 step: commitsWithBuilds: ff7abf9217470f3e53e12d3eb82c607e30d8d7ed
+15:25:32.431 step: commitsWithoutBuilds:
+15:25:32.431 execGitCommand: git rev-list HEAD       --since 1689100021       -n 20 --not ff7abf9217470f3e53e12d3eb82c607e30d8d7ed
+15:25:32.444 execGitCommand result: '514a5b4a4ce677a51550c22026c573e28893511d
+             d58c32034036cad0210ed619a647727e668cc13c
+             cb1a7d22e0b248e0b6b975934fd4733f56a076bb
+             f54e9f671a638a6b5ef8e3ac4a767a897d0db9c2'
+15:25:32.444 step: candidateCommits: 514a5b4a4ce677a51550c22026c573e28893511d,d58c32034036cad0210ed619a647727e668cc13c,cb1a7d22e0b248e0b6b975934fd4733f56a076bb,f54e9f671a638a6b5ef8e3ac4a767a897d0db9c2, visitedCommitsWithoutBuilds: 514a5b4a4ce677a51550c22026c573e28893511d,d58c32034036cad0210ed619a647727e668cc13c,cb1a7d22e0b248e0b6b975934fd4733f56a076bb,f54e9f671a638a6b5ef8e3ac4a767a897d0db9c2
+15:25:32.777 step: newCommitsWithBuilds:
+15:25:32.778 step: checking 40 up to 1689100021
+15:25:32.778 step: commitsWithBuilds: ff7abf9217470f3e53e12d3eb82c607e30d8d7ed
+15:25:32.778 step: commitsWithoutBuilds: 514a5b4a4ce677a51550c22026c573e28893511d,d58c32034036cad0210ed619a647727e668cc13c,cb1a7d22e0b248e0b6b975934fd4733f56a076bb,f54e9f671a638a6b5ef8e3ac4a767a897d0db9c2
+15:25:32.778 execGitCommand: git rev-list HEAD       --since 1689100021       -n 44 --not ff7abf9217470f3e53e12d3eb82c607e30d8d7ed
+15:25:32.803 execGitCommand result: '514a5b4a4ce677a51550c22026c573e28893511d
+             d58c32034036cad0210ed619a647727e668cc13c
+             cb1a7d22e0b248e0b6b975934fd4733f56a076bb
+             f54e9f671a638a6b5ef8e3ac4a767a897d0db9c2'
+15:25:32.803 step: candidateCommits: , visitedCommitsWithoutBuilds: 514a5b4a4ce677a51550c22026c573e28893511d,d58c32034036cad0210ed619a647727e668cc13c,cb1a7d22e0b248e0b6b975934fd4733f56a076bb,f54e9f671a638a6b5ef8e3ac4a767a897d0db9c2
+15:25:32.803 step: no candidateCommits; we are done
+15:25:33.952 Final commitsWithBuilds: ff7abf9217470f3e53e12d3eb82c607e30d8d7ed
+15:25:33.953 execGitCommand: git rev-list ff7abf9217470f3e53e12d3eb82c607e30d8d7ed --not "ff7abf9217470f3e53e12d3eb82c607e30d8d7ed^@"
+15:25:33.976 execGitCommand result: 'ff7abf9217470f3e53e12d3eb82c607e30d8d7ed'
+15:25:33.976 Found parentCommits: ff7abf9217470f3e53e12d3eb82c607e30d8d7ed
+15:25:34.354 Retrieved git information
+15:25:34.354     → Commit '514a5b4' on branch 'main'; found 1 parent build
+15:25:34.354 Collecting Storybook metadata
+15:25:34.355 {"storybookV6error":{"code":"MODULE_NOT_FOUND","requireStack":["/Users/katyrosli/Documents/programming/frontend-design-system/node_modules/chromatic/dist/node-src-GKNCmmlA.cjs","/Users/katyrosli/Documents/programming/frontend-design-system/node_modules/chromatic/dist/main-COvXf-o4.cjs","/Users/katyrosli/Documents/programming/frontend-design-system/node_modules/chromatic/dist/bin.cjs"]}}
+15:25:34.372 {"configDirectory":".storybook","mainConfig":{"code":"import type { StorybookConfig } from \"@storybook/nextjs-vite\";\n\nconst config: StorybookConfig = {\n  stories: [\"../**/*.mdx\", \"../**/*.stories.@(js|jsx|mjs|ts|tsx)\"],\n  addons: [\n    \"@chromatic-com/storybook\",\n    \"@storybook/addon-docs\",\n    \"@storybook/addon-a11y\",\n    \"@storybook/addon-vitest\"\n  ],\n  framework: {\n    name: \"@storybook/nextjs-vite\",\n    options: {}\n  },\n  staticDirs: [\"../public\"]\n};\nexport default config;"}}
+15:25:34.390 [{"status":"fulfilled","value":{}},{"status":"fulfilled","value":{"version":"10.5.4"}},{"status":"fulfilled","value":{"builder":{"name":"@storybook/nextjs-vite","packageVersion":"10.5.4"}}},{"status":"fulfilled","value":{}},{"status":"fulfilled","value":{"staticDir":["public"]}}]
+15:25:34.391 Collected Storybook metadata
+15:25:34.391     → Build metadata gathered
+15:25:34.391 Initializing build
+15:25:34.391 Got environment:
+             {}
+15:25:34.875 [analytics] initializing Index analytics client
+15:25:34.876 Initialized build
+15:25:34.876     → Build 9 initialized
+15:25:34.878 Building your Storybook
+15:25:34.884     → Running command: npm run build-storybook -- --output-dir=/private/var/folders/ld/qr6vgjz9039gv2j8q40lxt040000gn/T/chromatic--24958-IXjbMD3J53mK
+15:25:34.885 Running build command: npm run build-storybook -- --output-dir=/private/var/folders/ld/qr6vgjz9039gv2j8q40lxt040000gn/T/chromatic--24958-IXjbMD3J53mK
+15:25:34.885 Runtime metadata: {
+               "nodePlatform": "darwin",
+               "nodeVersion": "24.18.0",
+               "packageManager": "npm",
+               "packageManagerVersion": "11.16.0"
+             }
+15:25:38.012 Storybook built in 3 seconds
+15:25:38.012     → View build log at /Users/katyrosli/Documents/programming/frontend-design-system/build-storybook.log
+15:25:38.013 Prepare your built Storybook
+15:25:38.013     → Validating Storybook files
+15:25:38.014     → Calculating file hashes
+15:25:38.018 Calculated file hashes in 4ms
+15:25:38.019 Preparation complete
+15:25:38.019     → Storybook files validated and prepared for upload
+15:25:38.019 Publishing your built Storybook
+15:25:38.019     → Starting publish
+15:25:38.020 Running uploadBuild batch 1 / 1
+15:25:38.396 Uploading assets/Color-6AOWCN3U-CWTS2H8H.js (30.95 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/DocsRenderer-JROSPFPF-D65r5gdA.js (1.43 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/WithTooltip-7X4HQR7L-DUKTAx4P.js (32.7 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/accessibility-BfHRW9t9.js (11.71 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/avatar.stories-BfUWwm_L.js (22.41 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/blocks-DJNU2vaK.js (759.03 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/button-DN5zMo2d.js (2.33 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/button.stories-BKq9YPDO.js (4.49 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/checkbox.stories-DeOj6ykU.js (5.43 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/chunk-DRQKCCAG-DNvju14E.js (3.36 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/chunk-W22LQPXL-Bq4PBy6Q.js (22.63 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.397 Uploading assets/designPrinciples-CLM_9t7E.js (8.04 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/dist-ZQKi0b5z.js (732 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/dropdown.stories-n9z1MVTO.js (95.39 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/emptyState.stories-CY0BbncY.js (4.22 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/formField-Be7OPgiT.js (1.69 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/formField.stories-DkbcklmU.js (2.97 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/formatter-L2YTDE3Q-NEblbIR6.js (274 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/iframe-CBsZWiYF.css (39.89 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/iframe-U3m2I7K8.js (1.35 MB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/input-U8hIzuwE.js (2.12 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/input.stories-CUzGc116.js (3.34 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/introduction-BL-cMR3d.js (7.47 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/loginForm.stories-ifatVEJp.js (3.37 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/lucide-react-DBN-qMkU.js (3.92 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/mdx-react-shim-DATC0Alu.js (126 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/passwordField-esqkx416.js (1.57 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/passwordField.stories-Q-LYZwuK.js (2.1 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/react-18-DsVGKoyc.js (204.26 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/skeleton.stories-DAis7q87.js (4.23 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.398 Uploading assets/spinner-D7lxUmps.js (1.26 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading assets/spinner.stories-D3F7WBKT.js (1.9 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading assets/syntaxhighlighter-T5IQBZDB-Cv8V68p7.js (75.88 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading assets/theming-BXllvLb2.js (55.66 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading assets/typography.stories-CfLTvPa5.js (4.61 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading assets/voiceTone-CDjdelFz.js (11.9 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading foundations/typography/index.d.ts (267 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading foundations/typography/typography.d.ts (441 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading foundations/typography/typography.stories.d.ts (723 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading iframe.html (18.97 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading index.d.ts (755 B) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading index.json (34.47 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.399 Uploading project.json (1.37 kB) to https://chromatic-builds.s3.us-west-2.amazonaws.com/
+15:25:38.411     → 1%
+15:25:38.759     → 13%
+15:25:38.926     → 16%
+15:25:38.960 Uploaded assets/chunk-DRQKCCAG-DNvju14E.js (3.36 kB)
+15:25:38.963 Uploaded assets/checkbox.stories-DeOj6ykU.js (5.43 kB)
+15:25:38.965 Uploaded assets/DocsRenderer-JROSPFPF-D65r5gdA.js (1.43 kB)
+15:25:38.968 Uploaded assets/accessibility-BfHRW9t9.js (11.71 kB)
+15:25:38.969 Uploaded assets/button.stories-BKq9YPDO.js (4.49 kB)
+15:25:39.016 Uploaded assets/button-DN5zMo2d.js (2.33 kB)
+15:25:39.107 Uploaded assets/Color-6AOWCN3U-CWTS2H8H.js (30.95 kB)
+15:25:39.109     → 20%
+15:25:39.110 Uploaded assets/WithTooltip-7X4HQR7L-DUKTAx4P.js (32.7 kB)
+15:25:39.139 Uploaded assets/avatar.stories-BfUWwm_L.js (22.41 kB)
+15:25:39.259     → 24%
+15:25:39.424     → 26%
+15:25:39.496 Uploaded assets/dist-ZQKi0b5z.js (732 B)
+15:25:39.501 Uploaded assets/designPrinciples-CLM_9t7E.js (8.04 kB)
+15:25:39.523 Uploaded assets/emptyState.stories-CY0BbncY.js (4.22 kB)
+15:25:39.526     → 33%
+15:25:39.550 Uploaded assets/formField-Be7OPgiT.js (1.69 kB)
+15:25:39.634 Uploaded assets/formatter-L2YTDE3Q-NEblbIR6.js (274 B)
+15:25:39.637     → 34%
+15:25:39.657 Uploaded assets/chunk-W22LQPXL-Bq4PBy6Q.js (22.63 kB)
+15:25:39.695 Uploaded assets/formField.stories-DkbcklmU.js (2.97 kB)
+15:25:39.743     → 36%
+15:25:39.834 Uploaded assets/iframe-CBsZWiYF.css (39.89 kB)
+15:25:39.841 Uploaded assets/dropdown.stories-n9z1MVTO.js (95.39 kB)
+15:25:39.843     → 45%
+15:25:40.008     → 49%
+15:25:40.042 Uploaded assets/input-U8hIzuwE.js (2.12 kB)
+15:25:40.054 Uploaded assets/input.stories-CUzGc116.js (3.34 kB)
+15:25:40.084 Uploaded assets/introduction-BL-cMR3d.js (7.47 kB)
+15:25:40.186 Uploaded assets/lucide-react-DBN-qMkU.js (3.92 kB)
+15:25:40.188     → 56%
+15:25:40.226 Uploaded assets/mdx-react-shim-DATC0Alu.js (126 B)
+15:25:40.234 Uploaded assets/loginForm.stories-ifatVEJp.js (3.37 kB)
+15:25:40.305 Uploaded assets/blocks-DJNU2vaK.js (759.03 kB)
+15:25:40.307     → 61%
+15:25:40.357 Uploaded assets/passwordField-esqkx416.js (1.57 kB)
+15:25:40.366 Uploaded assets/passwordField.stories-Q-LYZwuK.js (2.1 kB)
+15:25:40.498     → 67%
+15:25:40.574 Uploaded assets/skeleton.stories-DAis7q87.js (4.23 kB)
+15:25:40.628 Uploaded assets/spinner-D7lxUmps.js (1.26 kB)
+15:25:40.723 Uploaded assets/spinner.stories-D3F7WBKT.js (1.9 kB)
+15:25:40.816     → 70%
+15:25:40.837 Uploaded assets/typography.stories-CfLTvPa5.js (4.61 kB)
+15:25:40.894 Uploaded foundations/typography/index.d.ts (267 B)
+15:25:40.946 Uploaded assets/voiceTone-CDjdelFz.js (11.9 kB)
+15:25:40.949     → 71%
+15:25:41.080 Uploaded assets/theming-BXllvLb2.js (55.66 kB)
+15:25:41.081 Uploaded assets/syntaxhighlighter-T5IQBZDB-Cv8V68p7.js (75.88 kB)
+15:25:41.137 Uploaded foundations/typography/typography.d.ts (441 B)
+15:25:41.141     → 75%
+15:25:41.213 Uploaded foundations/typography/typography.stories.d.ts (723 B)
+15:25:41.305     → 87%
+15:25:41.394 Uploaded assets/react-18-DsVGKoyc.js (204.26 kB)
+15:25:41.396 Uploaded index.d.ts (755 B)
+15:25:41.450 Uploaded iframe.html (18.97 kB)
+15:25:41.498 Uploaded project.json (1.37 kB)
+15:25:41.617 Uploaded index.json (34.47 kB)
+15:25:41.904 Uploaded assets/iframe-U3m2I7K8.js (1.35 MB)
+15:25:41.904     → Finalizing upload
+15:25:41.905 Waiting for 'files-copied.3663265594.txt' sentinel file to appear at https://chromatic-builds.s3.us-west-2.amazonaws.com/64aea350376485c8f9e1f8a5-qiyixfrqmd/.chromatic/files-copied.3663265594.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAJVVEQEOBEEPXSNNQ%2F20260727%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260727T132538Z&X-Amz-Expires=1800&X-Amz-Signature=c050f9969f559f31210081c07ed1463fd692bc2b935fb7a2300a419607a266e4&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject
+15:25:42.454 Sentinel file 'files-copied.3663265594.txt' OK.
+15:25:42.457 Publish complete in 4 seconds
+15:25:42.457     → Uploaded 43 files (2.85 MB), skipped 84 files
+15:25:42.457 Verifying your Storybook
+15:25:42.457     → This may take a few minutes
+15:25:48.905 ✔ Storybook published
+             We found 12 components with 78 stories.
+             ℹ View your Storybook at https://64aea350376485c8f9e1f8a5-qiyixfrqmd.chromatic.com/
+15:25:48.906 Started build 9
+15:25:48.906     → View build details at https://www.chromatic.com/build?appId=64aea350376485c8f9e1f8a5&number=9
+15:25:48.907 Running 78 tests
+15:25:48.907     → This may take a few minutes
+15:25:48.907 ℹ Speed up Continuous Integration
+             Your project is linked to GitHub so Chromatic will report results there.
+             This means you can add the option `with: exitOnceUploaded: true` to your workflow to skip waiting for build results.
+             Read more here: https://www.chromatic.com/docs/configure/
+15:25:49.314 notify service handshake successful at wss://notify.chromatic.com/build/6a675c4ef621f8063100652c
+15:25:55.662     → 3% 2/78  Typography › Scale
+15:25:56.684     → 4% 3/78  Avatar › Default
+15:25:59.637     → 5% 4/78  Avatar › All Sizes
+15:26:03.647     → 6% 5/78  Avatar › All Statuses
+15:26:06.565     → 8% 6/78  Avatar › Placeholder
+15:26:10.610     → 9% 7/78  Avatar › Initials Fallback
+15:26:13.680     → 10% 8/78  Avatar › Broken Image
