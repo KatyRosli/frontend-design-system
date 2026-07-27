@@ -1,0 +1,303 @@
+import { Meta, Title, Subtitle } from "@storybook/addon-docs/blocks";
+import { Accessibility, Component, Focus, Keyboard } from "lucide-react";
+
+<Meta title="Documentations/Accessibility" />
+
+<Title>Accessibility</Title>
+
+<Subtitle>
+Building inclusive experiences by designing and developing components that work for everyone.
+</Subtitle>
+
+---
+
+# Accessibility Principles
+
+Accessibility is a fundamental part of the Frontend Design System.
+
+Every component should be designed and developed to provide a usable experience for all people, including users with disabilities, different abilities, and different interaction preferences.
+
+Accessibility is not an additional feature added at the end of development.
+
+It is considered from the beginning of the design and engineering process.
+
+---
+
+# Our Accessibility Goals
+
+The design system aims to create interfaces that are:
+
+- Perceivable
+- Operable
+- Understandable
+- Robust
+
+These principles are based on the Web Content Accessibility Guidelines (WCAG).
+
+---
+
+# 1. Semantic HTML
+
+## Use the correct HTML element
+
+Semantic HTML provides built-in accessibility behaviour and helps assistive technologies understand the purpose of content.
+
+Components should use meaningful HTML elements whenever possible.
+
+Examples:
+
+Good:
+
+```tsx
+<button>
+  Save changes
+</button>
+```
+
+Avoid:
+
+```html
+<div onClick={handleClick}>
+  Save changes
+</div>
+```
+
+A native button automatically provides:
+
+Keyboard interaction
+Focus behaviour
+Screen reader support
+Expected browser behaviour
+
+---
+
+# 2. Keyboard Navigation
+## Every interaction should work without a mouse
+
+Users should be able to navigate and interact with the interface using only a keyboard.
+
+Components should support:
+
+Tab navigation
+Enter and Space interactions
+Escape to close dismissible elements
+Arrow key navigation where appropriate
+Logical focus order
+
+Examples:
+
+Interactive components:
+
+Buttons
+Dropdowns
+Dialogs
+Forms
+Navigation menus
+
+should always provide a predictable keyboard experience.
+
+---
+# 3. Focus States
+## Make interactions visible
+
+Users need clear feedback about where they are currently focused.
+
+Every interactive component should have a visible focus state.
+
+Examples:
+
+- Buttons should show focus indicators
+- Inputs should clearly display focus
+- Dropdown options should show active selection
+
+Never remove browser focus styles without providing an accessible replacement.
+
+---
+# 4. Colour and Contrast
+## Do not rely only on colour
+
+Colour should support communication, not be the only way information is presented.
+
+Components should maintain sufficient contrast between:
+
+Text and background
+Interactive elements and surrounding content
+Error states and normal states
+
+Examples:
+
+Avoid:
+
+"Fields marked in red contain errors."
+
+Prefer:
+
+"Email address is required."
+
+with:
+
+- Error colour
+- Error message
+- Clear field association
+
+---
+
+# 5. Typography and Readability
+## Design for comfortable reading
+
+Typography should support readability across different users and devices.
+
+Consider:
+
+- Appropriate font sizes
+- Sufficient line height
+- Clear hierarchy
+- Adequate spacing
+- Avoiding unnecessary uppercase text
+
+The typography system provides consistent styles for:
+
+- Headings
+- Body text
+- Supporting information
+- Labels
+
+---
+
+# 6. Forms and Validation
+## Help users successfully complete tasks
+
+Forms should provide clear guidance and helpful feedback.
+
+Components should support:
+
+Associated labels
+Helpful descriptions
+Clear error messages
+Required field indicators
+Error recovery
+
+Example:
+
+Good:
+```html
+Email address
+
+[                    ]
+
+Please enter a valid email address.
+```
+
+Avoid:
+```html
+
+Invalid input.
+
+without explaining how to fix the problem.
+```
+---
+
+# 7. Screen Reader Support
+## Build experiences that work with assistive technology
+
+Components should provide meaningful information to screen readers.
+
+Consider:
+
+- Accessible names
+- Roles
+- States
+- Descriptions
+- Dynamic updates
+
+Examples:
+
+Buttons should describe their action:
+
+Good:
+```html
+<button>
+  Delete account
+</button>
+```
+
+Avoid:
+```html
+<button>
+  Click here
+</button>
+```
+
+---
+# 8. Component Requirements
+
+## Every component in the design system should consider:
+
+Structure
+- Uses semantic HTML
+- Has correct element roles
+- Supports assistive technologies
+- Interaction
+- Works with keyboard navigation
+- Has visible focus states
+- Provides clear feedback
+- States
+
+Components should define:
+
+- Default state
+- Hover state
+- Focus state
+- Active state
+- Disabled state
+- Loading state
+- Error state
+
+---
+# 9. Accessibility Testing
+
+## Accessibility is validated through multiple approaches.
+
+We use:
+
+Automated Testing
+
+Tools help identify common accessibility issues.
+
+Examples:
+
+- Storybook Accessibility Addon
+- Automated checks
+- Static analysis
+- Manual Testing
+
+Some accessibility issues require human evaluation.
+
+Examples:
+
+- Keyboard-only navigation
+- Screen reader testing
+- Interaction behaviour
+- Content clarity
+
+---
+
+# 10. Accessibility Checklist
+
+## Before publishing a component, verify:
+
+✅ Uses semantic HTML
+
+✅ Keyboard navigation works
+
+✅ Focus states are visible
+
+✅ Colours meet contrast requirements
+
+✅ Error messages are understandable
+
+✅ Disabled and loading states are clear
+
+✅ Screen readers receive meaningful information
+
+✅ Component behaviour is predictable

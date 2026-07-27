@@ -10,7 +10,7 @@ import {
 } from "./typography.constants";
 
 const meta = {
-  title: "Design System/Foundations/Typography",
+  title: "Foundations/Typography",
 
   component: Typography,
 

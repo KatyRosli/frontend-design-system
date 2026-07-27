@@ -1,0 +1,199 @@
+import { Meta, Title, Subtitle } from "@storybook/addon-docs/blocks";
+
+<Meta title="Documentations/Design Principles" />
+
+<Title>Design Principles</Title>
+
+A design system is more than a collection of UI components.
+
+It is a shared language between designers and developers that helps teams create consistent, accessible, and scalable digital experiences.
+
+Every component should follow these principles to ensure quality, maintainability, and a predictable user experience.
+
+---
+
+# 1. Consistency
+
+## Create familiar experiences
+
+Consistency reduces cognitive load and helps users understand interfaces faster.
+
+Components should follow established patterns so users can confidently interact with products without relearning behaviours.
+
+Consistency applies to:
+
+- Typography hierarchy
+- Colour usage
+- Spacing system
+- Component behaviour
+- Interaction patterns
+- Visual styling
+- Motion and animations
+
+Example:
+
+A primary action should always look and behave like a primary action across the application.
+
+---
+
+# 2. Accessibility First
+
+## Design for everyone
+
+Accessibility is built into every component from the beginning, not added later.
+
+Components should provide inclusive experiences for all users regardless of ability, device, or situation.
+
+Every component should consider:
+
+- Semantic HTML
+- Keyboard navigation
+- Visible focus states
+- Screen reader support
+- Colour contrast
+- Clear error messages
+- Loading states
+- Disabled states
+
+Accessibility is not a feature. It is a requirement.
+
+---
+
+# 3. Reusability
+
+## Build once, use everywhere
+
+Components should solve common interface problems without unnecessary duplication.
+
+A reusable component should:
+
+- Have a clear purpose
+- Support common use cases
+- Provide flexible configuration
+- Maintain consistent behaviour
+- Be easy to understand and extend
+
+Avoid creating components that are tied to one specific page or feature.
+
+Instead of creating:
+
+LoginBlueButton
+
+Create:
+Button with reusable variants:
+
+```html
+
+<Button variant="primary" /> <Button variant="secondary" /> <Button variant="danger" /> 
+
+```
+
+---
+
+# 4. Composability
+
+## Small building blocks create powerful experiences
+
+Complex interfaces should be created by combining smaller, focused components.
+
+Following Atomic Design principles:
+
+Atoms create simple UI elements
+Molecules combine atoms into reusable patterns
+Organisms create complete interface sections
+
+Components should work independently while remaining easy to combine.
+
+Example:
+
+```html
+
+Input
++
+Label
++
+Error Message
+
+=
+
+FormField
+
+```
+
+---
+
+# 5. Scalability
+
+## Design for growth
+
+A design system should support products as they evolve.
+
+Components should be created with future needs in mind while avoiding unnecessary complexity.
+
+We prioritise:
+
+Flexible component APIs
+Clear naming conventions
+Consistent architecture
+Maintainable code
+Extensible variants
+
+A good component should support future requirements without breaking existing usage.
+
+---
+
+# 6. Clarity Over Complexity
+
+## Simple solutions are easier to maintain
+
+Components should be easy to understand for both designers and developers.
+
+We avoid:
+
+Unnecessary configuration
+Over-engineered APIs
+Hidden behaviours
+Duplicate patterns
+
+A component should make the correct usage obvious.
+
+Good design is not about adding more options. It is about providing the right options.
+
+---
+
+# 7. Developer Experience
+
+## Make building easier
+
+A design system should improve the development workflow and allow teams to build products faster.
+
+We provide:
+
+Type-safe components
+Clear documentation
+Predictable APIs
+Usage examples
+Visual testing
+Automated quality checks
+
+Developers should spend less time rebuilding UI patterns and more time solving product problems.
+
+---
+
+# 8. Continuous Improvement
+
+## The system evolves with the product
+
+A design system is never finished.
+
+It should continuously improve through:
+
+- User feedback
+- Product requirements
+- Accessibility reviews
+- Design updates
+- Engineering improvements
+
+Changes should be intentional, documented, and communicated clearly.
+
+The design system grows together with the products and teams that use it.
