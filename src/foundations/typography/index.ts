@@ -1,11 +1,12 @@
 export { default } from "./typography";
 
 export type {
-	TypographyProps,
+  TypographyProps,
 } from "./typography";
 
-export type {
-	typographyVariants,
+export {
+  typographyVariants,
+  typographyVariantOptions,
 } from "./typography.constants";
 
 export type {

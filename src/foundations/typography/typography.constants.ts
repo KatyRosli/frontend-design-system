@@ -42,7 +42,7 @@ export const typographyVariants = cva(
           "text-xs font-normal leading-5 text-muted-foreground",
 
         overline:
-          "text-xs font-medium uppercase tracking-widest leading-5 text-muted-foreground",
+          "text-xs uppercase tracking-[0.18em] font-semibold text-muted-foreground",
       },
     },
 
