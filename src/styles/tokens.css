@@ -1,90 +1,69 @@
 @theme inline {
-
-    /*
+  /*
   =====================
   Colors
   =====================
   */
 
-  --color-background:
-    var(--background);
+  --color-background: var(--background);
 
-  --color-foreground:
-    var(--foreground);
+  --color-foreground: var(--foreground);
 
+  --color-primary: var(--primary);
 
-  --color-primary:
-    var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
 
-  --color-primary-foreground:
-    var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
 
+  --color-secondary: var(--secondary);
 
-  --color-secondary:
-    var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
 
-  --color-secondary-foreground:
-    var(--secondary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
 
+  --color-surface: var(--surface);
 
-  --color-surface:
-    var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
 
-  --color-surface-elevated:
-    var(--surface-elevated);
+  --color-surface-subtle: var(--surface-subtle);
 
-  --color-surface-subtle:
-    var(--surface-subtle);
+  --color-text-primary: var(--text-primary);
 
+  --color-text-secondary: var(--text-secondary);
 
-  --color-text-primary:
-    var(--text-primary);
+  --color-text-disabled: var(--text-disabled);
 
-  --color-text-secondary:
-    var(--text-secondary);
+  --color-border: var(--border);
 
-  --color-text-disabled:
-    var(--text-disabled);
+  --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
 
+  --color-warning: var(--warning);
+  --color-warning-hover: var(--warning-hover);
 
-  --color-border:
-    var(--border);
+  --color-info: var(--info);
+  --color-info-hover: var(--info-hover);
 
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
 
-  --color-success:
-    var(--success);
-
-  --color-warning:
-    var(--warning);
-
-  --color-info:
-    var(--info);
-
-  --color-danger:
-    var(--danger);
-
-    /*
+  /*
   =====================
   Spacing
   =====================
   */
 
-  --spacing-xs:
-    0.25rem;
+  --spacing-xs: 0.25rem;
 
-  --spacing-sm:
-    0.5rem;
+  --spacing-sm: 0.5rem;
 
-  --spacing-md:
-    1rem;
+  --spacing-md: 1rem;
 
-  --spacing-lg:
-    1.5rem;
+  --spacing-lg: 1.5rem;
 
-  --spacing-xl:
-    2rem;
+  --spacing-xl: 2rem;
 
-    /*
+  /*
   =====================
   Radius
   =====================
@@ -99,5 +78,4 @@
   --radius-xl: 1rem;
 
   --radius-full: 9999px;
-
 }

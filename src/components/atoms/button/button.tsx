@@ -1,127 +1,166 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { type ReactNode } from "react";
-import { type ComponentProps } from "react";
+
+import type { ComponentProps, ReactNode } from "react";
+
+import Typography from "@/foundations/typography";
 
 import { cn } from "@/lib/utils";
+
 import { buttonSizes } from "./button.constants";
+
 import Spinner from "../spinner";
 
 const buttonStyles = cva(
-	[
-		"inline-flex",
-		"items-center",
-		"justify-center",
-		"gap-2",
-		"font-medium",
-		"tracking-normal",
-		"rounded-md",
-		"transition-all",
-		"shrink-0",
+  [
+	"cursor-pointer",
+	"transition-colors",
+	"duration-200",
+	"ease-out",
+	"inline-flex",
 
-		"cursor-pointer",
+    "items-center",
 
-		"focus-visible:outline",
-		"focus-visible:outline-2",
-		"focus-visible:outline-primary",
-		"focus-visible:outline-offset-2",
+    "justify-center",
 
-		"disabled:pointer-events-none",
-		"disabled:opacity-50",
+    "gap-2",
 
-		"not-disabled:hover:brightness-95",
-		"not-disabled:active:scale-95",
-	],
+    "rounded-md",
 
-	{
-		variants: {
-			variant: {
-				primary: "bg-primary text-primary-foreground shadow-md",
+    "transition-all",
 
-				secondary: "bg-secondary text-secondary-foreground shadow-md",
+    "focus-visible:outline",
 
-				text: "bg-transparent text-foreground hover:bg-muted",
+    "focus-visible:outline-2",
 
-				link: "bg-transparent p-0 h-auto text-primary underline",
-			},
+    "focus-visible:outline-primary",
 
-			size: {
-				sm: `
+    "focus-visible:outline-offset-2",
+
+    "disabled:pointer-events-none",
+
+    "disabled:opacity-50",
+
+    "active:scale-95",
+  ],
+
+  {
+    variants: {
+      variant: {
+        primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
+
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-hover",
+
+		success: "bg-success text-success-foreground hover:bg-success-hover",
+
+        danger: "bg-danger text-danger-foreground hover:bg-danger-hover",
+
+        text: "text-text-primary hover:bg-surface-subtle",
+
+        link: "text-primary underline underline-offset-4",
+      },
+
+      size: {
+        sm: `
+
 					${buttonSizes.sm.height}
+
 					${buttonSizes.sm.padding}
-					${buttonSizes.sm.text}
+
 					[&_svg]:${buttonSizes.sm.icon}
+
 				`,
 
-				lg: `
+        lg: `
+
 					${buttonSizes.lg.height}
+
 					${buttonSizes.lg.padding}
-					${buttonSizes.lg.text}
+
 					[&_svg]:${buttonSizes.lg.icon}
+
 				`,
-			},
+      },
 
-			width: {
-				auto: "w-auto",
+      width: {
+        auto: "w-auto",
 
-				full: "w-full",
-			},
-		},
+        full: "w-full",
+      },
+    },
 
-		defaultVariants: {
-			variant: "primary",
-			size: "lg",
-			width: "auto",
-		},
-	},
+    defaultVariants: {
+      variant: "primary",
+
+      size: "lg",
+
+      width: "auto",
+    },
+  },
 );
 
 export type ButtonProps = ComponentProps<"button"> &
-	VariantProps<typeof buttonStyles> & {
-		icon?: ReactNode;
-		iconPosition?: "left" | "right";
-		loading?: boolean;
-	};
+  VariantProps<typeof buttonStyles> & {
+    icon?: ReactNode;
+
+    iconPosition?: "left" | "right";
+
+    loading?: boolean;
+  };
 
 export default function Button({
-	variant,
-	size,
-	width,
-	loading = false,
-	icon,
-	iconPosition = "left",
-	children,
-	className,
-	disabled,
-	...props
+  variant,
+
+  size = "lg",
+
+  width,
+
+  icon,
+
+  iconPosition = "left",
+
+  loading = false,
+
+  children,
+
+  className,
+
+  disabled,
+
+  ...props
 }: ButtonProps) {
-	return (
-		<button
-			className={cn(
-				buttonStyles({
-					variant,
-					size,
-					width,
-				}),
+  const labelVariant = size === "lg" ? "labelLg" : "labelMd";
 
-				className,
-			)}
-			disabled={disabled || loading}
-			aria-busy={loading}
-			{...props}
-		>
-			{loading && (
-				<Spinner
-					size="sm"
-					variant={variant === "primary" ? "inverse" : "default"}
-				/>
-			)}
-			<>
-				{icon && iconPosition === "left" && icon}
+  return (
+    <button
+      className={cn(
+        buttonStyles({
+          variant,
 
-				{children}
+          size,
 
-				{icon && iconPosition === "right" && icon}
-			</>
-		</button>
-	);
+          width,
+        }),
+
+        className,
+      )}
+      disabled={disabled || loading}
+      aria-busy={loading}
+      {...props}
+    >
+      {loading && (
+        <Spinner
+          size="sm"
+          variant={variant === "primary" ? "inverse" : "default"}
+        />
+      )}
+
+      {icon && iconPosition === "left" && icon}
+
+      <Typography as="span" variant={labelVariant} className="text-inherit">
+        {children}
+      </Typography>
+
+      {icon && iconPosition === "right" && icon}
+    </button>
+  );
 }

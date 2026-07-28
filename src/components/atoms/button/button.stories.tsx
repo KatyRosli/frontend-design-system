@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { ArrowRight, Bell, Plus, Trash } from "lucide-react";
+import { ArrowRight, Bell, Plus, Trash, Check } from "lucide-react";
 
 import { fn } from "storybook/test";
 
@@ -15,7 +15,7 @@ import { buttonVariants, buttonWidths } from "./button.constants";
  */
 
 const meta = {
-	title: "Design System/Atoms/Button",
+	title: "Components/Atoms/Button",
 
 	component: Button,
 
@@ -155,10 +155,18 @@ export const IconOnly: Story = {
 	},
 };
 
+export const Success: Story = {
+	args: {
+		variant: "success",
+		children: "Success",
+		icon: <Check />,
+	},
+};
+
 export const Danger: Story = {
 	args: {
+		variant: "danger",
 		children: "Delete",
-
 		icon: <Trash />,
 	},
 };
