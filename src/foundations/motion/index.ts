@@ -1,6 +1,5 @@
 export { default } from "./motion";
 
-
 export {
   motionTokens,
   easingTokens,

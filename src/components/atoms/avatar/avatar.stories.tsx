@@ -1,157 +1,271 @@
-import Avatar from "@/components/atoms/avatar/avatar";
+import type {
+	Meta,
+	StoryObj,
+} from "@storybook/nextjs-vite";
+
+
+import {
+	fn,
+	expect,
+} from "storybook/test";
+
+
+import Avatar from "./avatar";
+
+
 import {
 	avatarSizes,
 	avatarStatusStyles,
-} from "@/components/atoms/avatar/avatar.constants";
-import Button from "@/components/atoms/button/button";
+} from "./avatar.constants";
 
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { expect, fn } from "storybook/test";
-import { useState } from "react";
+
 
 /**
- * Reusable Avatar component
- * that supports different sizes
- * and renders a placeholder image
- * when src attribute is not provided.
- * It also shows a presence indicator
- * when user is online.
+ * A reusable avatar component that displays user identity through images,
+ * initials fallback, and presence indicators.
+ *
+ * Supports multiple sizes, fallback states, and semantic status indicators.
+ * Uses design system theme tokens, typography tokens, and icon foundations
+ * for consistent experiences across applications.
  */
 
-const meta = {
-	title: "Design System/Atoms/Avatar",
 
-	component: Avatar,
+const meta = {
+
+	title:
+		"Components/Atoms/Avatar",
+
+	component:
+		Avatar,
+
+
+	tags:
+		[
+			"autodocs",
+		],
+
 
 	args: {
-		src: "https://avatars.githubusercontent.com/u/96566968?s=400&u=10a4cfb65e5de63911ba0362bda8096f1bbfeb63&v=4",
 
-		alt: "Avatar image",
+		size:
+			"md",
 
-		size: "md",
+		status:
+			undefined,
 
-		status: undefined,
+		name:
+			"Katy Rosli",
 
-		onClick: fn(),
+		onClick:
+			fn(),
+
 	},
+
 
 	argTypes: {
+
 		size: {
-			description: "Controls avatar size",
 
-			control: {
-				type: "radio",
-			},
+			description:
+				"Controls avatar size",
 
-			options: Object.keys(avatarSizes),
+			control:
+				"radio",
+
+			options:
+				Object.keys(
+					avatarSizes,
+				),
+
 		},
+
 
 		status: {
-			description: "Shows presence indicator",
 
-			control: {
-				type: "radio",
-			},
+			description:
+				"Shows presence indicator",
 
-			options: [undefined, ...Object.keys(avatarStatusStyles)],
+			control:
+				"radio",
+
+			options:
+				[
+					undefined,
+					...Object.keys(
+						avatarStatusStyles,
+					),
+				],
+
 		},
+
 
 		src: {
-			description: "Avatar image source",
+
+			description:
+				"Avatar image source",
+
 		},
 
-		fallback: {
-			control: false,
+
+		name: {
+
+			description:
+				"Generates initials when image is unavailable",
+
 		},
+
 	},
 
-	tags: ["autodocs"],
 } satisfies Meta<typeof Avatar>;
+
+
 
 export default meta;
 
-type Story = StoryObj<typeof Avatar>;
 
-export const Default = {} satisfies Story;
+type Story =
+	StoryObj<typeof meta>;
 
-export const AllSizes = {
+
+
+export const Default: Story = {};
+
+
+
+export const Sizes: Story = {
+
 	render: () => (
-		<div className="flex items-center gap-4">
-			{Object.keys(avatarSizes).map((size) => (
-				<Avatar key={size} size={size as keyof typeof avatarSizes} />
-			))}
-		</div>
-	),
-} satisfies Story;
 
-export const AllStatuses = {
+		<div className="flex items-center gap-md">
+
+			{
+				Object.keys(
+					avatarSizes,
+				).map(
+					(size) => (
+
+						<Avatar
+							key={size}
+							size={
+								size as keyof typeof avatarSizes
+							}
+							name="Katy Rosli"
+						/>
+
+					),
+				)
+			}
+
+		</div>
+
+	),
+
+};
+
+
+
+export const Status: Story = {
+
 	render: () => (
-		<div className="flex items-center gap-4">
-			{Object.keys(avatarStatusStyles).map((status) => (
-				<Avatar
-					key={status}
-					status={status as keyof typeof avatarStatusStyles}
-				/>
-			))}
+
+		<div className="flex items-center gap-md">
+
+			{
+				Object.keys(
+					avatarStatusStyles,
+				).map(
+					(status) => (
+
+						<Avatar
+							key={status}
+							status={
+								status as keyof typeof avatarStatusStyles
+							}
+							name="Katy Rosli"
+						/>
+
+					),
+
+				)
+			}
+
 		</div>
+
 	),
-} satisfies Story;
 
-export const Placeholder = {
+};
+
+
+
+export const Image: Story = {
+
 	args: {
-		src: undefined,
-	},
-} satisfies Story;
 
-export const InitialsFallback = {
+		src:
+			"https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+
+		name:
+			"Katy Rosli",
+
+	},
+
+};
+
+
+
+export const InitialsFallback: Story = {
+
 	args: {
-		src: undefined,
-		fallback: "KR",
-	},
-} satisfies Story;
 
-export const BrokenImage = {
+		src:
+			undefined,
+
+		name:
+			"Katy Rosli",
+
+	},
+
+};
+
+
+
+export const IconFallback: Story = {
+
 	args: {
-		src: "invalid-image-url",
-	},
-} satisfies Story;
 
-export const Clickable = {
+		src:
+			undefined,
+
+		name:
+			undefined,
+
+	},
+
+};
+
+
+
+export const Clickable: Story = {
+
 	args: {
-		onClick: fn(),
+
+		onClick:
+			fn(),
+
 	},
 
-	play: async ({ args }) => {
-		expect(args.onClick).toHaveBeenCalledTimes(0);
-	},
-} satisfies Story;
 
-export const DynamicStatus = {
-	argTypes: {
-		status: {
-			control: false,
+	play:
+		async ({
+			args,
+		}) => {
+
+			expect(
+				args.onClick,
+			).toHaveBeenCalledTimes(
+				0,
+			);
+
 		},
-	},
 
-	render: (args) => {
-		const [status, setStatus] = useState<"online" | "offline">("offline");
-
-		return (
-			<div className="flex flex-col gap-4">
-				<Avatar {...args} status={status} />
-
-				<p>Status: {status}</p>
-
-				<Button
-					onClick={() =>
-						setStatus((previous) =>
-							previous === "online" ? "offline" : "online",
-						)
-					}
-				>
-					Toggle status
-				</Button>
-			</div>
-		);
-	},
-} satisfies Story;
+};
