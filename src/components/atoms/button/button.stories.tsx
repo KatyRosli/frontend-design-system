@@ -1,13 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import Icon from "@/foundations/icons";
+import Icon from "@/foundations/icon";
 
-import {
-  ArrowRight,
-  Bell,
-  Check,
-  Plus,
-  Trash,
-} from "lucide-react";
+import { ArrowRight, Bell, Check, Plus, Trash } from "lucide-react";
 
 import { fn } from "storybook/test";
 
@@ -23,64 +17,64 @@ import { buttonVariants, buttonWidths } from "./button.constants";
  */
 
 const meta = {
-	title: "Components/Atoms/Button",
+  title: "Components/Atoms/Button",
 
-	component: Button,
+  component: Button,
 
-	tags: ["autodocs"],
+  tags: ["autodocs"],
 
-	args: {
-		children: "Button",
-		variant: "primary",
-		size: "lg",
-		width: "auto",
-		disabled: false,
-		loading: false,
-		onClick: fn(),
-	},
+  args: {
+    children: "Button",
+    variant: "primary",
+    size: "lg",
+    width: "auto",
+    disabled: false,
+    loading: false,
+    onClick: fn(),
+  },
 
-	argTypes: {
-		variant: {
-			control: "radio",
+  argTypes: {
+    variant: {
+      control: "radio",
 
-			options: buttonVariants,
+      options: buttonVariants,
 
-			description: "Button visual style.",
-		},
+      description: "Button visual style.",
+    },
 
-		size: {
-			control: "radio",
+    size: {
+      control: "radio",
 
-			options: ["sm", "lg"],
+      options: ["sm", "lg"],
 
-			description: "Responsive button size.",
-		},
+      description: "Responsive button size.",
+    },
 
-		width: {
-			control: "radio",
+    width: {
+      control: "radio",
 
-			options: buttonWidths,
+      options: buttonWidths,
 
-			description: "Button width.",
-		},
+      description: "Button width.",
+    },
 
-		iconPosition: {
-			control: "radio",
+    iconPosition: {
+      control: "radio",
 
-			options: ["left", "right"],
+      options: ["left", "right"],
 
-			description: "Icon placement.",
-		},
+      description: "Icon placement.",
+    },
 
-		disabled: {
-			control: "boolean",
-			description: "Shows disable interactions."
-		},
-		loading: {
-			control: "boolean",
-			description: "Shows loading spinner and disables interactions."
-		},
-	},
+    disabled: {
+      control: "boolean",
+      description: "Shows disable interactions.",
+    },
+    loading: {
+      control: "boolean",
+      description: "Shows loading spinner and disables interactions.",
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -92,108 +86,101 @@ export const Playground: Story = {};
 export const Primary: Story = {};
 
 export const Secondary: Story = {
-	args: {
-		variant: "secondary",
+  args: {
+    variant: "secondary",
 
-		children: "Edit profile",
-	},
+    children: "Edit profile",
+  },
 };
 
 export const Text: Story = {
-	args: {
-		variant: "text",
+  args: {
+    variant: "text",
 
-		children: "Like",
-	},
+    children: "Like",
+  },
 };
 
 export const Link: Story = {
-	args: {
-		variant: "link",
+  args: {
+    variant: "link",
 
-		children: "Read more",
-	},
+    children: "Read more",
+  },
 };
 
 export const Small: Story = {
-	args: {
-		size: "sm",
+  args: {
+    size: "sm",
 
-		children: "Small button",
-	},
+    children: "Small button",
+  },
 };
 
 export const Large: Story = {
-	args: {
-		size: "lg",
+  args: {
+    size: "lg",
 
-		children: "Large button",
-	},
+    children: "Large button",
+  },
 };
 
 export const LeadingIcon: Story = {
-	args: {
-		children: "Add item",
+  args: {
+    children: "Add item",
 
-		icon: (
-		<Icon icon={Plus} size="sm" />
-		),
+    icon: <Icon icon={Plus} size="sm" />,
 
-		iconPosition: "left",
-	},
+    iconPosition: "left",
+  },
 };
 
 export const TrailingIcon: Story = {
-	args: {
-		children: "Continue",
+  args: {
+    children: "Continue",
 
-		icon:(
-			<Icon icon={ArrowRight} size="md" />
-		),
+    icon: <Icon icon={ArrowRight} size="md" />,
 
-		iconPosition: "right",
-	},
+    iconPosition: "right",
+  },
 };
 
 export const IconOnly: Story = {
-	args: {
-		children: <Icon icon={Bell} size="lg" />,
+  args: {
+    children: <Icon icon={Bell} size="lg" />,
 
-		variant: "secondary",
+    variant: "secondary",
 
-		"aria-label": "Notifications",
-	},
+    "aria-label": "Notifications",
+  },
 };
 
 export const Success: Story = {
-	args: {
-		variant: "success",
-		children: "Success",
-		icon: (
-			<Icon icon={Check} size="md" />
-		),
-	},
+  args: {
+    variant: "success",
+    children: "Success",
+    icon: <Icon icon={Check} size="md" />,
+  },
 };
 
 export const Danger: Story = {
-	args: {
-		variant: "danger",
-		children: "Delete",
-		icon: 
-		<Icon icon={Trash} size="md" />,
-	},
+  args: {
+    variant: "danger",
+    children: "Delete",
+    icon: <Icon icon={Trash} size="md" />,
+  },
 };
 
 export const FullWidth: Story = {
-	args: {
-		children: "Continue",
+  args: {
+    children: "Continue",
 
-		width: "full",
-	},
+    width: "full",
+  },
 };
 
 export const Disabled: Story = {
-	args: {
-		disabled: true,
-	},
+  args: {
+    disabled: true,
+  },
 };

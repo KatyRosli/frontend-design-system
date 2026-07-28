@@ -12,11 +12,11 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-import Icon from "./icons";
+import Icon from "./icon";
 
 import {
   iconSizeOptions,
-} from "./icons.constants";
+} from "./icon.constants";
 
 
 /**

@@ -6,231 +6,179 @@ import { Inter, Montserrat } from "next/font/google";
 
 import { cn } from "../src/lib/utils";
 
-
 const inter = Inter({
-	variable: "--font-body",
-	subsets: ["latin"],
+  variable: "--font-body",
+  subsets: ["latin"],
 });
-
 
 const montserrat = Montserrat({
-	variable: "--font-heading",
-	subsets: ["latin"],
+  variable: "--font-heading",
+  subsets: ["latin"],
 });
 
-
 const preview: Preview = {
+  decorators: [
+    (Story, context) => {
+      const isDark = context.globals.theme === "dark";
 
-	decorators: [
-		(Story, context) => {
+      return (
+        <div
+          className={cn(
+            inter.variable,
+            montserrat.variable,
 
-			const isDark = context.globals.theme === "dark";
+            isDark && "dark",
 
+            "min-h-screen",
+            "bg-background",
+            "text-foreground",
+            "p-8",
+          )}
+        >
+          <Story />
+        </div>
+      );
+    },
+  ],
 
-			return (
-				<div
-					className={cn(
-						inter.variable,
-						montserrat.variable,
+  globalTypes: {
+    theme: {
+      description: "Global theme",
 
-						isDark && "dark",
+      defaultValue: "light",
 
-						"min-h-screen",
-						"bg-background",
-						"text-foreground",
-						"p-8"
-					)}
-				>
-					<Story />
-				</div>
-			);
+      toolbar: {
+        title: "Theme",
 
-		},
-	],
+        icon: "paintbrush",
 
+        items: [
+          {
+            value: "light",
+            title: "Light",
+          },
+          {
+            value: "dark",
+            title: "Dark",
+          },
+        ],
+      },
+    },
 
-	globalTypes: {
+    viewport: {
+      description: "Viewport size",
 
-		theme: {
+      defaultValue: "responsive",
 
-			description: "Global theme",
+      toolbar: {
+        title: "Viewport",
 
-			defaultValue: "light",
+        icon: "browser",
 
-			toolbar: {
+        items: [
+          {
+            value: "responsive",
+            title: "Responsive",
+          },
+          {
+            value: "mobile1",
+            title: "Mobile",
+          },
+          {
+            value: "tablet",
+            title: "Tablet",
+          },
+          {
+            value: "desktop",
+            title: "Desktop",
+          },
+        ],
+      },
+    },
+  },
 
-				title: "Theme",
+  parameters: {
+    backgrounds: {
+      disable: true,
+    },
 
-				icon: "paintbrush",
+    viewport: {
+      options: {
+        mobile1: {
+          name: "Mobile",
+          styles: {
+            width: "375px",
+            height: "667px",
+          },
+        },
 
-				items: [
-					{
-						value: "light",
-						title: "Light",
-					},
-					{
-						value: "dark",
-						title: "Dark",
-					},
-				],
-			},
-		},
+        tablet: {
+          name: "Tablet",
+          styles: {
+            width: "768px",
+            height: "1024px",
+          },
+        },
 
+        desktop: {
+          name: "Desktop",
+          styles: {
+            width: "1440px",
+            height: "900px",
+          },
+        },
+      },
+    },
 
-		viewport: {
+    options: {
+      storySort: {
+        order: [
+          "Documentations",
+          [
+            "Introduction",
+            "Design Principles",
+            "Accessibility",
+            "Voice and Tone",
+          ],
 
-			description: "Viewport size",
+          "Foundations",
+          ["Typography", "Theme", "Spacing", "Icons", "Radius", "Motion"],
 
-			defaultValue: "responsive",
+          "Components",
+          [
+            "Atoms",
+            [
+              "Avatar",
+              "Button",
+              "Checkbox",
+              "Dropdown",
+              "Input",
+              "Skeleton",
+              "Spinner",
+            ],
 
-			toolbar: {
+            "Molecules",
+            ["EmptyState", "FormField", "PasswordField"],
 
-				title: "Viewport",
+            "Organisms",
+            ["LoginForm"],
+          ],
+        ],
+      },
+    },
 
-				icon: "browser",
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
 
-				items: [
-					{
-						value: "responsive",
-						title: "Responsive",
-					},
-					{
-						value: "mobile1",
-						title: "Mobile",
-					},
-					{
-						value: "tablet",
-						title: "Tablet",
-					},
-					{
-						value: "desktop",
-						title: "Desktop",
-					},
-				],
+        date: /Date$/i,
+      },
+    },
 
-			},
-		},
-
-	},
-
-
-	parameters: {
-
-		backgrounds: {
-			disable: true,
-		},
-
-
-		viewport: {
-
-			options: {
-
-				mobile1: {
-					name: "Mobile",
-					styles: {
-						width: "375px",
-						height: "667px",
-					},
-				},
-
-				tablet: {
-					name: "Tablet",
-					styles: {
-						width: "768px",
-						height: "1024px",
-					},
-				},
-
-				desktop: {
-					name: "Desktop",
-					styles: {
-						width: "1440px",
-						height: "900px",
-					},
-				},
-
-			},
-
-		},
-
-
-		options: {
-
-			storySort: {
-
-				order: [
-					"Documentations",
-					[
-						"Introduction",
-						"Design Principles",
-						"Accessibility",
-						"Voice and Tone",
-					],
-
-					"Foundations",
-					[
-						"Typography",
-						"Theme",
-						"Spacing",
-						"Icons",
-						"Radius",
-						"Motion",
-					],
-
-					"Components",
-					[
-						"Atoms",
-						[
-							"Avatar",
-							"Button",
-							"Checkbox",
-							"Dropdown",
-							"Input",
-							"Skeleton",
-							"Spinner",
-						],
-
-						"Molecules",
-						[
-							"EmptyState",
-							"FormField",
-							"PasswordField",
-						],
-
-						"Organisms",
-						[
-							"LoginForm",
-						],
-					],
-				],
-
-			},
-
-		},
-
-
-		controls: {
-
-			matchers: {
-
-				color: /(background|color)$/i,
-
-				date: /Date$/i,
-
-			},
-
-		},
-
-
-		a11y: {
-
-			test: "todo",
-
-		},
-
-	},
-
+    a11y: {
+      test: "todo",
+    },
+  },
 };
-
 
 export default preview;

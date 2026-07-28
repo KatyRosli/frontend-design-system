@@ -9,7 +9,7 @@ import {
 import {
   iconSizes,
   type IconSize,
-} from "./icons.constants";
+} from "./icon.constants";
 
 
 export interface IconProps {

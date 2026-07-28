@@ -1,61 +1,37 @@
 export const buttonSizes = {
+  sm: {
+    height: "h-10",
+    padding: "px-4",
+    label: "labelMd",
+    icon: "size-4",
+  },
 
-
-	sm:{
-		height:"h-10",
-		padding:"px-4",
-		label:"labelMd",
-		icon:"size-4",
-	},
-
-
-	lg:{
-		height:"h-12",
-		padding:"px-6",
-		label:"labelLg",
-		icon:"size-5",
-	},
-
-
+  lg: {
+    height: "h-12",
+    padding: "px-6",
+    label: "labelLg",
+    icon: "size-5",
+  },
 } as const;
 
-
-
 export const buttonVariants = [
+  "primary",
 
-	"primary",
+  "secondary",
 
-	"secondary",
+  "success",
 
-	"success",
+  "danger",
 
-	"danger",
+  "text",
 
-	"text",
-
-	"link",
-
+  "link",
 ] as const;
 
+export const buttonWidths = ["auto", "full"] as const;
 
+export type ButtonSize = keyof typeof buttonSizes;
 
-export const buttonWidths=[
+export type ButtonVariant = (typeof buttonVariants)[number];
 
-	"auto",
-
-	"full",
-
-] as const;
-
-
-
-export type ButtonSize =
-	keyof typeof buttonSizes;
-
-
-export type ButtonVariant =
-	(typeof buttonVariants)[number];
-
-
-export type ButtonWidth =
-	(typeof buttonWidths)[number];
+export type ButtonWidth = (typeof buttonWidths)[number];

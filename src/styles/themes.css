@@ -1,5 +1,4 @@
 :root {
-
   /* =====================
      Brand
   ====================== */
@@ -8,12 +7,9 @@
   --primary-hover: oklch(50% 0.28 300);
   --primary-foreground: oklch(98% 0.01 300);
 
-
   --secondary: oklch(65% 0.18 220);
   --secondary-hover: oklch(60% 0.18 220);
   --secondary-foreground: oklch(15% 0.03 220);
-
-
 
   /* =====================
      Background
@@ -22,178 +18,97 @@
   --background: oklch(99% 0.005 300);
   --foreground: oklch(18% 0.02 300);
 
-
-
   /* =====================
      Surface
   ====================== */
 
   --surface: oklch(99% 0.005 300);
 
-  --surface-elevated:
-    oklch(100% 0 0);
+  --surface-elevated: oklch(100% 0 0);
 
-  --surface-subtle:
-    oklch(95% 0.02 300);
-
-
+  --surface-subtle: oklch(95% 0.02 300);
 
   /* =====================
      Text
   ====================== */
 
-  --text-primary:
-    oklch(18% 0.02 300);
+  --text-primary: oklch(18% 0.02 300);
 
-  --text-secondary:
-    oklch(45% 0.03 300);
+  --text-secondary: oklch(45% 0.03 300);
 
-  --text-disabled:
-    oklch(70% 0.01 300);
-
-
+  --text-disabled: oklch(70% 0.01 300);
 
   /* =====================
      Border
   ====================== */
 
-  --border:
-    oklch(88% 0.02 300);
-
-
+  --border: oklch(88% 0.02 300);
 
   /* =====================
      Feedback
   ====================== */
 
-  --success:
-    oklch(65% 0.18 145);
+  --success: oklch(65% 0.18 145);
   --success-hover: oklch(60% 0.18 145);
 
-  --success-foreground:
-    oklch(98% 0.01 145);
+  --success-foreground: oklch(98% 0.01 145);
 
-
-
-  --warning:
-    oklch(78% 0.17 85);
+  --warning: oklch(78% 0.17 85);
   --warning-hover: oklch(73% 0.17 85);
 
-  --warning-foreground:
-    oklch(25% 0.05 85);
+  --warning-foreground: oklch(25% 0.05 85);
 
-
-
-  --info:
-    oklch(65% 0.18 240);
+  --info: oklch(65% 0.18 240);
   --infor-hover: oklch(60% 0.18 240);
 
-  --info-foreground:
-    oklch(98% 0.01 240);
+  --info-foreground: oklch(98% 0.01 240);
 
-
-
-  --danger:
-    oklch(58% 0.22 25);
+  --danger: oklch(58% 0.22 25);
   --danger-hover: oklch(53% 0.22 25);
 
   --danger-foreground: oklch(98% 0.01 25);
-
 }
 
-
-
 .dark {
+  --primary: oklch(70% 0.25 300);
+  --primary-hover: oklch(65% 0.25 300);
+  --primary-foreground: oklch(15% 0.03 300);
 
+  --secondary: oklch(78% 0.17 220);
+  --secondary-hover: oklch(73% 0.17 220);
+  --secondary-foreground: oklch(12% 0.02 220);
 
-  --primary:
-    oklch(70% 0.25 300);
---primary-hover:
-    oklch(65% 0.25 300);
-  --primary-foreground:
-    oklch(15% 0.03 300);
+  --background: oklch(12% 0.02 300);
 
+  --foreground: oklch(96% 0.01 300);
 
+  --surface: oklch(16% 0.03 300);
 
-  --secondary:
-    oklch(78% 0.17 220);
---secondary-hover:
-    oklch(73% 0.17 220);
-  --secondary-foreground:
-    oklch(12% 0.02 220);
+  --surface-elevated: oklch(20% 0.03 300);
 
+  --surface-subtle: oklch(25% 0.04 300);
 
+  --text-primary: oklch(96% 0.01 300);
 
-  --background:
-    oklch(12% 0.02 300);
+  --text-secondary: oklch(75% 0.02 300);
 
-  --foreground:
-    oklch(96% 0.01 300);
+  --text-disabled: oklch(50% 0.01 300);
 
+  --border: oklch(30% 0.03 300);
 
+  --success: oklch(72% 0.18 145);
+  --success-hover: oklch(67% 0.18 145);
+  --success-foreground: oklch(15% 0.02 145);
 
-  --surface:
-    oklch(16% 0.03 300);
+  --warning: oklch(85% 0.16 85);
+  --warning-hover: oklch(80% 0.16 85);
+  --warning-foreground: oklch(20% 0.03 85);
 
+  --info: oklch(75% 0.18 240);
+  --info-hover: oklch(70% 0.18 240);
+  --info-foreground: oklch(15% 0.03 240);
 
-  --surface-elevated:
-    oklch(20% 0.03 300);
-
-
-  --surface-subtle:
-    oklch(25% 0.04 300);
-
-
-
-  --text-primary:
-    oklch(96% 0.01 300);
-
-  --text-secondary:
-    oklch(75% 0.02 300);
-
-
-  --text-disabled:
-    oklch(50% 0.01 300);
-
-
-
-  --border:
-    oklch(30% 0.03 300);
-
-
-
-  --success:
-    oklch(72% 0.18 145);
---success-hover:
-    oklch(67% 0.18 145);
-  --success-foreground:
-    oklch(15% 0.02 145);
-
-
-
-  --warning:
-    oklch(85% 0.16 85);
---warning-hover:
-    oklch(80% 0.16 85);
-  --warning-foreground:
-    oklch(20% 0.03 85);
-
-
-
-  --info:
-    oklch(75% 0.18 240);
---info-hover:
-    oklch(70% 0.18 240);
-  --info-foreground:
-    oklch(15% 0.03 240);
-
-
-
-  --danger:
-   oklch(70% 0.22 25);
---danger-hover:
-   oklch(65% 0.22 25);
-  --danger-foreground:
-  oklch(18.809% 0.03296 274.728);
-
+  --danger: oklch(70% 0.22 25);
+  --danger-hover: oklch(65% 0.22 25);
+  --danger-foreground: oklch(18.809% 0.03296 274.728);
 }

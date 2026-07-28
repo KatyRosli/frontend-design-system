@@ -12,11 +12,11 @@ import Spinner from "../spinner";
 
 const buttonStyles = cva(
   [
-	"cursor-pointer",
-	"transition-colors",
-	"duration-200",
-	"ease-out",
-	"inline-flex",
+    "cursor-pointer",
+    "transition-colors",
+    "duration-200",
+    "ease-out",
+    "inline-flex",
 
     "items-center",
 
@@ -48,9 +48,10 @@ const buttonStyles = cva(
       variant: {
         primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
 
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-hover",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary-hover",
 
-		success: "bg-success text-success-foreground hover:bg-success-hover",
+        success: "bg-success text-success-foreground hover:bg-success-hover",
 
         danger: "bg-danger text-danger-foreground hover:bg-danger-hover",
 

@@ -6,7 +6,8 @@ import { Accessibility, Component, Focus, Keyboard } from "lucide-react";
 <Title>Accessibility</Title>
 
 <Subtitle>
-Building inclusive experiences by designing and developing components that work for everyone.
+  Building inclusive experiences by designing and developing components that
+  work for everyone.
 </Subtitle>
 
 ---
@@ -49,17 +50,13 @@ Examples:
 Good:
 
 ```tsx
-<button>
-  Save changes
-</button>
+<button>Save changes</button>
 ```
 
 Avoid:
 
 ```html
-<div onClick={handleClick}>
-  Save changes
-</div>
+<div onClick="{handleClick}">Save changes</div>
 ```
 
 A native button automatically provides:
@@ -72,6 +69,7 @@ Expected browser behaviour
 ---
 
 # 2. Keyboard Navigation
+
 ## Every interaction should work without a mouse
 
 Users should be able to navigate and interact with the interface using only a keyboard.
@@ -97,7 +95,9 @@ Navigation menus
 should always provide a predictable keyboard experience.
 
 ---
+
 # 3. Focus States
+
 ## Make interactions visible
 
 Users need clear feedback about where they are currently focused.
@@ -113,7 +113,9 @@ Examples:
 Never remove browser focus styles without providing an accessible replacement.
 
 ---
+
 # 4. Colour and Contrast
+
 ## Do not rely only on colour
 
 Colour should support communication, not be the only way information is presented.
@@ -143,6 +145,7 @@ with:
 ---
 
 # 5. Typography and Readability
+
 ## Design for comfortable reading
 
 Typography should support readability across different users and devices.
@@ -165,6 +168,7 @@ The typography system provides consistent styles for:
 ---
 
 # 6. Forms and Validation
+
 ## Help users successfully complete tasks
 
 Forms should provide clear guidance and helpful feedback.
@@ -180,24 +184,21 @@ Error recovery
 Example:
 
 Good:
+
 ```html
-Email address
-
-[                    ]
-
-Please enter a valid email address.
+Email address [ ] Please enter a valid email address.
 ```
 
 Avoid:
+
 ```html
-
-Invalid input.
-
-without explaining how to fix the problem.
+Invalid input. without explaining how to fix the problem.
 ```
+
 ---
 
 # 7. Screen Reader Support
+
 ## Build experiences that work with assistive technology
 
 Components should provide meaningful information to screen readers.
@@ -215,25 +216,25 @@ Examples:
 Buttons should describe their action:
 
 Good:
+
 ```html
-<button>
-  Delete account
-</button>
+<button>Delete account</button>
 ```
 
 Avoid:
+
 ```html
-<button>
-  Click here
-</button>
+<button>Click here</button>
 ```
 
 ---
+
 # 8. Component Requirements
 
 ## Every component in the design system should consider:
 
 Structure
+
 - Uses semantic HTML
 - Has correct element roles
 - Supports assistive technologies
@@ -254,6 +255,7 @@ Components should define:
 - Error state
 
 ---
+
 # 9. Accessibility Testing
 
 ## Accessibility is validated through multiple approaches.

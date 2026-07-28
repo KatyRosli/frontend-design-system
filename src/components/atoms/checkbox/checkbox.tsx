@@ -1,10 +1,7 @@
 import { useEffect, useRef } from "react";
-import Icon from "@/foundations/icons";
+import Icon from "@/foundations/icon";
 
-import {
-    Check,
-    Minus,
-} from "lucide-react";
+import { Check, Minus } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { type ComponentProps, type ReactNode } from "react";
@@ -14,210 +11,208 @@ import { cn } from "@/lib/utils";
 import Typography from "@/foundations/typography";
 
 import {
-	checkboxConfig,
-	checkboxVariants,
-	type CheckboxVariant,
+  checkboxConfig,
+  checkboxVariants,
+  type CheckboxVariant,
 } from "./checkbox.constants";
 
 const checkboxStyles = cva(
-	[
-		"peer",
+  [
+    "peer",
 
-		"appearance-none",
+    "appearance-none",
 
-		"rounded-sm",
+    "rounded-sm",
 
-		"border",
+    "border",
 
-		"transition-colors",
+    "transition-colors",
 
-		"cursor-pointer",
+    "cursor-pointer",
 
-		"focus-visible:outline",
+    "focus-visible:outline",
 
-		"focus-visible:outline-2",
+    "focus-visible:outline-2",
 
-		"focus-visible:outline-primary",
+    "focus-visible:outline-primary",
 
-		"focus-visible:outline-offset-2",
+    "focus-visible:outline-offset-2",
 
-		"checked:bg-primary",
+    "checked:bg-primary",
 
-		"checked:border-primary",
+    "checked:border-primary",
 
-		"disabled:bg-surface-subtle",
+    "disabled:bg-surface-subtle",
 
-		"disabled:border-border",
+    "disabled:border-border",
 
-		"disabled:text-text-disabled",
-	],
+    "disabled:text-text-disabled",
+  ],
 
-	{
-		variants: {
-			variant: checkboxVariants,
-		},
+  {
+    variants: {
+      variant: checkboxVariants,
+    },
 
-		defaultVariants: {
-			variant: "default",
-		},
-	},
+    defaultVariants: {
+      variant: "default",
+    },
+  },
 );
 
 export interface CheckboxProps
-	extends
-		Omit<ComponentProps<"input">, "size">,
-		VariantProps<typeof checkboxStyles> {
-	label?: ReactNode;
+  extends
+    Omit<ComponentProps<"input">, "size">,
+    VariantProps<typeof checkboxStyles> {
+  label?: ReactNode;
 
-	description?: ReactNode;
+  description?: ReactNode;
 
-	required?: boolean;
+  required?: boolean;
 
-	errorMessage?: ReactNode;
+  errorMessage?: ReactNode;
 
-	indeterminate?: boolean;
+  indeterminate?: boolean;
 
-	variant?: CheckboxVariant;
+  variant?: CheckboxVariant;
 }
 
 export default function Checkbox({
-	label,
+  label,
 
-	description,
+  description,
 
-	required,
+  required,
 
-	errorMessage,
+  errorMessage,
 
-	indeterminate = false,
+  indeterminate = false,
 
-	variant,
+  variant,
 
-	className,
+  className,
 
-	disabled,
+  disabled,
 
-	...props
+  ...props
 }: CheckboxProps) {
-	const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-	useEffect(() => {
-		if (inputRef.current) {
-			inputRef.current.indeterminate = indeterminate;
-		}
-	}, [indeterminate]);
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.indeterminate = indeterminate;
+    }
+  }, [indeterminate]);
 
-	return (
-		<label
-			aria-disabled={disabled}
-			className={cn(
-				"flex",
-				description
-				? "items-start"
-				: "items-center",
+  return (
+    <label
+      aria-disabled={disabled}
+      className={cn(
+        "flex",
+        description ? "items-start" : "items-center",
 
-				"select-none",
+        "select-none",
 
-				"cursor-pointer",
+        "cursor-pointer",
 
-				checkboxConfig.gap,
+        checkboxConfig.gap,
 
-				disabled && "cursor-not-allowed",
-			)}
-		>
-			<div
-				className={cn(
-					"relative",
+        disabled && "cursor-not-allowed",
+      )}
+    >
+      <div
+        className={cn(
+          "relative",
 
-					"flex",
+          "flex",
 
-					"items-center",
+          "items-center",
 
-					"justify-center",
+          "justify-center",
 
-					checkboxConfig.hitArea,
-				)}
-			>
-				<input
-					ref={inputRef}
-					type="checkbox"
-					className={cn(
-						checkboxStyles({
-							variant,
-						}),
+          checkboxConfig.hitArea,
+        )}
+      >
+        <input
+          ref={inputRef}
+          type="checkbox"
+          className={cn(
+            checkboxStyles({
+              variant,
+            }),
 
-						checkboxConfig.box,
+            checkboxConfig.box,
 
-						className,
-					)}
-					disabled={disabled}
-					{...props}
-				/>
+            className,
+          )}
+          disabled={disabled}
+          {...props}
+        />
 
-				<Icon
-				icon={Check}
-				size="sm"
-					className={cn(
-						"absolute",
+        <Icon
+          icon={Check}
+          size="sm"
+          className={cn(
+            "absolute",
 
-						"hidden",
+            "hidden",
 
-						"pointer-events-none",
-						"text-primary-foreground",
+            "pointer-events-none",
+            "text-primary-foreground",
 
-						checkboxConfig.icon,
+            checkboxConfig.icon,
 
-						"peer-checked:block",
-					)}
-				/>
+            "peer-checked:block",
+          )}
+        />
 
-				<Icon
-					icon={Minus}
-					size="sm"
-					className={cn(
-						"absolute",
+        <Icon
+          icon={Minus}
+          size="sm"
+          className={cn(
+            "absolute",
 
-						"hidden",
+            "hidden",
 
-						"pointer-events-none",
-						"text-primary-foreground",
+            "pointer-events-none",
+            "text-primary-foreground",
 
-						checkboxConfig.icon,
+            checkboxConfig.icon,
 
-						"peer-indeterminate:block",
-					)}
-				/>
-			</div>
+            "peer-indeterminate:block",
+          )}
+        />
+      </div>
 
-			<div className="flex flex-col gap-spacing-xs">
-				{label && (
-					<Typography
-					as="span"
-					variant="labelMd"
-						className=
-							"text-text-primary"
-					>
-						{label}
+      <div className="flex flex-col gap-spacing-xs">
+        {label && (
+          <Typography as="span" variant="labelMd" className="text-text-primary">
+            {label}
 
-						{required && <Typography as="span" variant="labelMd" className="text-danger spacing-xs">*</Typography>}
-					</Typography>
-				)}
+            {required && (
+              <Typography
+                as="span"
+                variant="labelMd"
+                className="text-danger spacing-xs"
+              >
+                *
+              </Typography>
+            )}
+          </Typography>
+        )}
 
-				{description && (
-					<Typography
-					as="p"
-					variant="bodySm"
-						className=
-							"text-text-secondary"
-					>
-						{description}
-					</Typography>
-				)}
+        {description && (
+          <Typography as="p" variant="bodySm" className="text-text-secondary">
+            {description}
+          </Typography>
+        )}
 
-				{errorMessage && (
-					<Typography as="p" variant="bodySm" className="text-danger">{errorMessage}</Typography>
-				)}
-			</div>
-		</label>
-	);
+        {errorMessage && (
+          <Typography as="p" variant="bodySm" className="text-danger">
+            {errorMessage}
+          </Typography>
+        )}
+      </div>
+    </label>
+  );
 }

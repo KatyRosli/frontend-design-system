@@ -6,12 +6,12 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-docs",
     "@storybook/addon-a11y",
-    "@storybook/addon-vitest"
+    "@storybook/addon-vitest",
   ],
   framework: {
     name: "@storybook/nextjs-vite",
-    options: {}
+    options: {},
   },
-  staticDirs: ["../public"]
+  staticDirs: ["../public"],
 };
 export default config;

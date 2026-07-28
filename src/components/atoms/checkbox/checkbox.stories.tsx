@@ -15,41 +15,41 @@ import { checkboxVariants } from "./checkbox.constants";
  */
 
 const meta = {
-	title: "Components/Atoms/Checkbox",
+  title: "Components/Atoms/Checkbox",
 
-	component: Checkbox,
+  component: Checkbox,
 
-	tags: ["autodocs"],
+  tags: ["autodocs"],
 
-	args: {
-		label: "Accept terms and conditions",
+  args: {
+    label: "Accept terms and conditions",
 
-		description: "I agree with the privacy policy.",
+    description: "I agree with the privacy policy.",
 
-		onChange: fn(),
-	},
+    onChange: fn(),
+  },
 
-	argTypes: {
-		variant: {
-			control: "radio",
+  argTypes: {
+    variant: {
+      control: "radio",
 
-			options: Object.keys(checkboxVariants),
+      options: Object.keys(checkboxVariants),
 
-			description: "Controls checkbox visual state.",
-		},
+      description: "Controls checkbox visual state.",
+    },
 
-		disabled: {
-			control: "boolean",
-		},
+    disabled: {
+      control: "boolean",
+    },
 
-		indeterminate: {
-			control: "boolean",
-		},
+    indeterminate: {
+      control: "boolean",
+    },
 
-		required: {
-			control: "boolean",
-		},
-	},
+    required: {
+      control: "boolean",
+    },
+  },
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
@@ -59,53 +59,53 @@ type Story = StoryObj<typeof Checkbox>;
 export const Default: Story = {};
 
 export const Checked: Story = {
-	args: {
-		defaultChecked: true,
-	},
+  args: {
+    defaultChecked: true,
+  },
 };
 
 export const Indeterminate: Story = {
-	args: {
-		indeterminate: true,
+  args: {
+    indeterminate: true,
 
-		label: "Select all items",
+    label: "Select all items",
 
-		description: "Some items are selected",
-	},
+    description: "Some items are selected",
+  },
 };
 
 export const Disabled: Story = {
-	args: {
-		disabled: true,
+  args: {
+    disabled: true,
 
-		label: "Marketing emails",
+    label: "Marketing emails",
 
-		description: "Disabled option",
-	},
+    description: "Disabled option",
+  },
 };
 
 export const Required: Story = {
-	args: {
-		required: true,
+  args: {
+    required: true,
 
-		label: "Accept terms and conditions",
-	},
+    label: "Accept terms and conditions",
+  },
 };
 
 export const Error: Story = {
-	args: {
-		variant: "error",
+  args: {
+    variant: "error",
 
-		required: true,
+    required: true,
 
-		label: "Accept terms",
+    label: "Accept terms",
 
-		errorMessage: "You must accept before continuing.",
-	},
+    errorMessage: "You must accept before continuing.",
+  },
 };
 
 export const WithoutDescription: Story = {
-	args: {
-		description: undefined,
-	},
+  args: {
+    description: undefined,
+  },
 };

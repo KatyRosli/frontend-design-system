@@ -1,24 +1,10 @@
-import type {
-	Meta,
-	StoryObj,
-} from "@storybook/nextjs-vite";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-
-import {
-	fn,
-	expect,
-} from "storybook/test";
-
+import { fn, expect } from "storybook/test";
 
 import Avatar from "./avatar";
 
-
-import {
-	avatarSizes,
-	avatarStatusStyles,
-} from "./avatar.constants";
-
-
+import { avatarSizes, avatarStatusStyles } from "./avatar.constants";
 
 /**
  * A reusable avatar component that displays user identity through images,
@@ -29,243 +15,114 @@ import {
  * for consistent experiences across applications.
  */
 
-
 const meta = {
+  title: "Components/Atoms/Avatar",
 
-	title:
-		"Components/Atoms/Avatar",
+  component: Avatar,
 
-	component:
-		Avatar,
+  tags: ["autodocs"],
 
+  args: {
+    size: "md",
 
-	tags:
-		[
-			"autodocs",
-		],
+    status: undefined,
 
+    name: "Katy Rosli",
 
-	args: {
+    onClick: fn(),
+  },
 
-		size:
-			"md",
+  argTypes: {
+    size: {
+      description: "Controls avatar size",
 
-		status:
-			undefined,
+      control: "radio",
 
-		name:
-			"Katy Rosli",
+      options: Object.keys(avatarSizes),
+    },
 
-		onClick:
-			fn(),
+    status: {
+      description: "Shows presence indicator",
 
-	},
+      control: "radio",
 
+      options: [undefined, ...Object.keys(avatarStatusStyles)],
+    },
 
-	argTypes: {
+    src: {
+      description: "Avatar image source",
+    },
 
-		size: {
-
-			description:
-				"Controls avatar size",
-
-			control:
-				"radio",
-
-			options:
-				Object.keys(
-					avatarSizes,
-				),
-
-		},
-
-
-		status: {
-
-			description:
-				"Shows presence indicator",
-
-			control:
-				"radio",
-
-			options:
-				[
-					undefined,
-					...Object.keys(
-						avatarStatusStyles,
-					),
-				],
-
-		},
-
-
-		src: {
-
-			description:
-				"Avatar image source",
-
-		},
-
-
-		name: {
-
-			description:
-				"Generates initials when image is unavailable",
-
-		},
-
-	},
-
+    name: {
+      description: "Generates initials when image is unavailable",
+    },
+  },
 } satisfies Meta<typeof Avatar>;
-
-
 
 export default meta;
 
-
-type Story =
-	StoryObj<typeof meta>;
-
-
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-
-
 export const Sizes: Story = {
-
-	render: () => (
-
-		<div className="flex items-center gap-md">
-
-			{
-				Object.keys(
-					avatarSizes,
-				).map(
-					(size) => (
-
-						<Avatar
-							key={size}
-							size={
-								size as keyof typeof avatarSizes
-							}
-							name="Katy Rosli"
-						/>
-
-					),
-				)
-			}
-
-		</div>
-
-	),
-
+  render: () => (
+    <div className="flex items-center gap-md">
+      {Object.keys(avatarSizes).map((size) => (
+        <Avatar
+          key={size}
+          size={size as keyof typeof avatarSizes}
+          name="Katy Rosli"
+        />
+      ))}
+    </div>
+  ),
 };
-
-
 
 export const Status: Story = {
-
-	render: () => (
-
-		<div className="flex items-center gap-md">
-
-			{
-				Object.keys(
-					avatarStatusStyles,
-				).map(
-					(status) => (
-
-						<Avatar
-							key={status}
-							status={
-								status as keyof typeof avatarStatusStyles
-							}
-							name="Katy Rosli"
-						/>
-
-					),
-
-				)
-			}
-
-		</div>
-
-	),
-
+  render: () => (
+    <div className="flex items-center gap-md">
+      {Object.keys(avatarStatusStyles).map((status) => (
+        <Avatar
+          key={status}
+          status={status as keyof typeof avatarStatusStyles}
+          name="Katy Rosli"
+        />
+      ))}
+    </div>
+  ),
 };
-
-
 
 export const Image: Story = {
+  args: {
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
 
-	args: {
-
-		src:
-			"https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-
-		name:
-			"Katy Rosli",
-
-	},
-
+    name: "Katy Rosli",
+  },
 };
-
-
 
 export const InitialsFallback: Story = {
+  args: {
+    src: undefined,
 
-	args: {
-
-		src:
-			undefined,
-
-		name:
-			"Katy Rosli",
-
-	},
-
+    name: "Katy Rosli",
+  },
 };
-
-
 
 export const IconFallback: Story = {
+  args: {
+    src: undefined,
 
-	args: {
-
-		src:
-			undefined,
-
-		name:
-			undefined,
-
-	},
-
+    name: undefined,
+  },
 };
 
-
-
 export const Clickable: Story = {
+  args: {
+    onClick: fn(),
+  },
 
-	args: {
-
-		onClick:
-			fn(),
-
-	},
-
-
-	play:
-		async ({
-			args,
-		}) => {
-
-			expect(
-				args.onClick,
-			).toHaveBeenCalledTimes(
-				0,
-			);
-
-		},
-
+  play: async ({ args }) => {
+    expect(args.onClick).toHaveBeenCalledTimes(0);
+  },
 };
