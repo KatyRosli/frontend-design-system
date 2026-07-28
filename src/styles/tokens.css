@@ -1,31 +1,60 @@
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
-  /* Brand */
 
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-background:
+    var(--background);
 
-  /* Text */
+  --color-foreground:
+    var(--foreground);
 
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-disabled: var(--text-disabled);
 
-  /* Surface */
+  --color-primary:
+    var(--primary);
 
-  --color-surface: var(--surface);
-  --color-surface-elevated: var(--surface-elevated);
-  --color-surface-subtle: var(--surface-subtle);
+  --color-primary-foreground:
+    var(--primary-foreground);
 
-  /* Border */
 
-  --color-border: var(--border);
+  --color-secondary:
+    var(--secondary);
 
-  /* Status */
+  --color-secondary-foreground:
+    var(--secondary-foreground);
 
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-info: var(--info);
-  --color-danger: var(--danger);
+
+  --color-surface:
+    var(--surface);
+
+  --color-surface-elevated:
+    var(--surface-elevated);
+
+  --color-surface-subtle:
+    var(--surface-subtle);
+
+
+  --color-text-primary:
+    var(--text-primary);
+
+  --color-text-secondary:
+    var(--text-secondary);
+
+  --color-text-disabled:
+    var(--text-disabled);
+
+
+  --color-border:
+    var(--border);
+
+
+  --color-success:
+    var(--success);
+
+  --color-warning:
+    var(--warning);
+
+  --color-info:
+    var(--info);
+
+  --color-danger:
+    var(--danger);
+
 }

@@ -1,57 +1,234 @@
 :root {
-  /* Primary */
 
-  --primary: oklch(...);
-  --primary-foreground: oklch(...);
+  /*
+  =====================
+  Brand
+  =====================
+  */
 
-  /* Background */
+  --primary:
+    oklch(52% 0.27 302);
 
-  --background: oklch(...);
-  --foreground: oklch(...);
+  --primary-foreground:
+    oklch(98% 0 0);
 
-  /* Surface */
 
-  --surface: var(--background);
-  --surface-elevated: oklch(...);
-  --surface-subtle: oklch(...);
+  --secondary:
+    oklch(65% 0.18 220);
 
-  /* Text */
+  --secondary-foreground:
+    oklch(15% 0.03 220);
 
-  --text-primary: var(--foreground);
-  --text-secondary: oklch(...);
-  --text-disabled: oklch(...);
 
-  /* Border */
 
-  --border: oklch(...);
+  /*
+  =====================
+  Background
+  =====================
+  */
 
-  /* Feedback */
+  --background:
+    oklch(98% 0.005 285);
 
-  --success: oklch(...);
-  --warning: oklch(...);
-  --info: oklch(...);
-  --danger: oklch(...);
+  --foreground:
+    oklch(18% 0.02 285);
+
+
+
+  /*
+  =====================
+  Surface
+  =====================
+  */
+
+
+  --surface:
+    oklch(99% 0.002 285);
+
+
+  --surface-elevated:
+    oklch(100% 0 0);
+
+
+  --surface-subtle:
+    oklch(94% 0.01 285);
+
+
+
+  /*
+  =====================
+  Text
+  =====================
+  */
+
+
+  --text-primary:
+    oklch(18% 0.02 285);
+
+
+  --text-secondary:
+    oklch(45% 0.02 285);
+
+
+  --text-disabled:
+    oklch(65% 0.015 285);
+
+
+
+  /*
+  =====================
+  Border
+  =====================
+  */
+
+
+  --border:
+    oklch(88% 0.01 285);
+
+
+
+  /*
+  =====================
+  Feedback
+  =====================
+  */
+
+
+  --success:
+    oklch(60% 0.20 145);
+
+
+  --warning:
+    oklch(75% 0.18 85);
+
+
+  --info:
+    oklch(60% 0.18 240);
+
+
+  --danger:
+    oklch(58% 0.22 25);
+
 }
 
+
+
 .dark {
-  --primary: oklch(...);
-  --primary-foreground: oklch(...);
 
-  --background: oklch(...);
-  --foreground: oklch(...);
 
-  --surface: var(--background);
-  --surface-elevated: oklch(...);
-  --surface-subtle: oklch(...);
+  /*
+  =====================
+  Brand
+  =====================
+  */
 
-  --text-primary: var(--foreground);
-  --text-secondary: oklch(...);
-  --text-disabled: oklch(...);
 
-  --border: oklch(...);
+  --primary:
+    oklch(75% 0.25 302);
 
-  --success: oklch(...);
-  --warning: oklch(...);
-  --info: oklch(...);
-  --danger: oklch(...);
+
+  --primary-foreground:
+    oklch(15% 0.02 285);
+
+
+
+  --secondary:
+    oklch(78% 0.17 220);
+
+
+  --secondary-foreground:
+    oklch(12% 0.02 220);
+
+
+
+  /*
+  =====================
+  Background
+  =====================
+  */
+
+
+  --background:
+    oklch(14% 0.025 285);
+
+
+  --foreground:
+    oklch(96% 0.005 285);
+
+
+
+  /*
+  =====================
+  Surface
+  =====================
+  */
+
+
+  --surface:
+    oklch(18% 0.025 285);
+
+
+  --surface-elevated:
+    oklch(22% 0.03 285);
+
+
+  --surface-subtle:
+    oklch(25% 0.025 285);
+
+
+
+  /*
+  =====================
+  Text
+  =====================
+  */
+
+
+  --text-primary:
+    oklch(96% 0.005 285);
+
+
+  --text-secondary:
+    oklch(75% 0.015 285);
+
+
+  --text-disabled:
+    oklch(52% 0.01 285);
+
+
+
+  /*
+  =====================
+  Border
+  =====================
+  */
+
+
+  --border:
+    oklch(32% 0.02 285);
+
+
+
+  /*
+  =====================
+  Feedback
+  =====================
+  */
+
+
+  --success:
+    oklch(75% 0.18 145);
+
+
+  --warning:
+    oklch(85% 0.17 85);
+
+
+  --info:
+    oklch(75% 0.18 240);
+
+
+  --danger:
+    oklch(72% 0.20 25);
+
 }

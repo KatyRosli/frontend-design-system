@@ -24,9 +24,8 @@ const preview: Preview = {
 						inter.variable,
 						montserrat.variable,
 						"min-h-screen p-8",
-						isDark 
-							? "dark bg-background" 
-							: "bg-background",
+						isDark && "dark",
+						"min-h-screen", "bg-background", "text-foreground", "p-8"
 					)}
 				>
 					<Story />
@@ -61,6 +60,9 @@ const preview: Preview = {
 	},
 
 	parameters: {
+		backgrounds: {
+			disable: true,
+		},
 		options: {
 			storySort: {
 				order: [
