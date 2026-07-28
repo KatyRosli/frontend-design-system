@@ -1,10 +1,17 @@
 import { useEffect, useRef } from "react";
-import { Check, Minus } from "lucide-react";
+import Icon from "@/foundations/icons";
+
+import {
+    Check,
+    Minus,
+} from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { type ComponentProps, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
+
+import Typography from "@/foundations/typography";
 
 import {
 	checkboxConfig,
@@ -38,11 +45,11 @@ const checkboxStyles = cva(
 
 		"checked:border-primary",
 
-		"disabled:bg-muted",
+		"disabled:bg-surface-subtle",
 
-		"disabled:border-muted-foreground/30",
+		"disabled:border-border",
 
-		"disabled:cursor-not-allowed",
+		"disabled:text-text-disabled",
 	],
 
 	{
@@ -147,14 +154,15 @@ export default function Checkbox({
 					{...props}
 				/>
 
-				<Check
+				<Icon
+				icon={Check}
+				size="sm"
 					className={cn(
 						"absolute",
 
 						"hidden",
 
 						"pointer-events-none",
-
 						"text-primary-foreground",
 
 						checkboxConfig.icon,
@@ -163,14 +171,15 @@ export default function Checkbox({
 					)}
 				/>
 
-				<Minus
+				<Icon
+					icon={Minus}
+					size="sm"
 					className={cn(
 						"absolute",
 
 						"hidden",
 
 						"pointer-events-none",
-
 						"text-primary-foreground",
 
 						checkboxConfig.icon,
@@ -180,37 +189,33 @@ export default function Checkbox({
 				/>
 			</div>
 
-			<div className="flex flex-col">
+			<div className="flex flex-col gap-spacing-xs">
 				{label && (
-					<span
-						className={cn(
-							"font-medium",
-
-							"text-foreground",
-
-							checkboxConfig.text,
-						)}
+					<Typography
+					as="span"
+					variant="labelMd"
+						className=
+							"text-text-primary"
 					>
 						{label}
 
-						{required && <span className="ml-1 text-destructive">*</span>}
-					</span>
+						{required && <Typography as="span" variant="labelMd" className="text-danger spacing-xs">*</Typography>}
+					</Typography>
 				)}
 
 				{description && (
-					<span
-						className={cn(
-							"text-muted-foreground",
-
-							checkboxConfig.description,
-						)}
+					<Typography
+					as="p"
+					variant="bodySm"
+						className=
+							"text-text-secondary"
 					>
 						{description}
-					</span>
+					</Typography>
 				)}
 
 				{errorMessage && (
-					<span className="text-sm text-destructive">{errorMessage}</span>
+					<Typography as="p" variant="bodySm" className="text-danger">{errorMessage}</Typography>
 				)}
 			</div>
 		</label>

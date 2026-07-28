@@ -15,7 +15,7 @@ import { checkboxVariants } from "./checkbox.constants";
  */
 
 const meta = {
-	title: "Design System/Atoms/Checkbox",
+	title: "Components/Atoms/Checkbox",
 
 	component: Checkbox,
 

@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { ArrowRight, Bell, Plus, Trash, Check } from "lucide-react";
+import Icon from "@/foundations/icons";
+
+import {
+  ArrowRight,
+  Bell,
+  Check,
+  Plus,
+  Trash,
+} from "lucide-react";
 
 import { fn } from "storybook/test";
 
@@ -127,7 +135,9 @@ export const LeadingIcon: Story = {
 	args: {
 		children: "Add item",
 
-		icon: <Plus />,
+		icon: (
+		<Icon icon={Plus} size="sm" />
+		),
 
 		iconPosition: "left",
 	},
@@ -137,7 +147,9 @@ export const TrailingIcon: Story = {
 	args: {
 		children: "Continue",
 
-		icon: <ArrowRight />,
+		icon:(
+			<Icon icon={ArrowRight} size="md" />
+		),
 
 		iconPosition: "right",
 	},
@@ -145,9 +157,7 @@ export const TrailingIcon: Story = {
 
 export const IconOnly: Story = {
 	args: {
-		children: <Bell />,
-
-		size: "lg",
+		children: <Icon icon={Bell} size="lg" />,
 
 		variant: "secondary",
 
@@ -159,7 +169,9 @@ export const Success: Story = {
 	args: {
 		variant: "success",
 		children: "Success",
-		icon: <Check />,
+		icon: (
+			<Icon icon={Check} size="md" />
+		),
 	},
 };
 
@@ -167,7 +179,8 @@ export const Danger: Story = {
 	args: {
 		variant: "danger",
 		children: "Delete",
-		icon: <Trash />,
+		icon: 
+		<Icon icon={Trash} size="md" />,
 	},
 };
 

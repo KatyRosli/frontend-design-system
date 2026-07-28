@@ -3,11 +3,7 @@ export const checkboxConfig = {
 
 	icon: "size-4",
 
-	text: "text-sm",
-
-	description: "text-sm",
-
-	gap: "gap-3",
+	gap: "gap-spacing-md",
 
 	// Minimum accessible touch target
 	//following the UX rule: md as default because most mature systems (Material, Carbon, Fluent) avoid too many checkbox sizes.
@@ -15,9 +11,9 @@ export const checkboxConfig = {
 } as const;
 
 export const checkboxVariants = {
-	default: "border-input",
+	default: "border-border",
 
-	error: "border-destructive",
+	error: "border-danger",
 } as const;
 
 export const checkboxStates = [
