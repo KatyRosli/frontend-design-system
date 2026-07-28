@@ -15,7 +15,7 @@ import { Search } from "lucide-react";
  */
 
 const meta = {
-	title: "Design System/Atoms/Input",
+	title: "Components/Atoms/Input",
 
 	component: Input,
 

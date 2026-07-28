@@ -19,7 +19,7 @@ import { formFieldSpacings } from "./formField.constants";
  */
 
 const meta = {
-	title: "Design System/Molecules/FormField",
+	title: "Components/Molecules/FormField",
 
 	component: FormField,
 

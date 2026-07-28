@@ -15,7 +15,7 @@ import { passwordFieldSizes } from "./passwordField.constants";
  */
 
 const meta = {
-	title: "Design System/Molecules/PasswordField",
+	title: "Components/Molecules/PasswordField",
 
 	component: PasswordField,
 

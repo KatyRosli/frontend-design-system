@@ -13,7 +13,7 @@ import { dropdownSizes, dropdownStates } from "./dropdown.constants";
  */
 
 const meta = {
-	title: "Design System/Atoms/Dropdown",
+	title: "Components/Atoms/Dropdown",
 
 	component: Dropdown,
 

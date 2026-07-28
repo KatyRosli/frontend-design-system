@@ -13,7 +13,7 @@ import LoginForm from './loginForm';
  */
 
 const meta = {
-    title: 'Design System/Organisms/LoginForm',
+    title: 'Components/Organisms/LoginForm',
     component: LoginForm,
     tags: ['autodocs'],
 } satisfies Meta<typeof LoginForm>;

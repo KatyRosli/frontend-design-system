@@ -18,7 +18,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
  */
 
 const meta = {
-	title: "Design System/Atoms/Skeleton",
+	title: "Components/Atoms/Skeleton",
 
 	component: Skeleton,
 

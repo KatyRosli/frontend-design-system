@@ -18,7 +18,7 @@ import { emptyStateSizes } from "./emptyState.constants";
  */
 
 const meta = {
-	title: "Design System/Molecules/EmptyState",
+	title: "Components/Molecules/EmptyState",
 
 	component: EmptyState,
 

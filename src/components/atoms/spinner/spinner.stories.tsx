@@ -12,7 +12,7 @@ import { spinnerSizes, spinnerVariants } from "./spinner.constants";
  */
 
 const meta = {
-	title: "Design System/Atoms/Spinner",
+	title: "Components/Atoms/Spinner",
 
 	component: Spinner,
 
