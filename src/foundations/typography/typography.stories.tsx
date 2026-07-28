@@ -1,13 +1,14 @@
-import type {
-  Meta,
-  StoryObj,
-} from "@storybook/nextjs-vite";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import Typography from "./typography";
 
-import {
-  typographyVariantOptions,
-} from "./typography.constants";
+import { typographyVariantOptions } from "./typography.constants";
+
+/**
+ * A scalable typography system that defines text styles, hierarchy, and font usage across the design system. 
+ * It provides consistent heading, body, label, and supporting text styles using Montserrat for headings and Inter for body content. 
+ * Typography variants are designed to create clear visual hierarchy and consistent text experiences across all components.
+ */
 
 const meta = {
   title: "Foundations/Typography",
@@ -17,31 +18,24 @@ const meta = {
   tags: ["autodocs"],
 
   args: {
-    variant: "body",
+    variant: "bodyMd",
+
     as: "p",
-    children:
-      "The quick brown fox jumps over the lazy dog.",
+
+    children: "The quick brown fox jumps over the lazy dog.",
   },
 
   argTypes: {
     variant: {
       control: "select",
+
       options: typographyVariantOptions,
     },
 
     as: {
       control: "select",
-      options: [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-        "p",
-        "span",
-        "div",
-      ],
+
+      options: ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "div"],
     },
   },
 } satisfies Meta<typeof Typography>;
@@ -54,8 +48,14 @@ export const Playground: Story = {};
 
 export const Scale: Story = {
   render: () => (
-    <div className="bg-background text-foreground p-10 space-y-8">
-
+    <div
+      className="
+      bg-background
+      text-foreground
+      p-10
+      space-y-8
+    "
+    >
       <Typography as="h1" variant="display">
         Display
       </Typography>
@@ -84,26 +84,21 @@ export const Scale: Story = {
         Heading 6
       </Typography>
 
-      <Typography variant="bodyLg">
-        Body Large — Used for introductions and important paragraphs.
-      </Typography>
+      <Typography variant="bodyLg">Body Large</Typography>
 
-      <Typography variant="body">
-        Body — Default application text.
-      </Typography>
+      <Typography variant="bodyMd">Body Medium</Typography>
 
-      <Typography variant="bodySm">
-        Body Small — Supporting information.
-      </Typography>
+      <Typography variant="bodySm">Body Small</Typography>
 
-      <Typography variant="caption">
-        Caption — Metadata and helper text.
-      </Typography>
+      <Typography variant="labelLg">Label Large (Large Button)</Typography>
 
-      <Typography variant="overline">
-        OVERLINE
-      </Typography>
+      <Typography variant="labelMd">Label Medium (Default Button)</Typography>
 
+      <Typography variant="labelSm">Label Small (Badge)</Typography>
+
+      <Typography variant="caption">Caption text</Typography>
+
+      <Typography variant="overline">OVERLINE</Typography>
     </div>
   ),
 };

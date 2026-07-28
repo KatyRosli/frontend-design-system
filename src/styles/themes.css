@@ -1,0 +1,57 @@
+:root {
+  /* Primary */
+
+  --primary: oklch(...);
+  --primary-foreground: oklch(...);
+
+  /* Background */
+
+  --background: oklch(...);
+  --foreground: oklch(...);
+
+  /* Surface */
+
+  --surface: var(--background);
+  --surface-elevated: oklch(...);
+  --surface-subtle: oklch(...);
+
+  /* Text */
+
+  --text-primary: var(--foreground);
+  --text-secondary: oklch(...);
+  --text-disabled: oklch(...);
+
+  /* Border */
+
+  --border: oklch(...);
+
+  /* Feedback */
+
+  --success: oklch(...);
+  --warning: oklch(...);
+  --info: oklch(...);
+  --danger: oklch(...);
+}
+
+.dark {
+  --primary: oklch(...);
+  --primary-foreground: oklch(...);
+
+  --background: oklch(...);
+  --foreground: oklch(...);
+
+  --surface: var(--background);
+  --surface-elevated: oklch(...);
+  --surface-subtle: oklch(...);
+
+  --text-primary: var(--foreground);
+  --text-secondary: oklch(...);
+  --text-disabled: oklch(...);
+
+  --border: oklch(...);
+
+  --success: oklch(...);
+  --warning: oklch(...);
+  --info: oklch(...);
+  --danger: oklch(...);
+}

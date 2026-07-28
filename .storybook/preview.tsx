@@ -1,10 +1,15 @@
 import "../src/styles/globals.css";
 import type { Preview } from "@storybook/nextjs-vite";
-import { Geist } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import { cn } from "../src/lib/utils";
 
-const geist = Geist({
-	variable: "--font-sans",
+const inter = Inter({
+	variable: "--font-body",
+	subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+	variable: "--font-heading",
 	subsets: ["latin"],
 });
 
@@ -16,8 +21,9 @@ const preview: Preview = {
 			return (
 				<div
 					className={cn(
-						geist.variable,
-						"font-sans min-h-screen p-8",
+						inter.variable,
+						montserrat.variable,
+						"min-h-screen p-8",
 						isDark 
 							? "dark bg-background" 
 							: "bg-background",

@@ -8,67 +8,111 @@ export const typographyVariants = cva(
   {
     variants: {
       variant: {
+
+        // =====================
+        // Display
+        // =====================
+
         display:
-          "text-5xl font-bold leading-tight tracking-tight",
+          "[font-family:var(--font-heading)] text-5xl font-bold leading-tight tracking-tight",
+
+
+        // =====================
+        // Headings
+        // =====================
 
         h1:
-          "text-4xl font-bold leading-tight tracking-tight",
+          "[font-family:var(--font-heading)] text-4xl font-bold leading-tight tracking-tight",
 
         h2:
-          "text-3xl font-semibold leading-tight tracking-tight",
+          "[font-family:var(--font-heading)] text-3xl font-semibold leading-tight tracking-tight",
 
         h3:
-          "text-2xl font-semibold leading-snug",
+          "[font-family:var(--font-heading)] text-2xl font-semibold leading-snug",
 
         h4:
-          "text-xl font-semibold leading-snug",
+          "[font-family:var(--font-heading)] text-xl font-semibold leading-snug",
 
         h5:
-          "text-lg font-medium leading-snug",
+          "[font-family:var(--font-heading)] text-lg font-medium leading-snug",
 
         h6:
-          "text-base font-medium leading-snug",
+          "[font-family:var(--font-heading)] text-base font-medium leading-snug",
+
+
+        // =====================
+        // Body
+        // =====================
 
         bodyLg:
-          "text-lg font-normal leading-8",
+          "[font-family:var(--font-body)] text-lg font-normal leading-8",
 
-        body:
-          "text-base font-normal leading-7",
+        bodyMd:
+          "[font-family:var(--font-body)] text-base font-normal leading-7",
 
         bodySm:
-          "text-sm font-normal leading-6",
+          "[font-family:var(--font-body)] text-sm font-normal leading-6",
+
+
+        // =====================
+        // Labels / Actions
+        // =====================
+
+        labelLg:
+          "[font-family:var(--font-body)] text-base font-semibold leading-6",
+
+        labelMd:
+          "[font-family:var(--font-body)] text-sm font-semibold leading-5",
+
+        labelSm:
+          "[font-family:var(--font-body)] text-xs font-semibold leading-4",
+
+
+        // =====================
+        // Supporting
+        // =====================
 
         caption:
-          "text-xs font-normal leading-5 text-muted-foreground",
+          "[font-family:var(--font-body)] text-xs font-normal leading-5",
 
         overline:
-          "text-xs uppercase tracking-[0.18em] font-semibold text-muted-foreground",
+          "[font-family:var(--font-body)] text-xs font-semibold uppercase tracking-[0.18em]",
       },
     },
 
     defaultVariants: {
-      variant: "body",
+      variant: "bodyMd",
     },
   },
 );
 
+
 export const typographyVariantOptions = [
   "display",
+
   "h1",
   "h2",
   "h3",
   "h4",
   "h5",
   "h6",
+
   "bodyLg",
-  "body",
+  "bodyMd",
   "bodySm",
+
+  "labelLg",
+  "labelMd",
+  "labelSm",
+
   "caption",
   "overline",
 ] as const;
 
+
 export type TypographyVariant =
   (typeof typographyVariantOptions)[number];
+
 
 export type TypographyElement =
   | "h1"
@@ -80,3 +124,4 @@ export type TypographyElement =
   | "p"
   | "span"
   | "div";
+  

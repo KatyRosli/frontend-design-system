@@ -11,8 +11,10 @@ import {
   type TypographyElement,
 } from "./typography.constants";
 
+
 export interface TypographyProps
   extends HTMLAttributes<HTMLElement> {
+
   children: ReactNode;
 
   variant?: TypographyVariant;
@@ -20,14 +22,22 @@ export interface TypographyProps
   as?: TypographyElement;
 }
 
+
 export default function Typography({
   children,
-  variant = "body",
+
+  variant = "bodyMd",
+
   as = "p",
+
   className,
+
   ...props
+
 }: TypographyProps) {
+
   const Component = as;
+
 
   return (
     <Component
@@ -37,6 +47,7 @@ export default function Typography({
         }),
         className,
       )}
+
       {...props}
     >
       {children}
