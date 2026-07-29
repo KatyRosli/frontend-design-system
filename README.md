@@ -4,7 +4,7 @@ A reusable React component library built with **React**, **TypeScript**, **Tailw
 
 Designed to provide accessible, consistent, and scalable UI components for modern web applications.
 
-<img width="1469" height="699" alt="Screenshot 2026-07-27 at 15 29 25" src="https://github.com/user-attachments/assets/1855d8df-4cbc-4a46-a075-0c8d8138d3b1" />
+<img width="1466" height="689" alt="Screenshot 2026-07-29 at 15 21 51" src="https://github.com/user-attachments/assets/7c2c0ae1-c72a-4132-91e9-6597746c63df" />
 
 ## ✨ Features
 
