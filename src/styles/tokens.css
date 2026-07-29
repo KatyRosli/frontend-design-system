@@ -47,6 +47,8 @@
   --color-danger: var(--danger);
   --color-danger-hover: var(--danger-hover);
 
+  --color-skeleton: var(--skeleton);
+
   /*
   =====================
   Spacing

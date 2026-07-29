@@ -2,11 +2,17 @@ import { forwardRef, type HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { skeletonVariants, type SkeletonVariant } from "./skeleton.constants";
+import {
+	skeletonVariants,
+	type SkeletonVariant,
+} from "./skeleton.constants";
 
-export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
+
+export interface SkeletonProps
+	extends HTMLAttributes<HTMLDivElement> {
 	variant?: SkeletonVariant;
 }
+
 
 const variantStyles: Record<SkeletonVariant, string> = {
 	text: "rounded-md",
@@ -16,14 +22,22 @@ const variantStyles: Record<SkeletonVariant, string> = {
 	rectangle: "rounded-lg",
 };
 
+
 const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
-	({ className, variant = skeletonVariants.rectangle, ...props }, ref) => {
+	(
+		{
+			className,
+			variant = skeletonVariants.rectangle,
+			...props
+		},
+		ref,
+	) => {
 		return (
 			<div
 				ref={ref}
 				aria-hidden="true"
 				className={cn(
-					"animate-pulse bg-muted",
+					"animate-pulse bg-skeleton",
 					variantStyles[variant],
 					className,
 				)}
@@ -32,6 +46,7 @@ const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
 		);
 	},
 );
+
 
 Skeleton.displayName = "Skeleton";
 

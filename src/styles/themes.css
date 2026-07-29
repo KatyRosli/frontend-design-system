@@ -67,6 +67,12 @@
   --danger-hover: oklch(53% 0.22 25);
 
   --danger-foreground: oklch(98% 0.01 25);
+
+  /* =====================
+   Feedback / Utility
+====================== */
+
+--skeleton: oklch(92% 0.015 300);
 }
 
 .dark {
@@ -111,4 +117,10 @@
   --danger: oklch(70% 0.22 25);
   --danger-hover: oklch(65% 0.22 25);
   --danger-foreground: oklch(18.809% 0.03296 274.728);
+
+  /* =====================
+   Feedback / Utility
+====================== */
+
+--skeleton: oklch(28% 0.03 300);
 }

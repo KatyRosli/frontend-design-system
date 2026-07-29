@@ -48,6 +48,11 @@ export const themeTokenGroups = [
         variable: "--surface-subtle",
         className: "bg-surface-subtle",
       },
+      {
+        name: "Skeleton",
+        variable: "--skeleton",
+        className: "bg-skeleton",
+      },
     ],
   },
 
