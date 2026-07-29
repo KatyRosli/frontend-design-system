@@ -42,7 +42,7 @@
      Border
   ====================== */
 
-  --border: oklch(88% 0.02 300);
+  --border: oklch(72.869% 0.06444 298.293);
 
   /* =====================
      Feedback
@@ -100,7 +100,7 @@
 
   --text-disabled: oklch(50% 0.01 300);
 
-  --border: oklch(30% 0.03 300);
+  --border: oklch(43.265% 0.08585 298.708);
 
   --success: oklch(72% 0.18 145);
   --success-hover: oklch(67% 0.18 145);

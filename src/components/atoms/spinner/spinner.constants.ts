@@ -19,19 +19,19 @@ export const spinnerVariantsStyles = cva(
 	{
 		variants: {
 			size: {
-				sm: "h-4 w-4",
+				sm: "size-4",
 
-				md: "h-6 w-6",
+				md: "size-6",
 
-				lg: "h-10 w-10",
+				lg: "size-10",
 			},
 
 			variant: {
 				default: "text-primary",
 
-				muted: "text-muted-foreground",
+				muted: "text-text-disabled",
 
-				inverse: "text-primary-foreground",
+				inverse: "text-foreground",
 			},
 		},
 

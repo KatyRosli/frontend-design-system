@@ -80,4 +80,12 @@
   --radius-xl: 1rem;
 
   --radius-full: 9999px;
+
+  /*
+  =====================
+  Animate Spin
+  =====================
+  */
+
+  --animate-spin: spin 1s linear infinite;
 }
