@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import Dropdown from "./dropdown";
+import Dropdown, {
+  type DropdownProps,
+} from "./dropdown";
 
-import { dropdownSizes, dropdownStates } from "./dropdown.constants";
+import {
+  dropdownSizes,
+  dropdownStates,
+} from "./dropdown.constants";
 
 /**
  * Reusable Dropdown component that supports
@@ -62,15 +67,15 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<DropdownProps>;
 
 const Items = () => (
 	<>
-		<Dropdown.Item value="sweden">Sweden</Dropdown.Item>
-
-		<Dropdown.Item value="singapore">Singapore</Dropdown.Item>
-
-		<Dropdown.Item value="japan">Japan</Dropdown.Item>
+		<Dropdown.Item value="1">Sweden</Dropdown.Item>
+		<Dropdown.Item value="2">Singapore</Dropdown.Item>
+		<Dropdown.Item value="3">Japan</Dropdown.Item>
+		<Dropdown.Item value="4">Canada</Dropdown.Item>
+		<Dropdown.Item value="5">Germany</Dropdown.Item>
 	</>
 );
 
@@ -97,7 +102,11 @@ export const Error: Story = {
 		errorMessage: "Please select a country.",
 	},
 };
-
+export const WithHelperText: Story = {
+	args: {
+		helperText: "Select your current country from the list.",
+	},
+};
 export const Disabled: Story = {
 	args: {
 		disabled: true,

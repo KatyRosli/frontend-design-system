@@ -1,17 +1,14 @@
-export {
-	default,
-	DropdownTrigger,
-	DropdownContent,
-	DropdownItem,
-} from "./dropdown";
+export { default } from "./dropdown";
 
-export type { DropdownProps } from "./dropdown";
+export { default as DropdownTrigger } from "./dropdownTrigger";
+
+export { default as DropdownContent } from "./dropdownContent";
+
+export { default as DropdownItem } from "./dropdownItem";
 
 export {
-	dropdownSizes,
-	dropdownStates,
-	dropdownTriggerVariants,
-	dropdownContentVariants,
+  dropdownSizes,
+  dropdownStates,
+  type DropdownSize,
+  type DropdownState,
 } from "./dropdown.constants";
-
-export type { DropdownSize, DropdownState } from "./dropdown.constants";
