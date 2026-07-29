@@ -4,6 +4,8 @@ import { FolderOpen, Search, Bell } from "lucide-react";
 
 import Button from "@/components/atoms/button";
 
+import Icon from "@/foundations/icon";
+
 import EmptyState from "./emptyState";
 
 import { emptyStateSizes } from "./emptyState.constants";
@@ -51,7 +53,7 @@ export const Playground: Story = {};
 
 export const Default: Story = {
 	args: {
-		icon: <FolderOpen />,
+		icon: <Icon icon={FolderOpen} size="lg" />,
 
 		title: "No projects yet",
 
@@ -63,7 +65,7 @@ export const Default: Story = {
 
 export const NoSearchResults: Story = {
 	args: {
-		icon: <Search />,
+		icon: <Icon icon={Search} size="lg" />,
 
 		title: "No results found",
 
@@ -73,7 +75,7 @@ export const NoSearchResults: Story = {
 
 export const NoNotifications: Story = {
 	args: {
-		icon: <Bell />,
+		icon: <Icon icon={Bell} size="lg" />,
 
 		title: "No notifications",
 
@@ -85,7 +87,7 @@ export const Small: Story = {
 	args: {
 		size: "sm",
 
-		icon: <FolderOpen />,
+		icon: <Icon icon={FolderOpen} size="sm" />,
 	},
 };
 
@@ -93,6 +95,6 @@ export const Large: Story = {
 	args: {
 		size: "lg",
 
-		icon: <FolderOpen />,
+		icon: <Icon icon={FolderOpen} size="lg" />,
 	},
 };

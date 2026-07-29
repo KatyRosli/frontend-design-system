@@ -7,6 +7,7 @@ import {
 	emptyStateVariants,
 	type EmptyStateSize,
 } from "./emptyState.constants";
+import Typography from "@/foundations/typography";
 
 export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
 	icon?: ReactNode;
@@ -64,26 +65,15 @@ const EmptyState = ({
           items-center
 				"
 			>
-				<h3
-					className="
-						text-lg
-						font-semibold
-						text-foreground
-					"
-				>
+				<Typography as="h3" variant="h3">
 					{title}
-				</h3>
+				</Typography>
 
 				{description && (
-					<p
-						className="
-							max-w-sm
-							text-sm
-							text-muted-foreground
-						"
-					>
+					<Typography as="p" variant="bodySm"
+					className="text-text-disabled">
 						{description}
-					</p>
+					</Typography>
 				)}
 			</div>
 
