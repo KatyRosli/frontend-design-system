@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import Input from "./input";
 
-import { inputSizes, inputStates } from "./input.constants";
-
 import { Search } from "lucide-react";
+import Icon from "@/foundations/icon";
+import { inputSizes, inputStates } from "./input.constants";
 
 /**
  * Reusable Input component that supports
@@ -15,47 +15,42 @@ import { Search } from "lucide-react";
  */
 
 const meta = {
-	title: "Components/Atoms/Input",
+  title: "Components/Atoms/Input",
 
-	component: Input,
+  component: Input,
 
-	tags: ["autodocs"],
+  tags: ["autodocs"],
 
-	args: {
-		placeholder: "Enter text",
+  args: {
+    placeholder: "Enter text",
 
-		size: "lg",
+    size: "lg",
 
-		state: "default",
+    state: "default",
 
-		disabled: false,
-	},
+    disabled: false,
+  },
 
-	argTypes: {
-		size: {
-			control: "radio",
+  argTypes: {
+    size: {
+      control: "radio",
+      options: inputSizes,
+      description: "Input size.",
+    },
+    state: {
+      control: "radio",
+      options: inputStates,
+      description: "Input validation state.",
+    },
 
-			options: inputSizes,
+    disabled: {
+      control: "boolean",
+    },
 
-			description: "Input size.",
-		},
-
-		state: {
-			control: "radio",
-
-			options: inputStates,
-
-			description: "Input validation state.",
-		},
-
-		disabled: {
-			control: "boolean",
-		},
-
-		placeholder: {
-			control: "text",
-		},
-	},
+    placeholder: {
+      control: "text",
+    },
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -65,62 +60,72 @@ type Story = StoryObj<typeof Input>;
 export const Playground: Story = {};
 
 export const Default: Story = {
-	args: {
-		placeholder: "Enter your name",
-	},
+  args: {
+    label: "Email:",
+    placeholder: "youremail@email.com",
+  },
 };
 
 export const Small: Story = {
-	args: {
-		size: "sm",
+  args: {
+    size: "sm",
 
-		placeholder: "Small input",
-	},
+    placeholder: "Small input",
+  },
 };
 
 export const Large: Story = {
-	args: {
-		size: "lg",
+  args: {
+    size: "lg",
 
-		placeholder: "Large input",
-	},
+    placeholder: "Large input",
+  },
 };
 
 export const Error: Story = {
-	args: {
-		state: "error",
-
-		placeholder: "Invalid input",
-	},
+  args: {
+    state: "error",
+    label: "Email:",
+    placeholder: "youremail@email.com",
+    errorMessage: "Email is required.",
+  },
 };
 
 export const Disabled: Story = {
-	args: {
-		disabled: true,
+  args: {
+    disabled: true,
 
-		placeholder: "Disabled input",
-	},
+    placeholder: "Disabled input",
+  },
 };
 
 export const Password: Story = {
-	args: {
-		type: "password",
+  args: {
+    type: "password",
 
-		placeholder: "Enter password",
-	},
+    placeholder: "Enter your password",
+  },
 };
 
 export const WithLeadingIcon: Story = {
-	args: {
-		placeholder: "Search...",
-		startAdornment: <Search className="h-4 w-4 text-muted-foreground" />,
-	},
+  args: {
+    placeholder: "Search...",
+    startAdornment: <Icon icon={Search} size="sm" />,
+  },
 };
 
 export const WithTrailingIcon: Story = {
-	args: {
-		placeholder: "Search...",
+  args: {
+    placeholder: "Search...",
 
-		endAdornment: <Search className="h-4 w-4 text-muted-foreground" />,
-	},
+    endAdornment: <Icon icon={Search} size="sm" />,
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    label: "Email:",
+    placeholder: "youremail@email.com",
+    helperText: "We will never share your email.",
+  },
 };

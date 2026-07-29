@@ -48,7 +48,7 @@ const Dropdown = ({
 
       {label && (
         <Typography
-          as="p"
+          as="label"
           variant="labelMd"
           className="text-text-primary"
         >
@@ -56,7 +56,7 @@ const Dropdown = ({
 
           {required && (
             <Typography
-              as="span"
+              as="label"
               variant="labelMd"
               className="ml-1 text-danger"
             >

@@ -2,95 +2,110 @@ import { forwardRef, type ComponentProps, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
+import Typography from "@/foundations/typography";
+
 import {
-	inputVariants,
-	type InputSize,
-	type InputState,
+  inputVariants,
+  type InputSize,
+  type InputState,
 } from "./input.constants";
 
 export interface InputProps extends Omit<ComponentProps<"input">, "size"> {
-	size?: InputSize;
+  label?: string;
 
-	state?: InputState;
+  helperText?: string;
 
-	startAdornment?: ReactNode;
+  errorMessage?: string;
 
-	endAdornment?: ReactNode;
+  size?: InputSize;
+
+  state?: InputState;
+
+  startAdornment?: ReactNode;
+
+  endAdornment?: ReactNode;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-	(
-		{
-			className,
+  (
+    {
+      className,
 
-			size = "lg",
+      label,
 
-			state = "default",
+      helperText,
 
-			type = "text",
+      errorMessage,
 
-			startAdornment,
+      size = "lg",
 
-			endAdornment,
+      state = "default",
 
-			...props
-		},
+      type = "text",
 
-		ref,
-	) => {
-		const inputClasses = cn(
-			inputVariants({
-				size,
-				state,
-			}),
+      startAdornment,
 
-			startAdornment && "pl-10",
+      endAdornment,
 
-			endAdornment && "pr-10",
+      ...props
+    },
+    ref,
+  ) => {
+    const hasError = state === "error";
 
-			className,
-		);
+    const inputClasses = cn(
+      inputVariants({
+        size,
+        state,
+      }),
 
-		if (!startAdornment && !endAdornment) {
-			return (
-				<input ref={ref} type={type} className={inputClasses} {...props} />
-			);
-		}
+      startAdornment && "pl-10",
 
-		return (
-			<div className="relative flex w-full items-center">
-				{startAdornment && (
-					<div
-						className="
-						pointer-events-none
-						absolute
-						left-3
-						flex
-						items-center
-						text-muted-foreground
-					"
-					>
-						{startAdornment}
-					</div>
-				)}
+      endAdornment && "pr-10",
 
-				<input ref={ref} type={type} className={inputClasses} {...props} />
+      className,
+    );
 
-				{endAdornment && (
-					<div
-						className="
-						absolute
-						right-3
-						flex
-						items-center
-					"
-					>
-						{endAdornment}
-					</div>
-				)}
-			</div>
-		);
-	},
+    return (
+      <div className="flex w-full flex-col gap-2">
+        {label && (
+          <Typography as="label" variant="labelMd" className="text-text-primary">
+            {label}
+          </Typography>
+        )}
+
+        <div className="relative flex w-full items-center">
+          {startAdornment && (
+            <div
+              className=" absolute left-3 flex items-center text-text-secondary"
+            >
+              {startAdornment}
+            </div>
+          )}
+
+          <input ref={ref} type={type} className={inputClasses} {...props} />
+
+          {endAdornment && (
+            <div
+              className=" absolute right-3 flex items-center text-text-secondary"
+            >
+              {endAdornment}
+            </div>
+          )}
+        </div>
+
+        {hasError && errorMessage ? (
+          <Typography as="p" variant="bodySm" className="text-danger">
+            {errorMessage}
+          </Typography>
+        ) : helperText ? (
+          <Typography as="p" variant="bodySm" className="text-text-secondary">
+            {helperText}
+          </Typography>
+        ) : null}
+      </div>
+    );
+  },
 );
 
 Input.displayName = "Input";

@@ -122,6 +122,7 @@ export type TypographyElement =
   | "h5"
   | "h6"
   | "p"
+  | "label"
   | "span"
   | "div";
   
