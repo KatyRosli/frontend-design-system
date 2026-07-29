@@ -17,9 +17,9 @@ export const formFieldVariants = cva(["flex", "w-full", "flex-col", "gap-2"], {
 export const formFieldMessageVariants = cva(["text-sm"], {
 	variants: {
 		state: {
-			default: "text-muted-foreground",
+			default: "text-text-secondary",
 
-			error: "text-destructive",
+			error: "text-danger",
 		},
 	},
 

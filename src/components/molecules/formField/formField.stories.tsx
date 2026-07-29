@@ -65,7 +65,7 @@ export const Playground: Story = {
 export const Default: Story = {
 	render: () => (
 		<FormField label="Email" description="Enter your work email.">
-			<Input placeholder="name@email.com" />
+			<Input placeholder="youremail@email.com" />
 		</FormField>
 	),
 };

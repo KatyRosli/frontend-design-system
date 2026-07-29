@@ -102,31 +102,22 @@ const buttonStyles = cva(
 export type ButtonProps = ComponentProps<"button"> &
   VariantProps<typeof buttonStyles> & {
     icon?: ReactNode;
-
     iconPosition?: "left" | "right";
-
     loading?: boolean;
+    iconOnly?: boolean;
   };
 
 export default function Button({
   variant,
-
   size = "lg",
-
   width,
-
   icon,
-
+  iconOnly,
   iconPosition = "left",
-
   loading = false,
-
   children,
-
   className,
-
   disabled,
-
   ...props
 }: ButtonProps) {
   const labelVariant = size === "lg" ? "labelLg" : "labelMd";
@@ -154,14 +145,19 @@ export default function Button({
           variant={variant === "primary" ? "inverse" : "default"}
         />
       )}
+      {iconOnly ? (
+        icon
+      ) : (
+        <>
+          {icon && iconPosition === "left" && icon}
 
-      {icon && iconPosition === "left" && icon}
+          <Typography as="span" variant={labelVariant} className="text-inherit">
+            {children}
+          </Typography>
 
-      <Typography as="span" variant={labelVariant} className="text-inherit">
-        {children}
-      </Typography>
-
-      {icon && iconPosition === "right" && icon}
+          {icon && iconPosition === "right" && icon}
+        </>
+      )}
     </button>
   );
 }

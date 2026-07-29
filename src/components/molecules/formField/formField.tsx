@@ -12,6 +12,7 @@ import {
 	formFieldVariants,
 	type FormFieldSpacing,
 } from "./formField.constants";
+import Typography from "@/foundations/typography";
 
 
 
@@ -76,55 +77,44 @@ const FormField = ({
 
 
 			{label && (
-
-				<label
-					className="
-						text-sm
-						font-medium
-						text-foreground
-					"
-				>
-
-					{label}
-
-
+				<Typography as="label" variant="bodySm" className="text-text-primary">
+							{label}
+						  
 					{required && (
 
-						<span className="ml-1 text-destructive">
+						<Typography as="span" variant="bodySm" className="text-danger">
 							*
-						</span>
+						</Typography>
 
 					)}
 
-				</label>
+				</Typography>
 
 			)}
-
-
-
 			{children}
-
-
-
 			{hasError ? (
 
-				<p
-					className={formFieldMessageVariants({
-						state: "error",
-					})}
-				>
+				<Typography
+  as="p"
+  variant="bodySm"
+  className={formFieldMessageVariants({
+    state: "error",
+  })}
+>
 					{errorMessage}
-				</p>
+				</Typography>
 
 			) : description ? (
 
-				<p
-					className={formFieldMessageVariants({
-						state: "default",
-					})}
-				>
+				<Typography
+  as="p"
+  variant="bodySm"
+  className={formFieldMessageVariants({
+    state: "default",
+  })}
+>
 					{description}
-				</p>
+				</Typography>
 
 			) : null}
 

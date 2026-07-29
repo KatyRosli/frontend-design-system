@@ -3,83 +3,76 @@ import type { ReactNode, HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 import {
-	emptyStateIconVariants,
-	emptyStateVariants,
-	type EmptyStateSize,
+  emptyStateIconVariants,
+  emptyStateVariants,
+  type EmptyStateSize,
 } from "./emptyState.constants";
 import Typography from "@/foundations/typography";
 
 export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
-	icon?: ReactNode;
+  icon?: ReactNode;
 
-	title: string;
+  title: string;
 
-	description?: string;
+  description?: string;
 
-	action?: ReactNode;
+  action?: ReactNode;
 
-	size?: EmptyStateSize;
+  size?: EmptyStateSize;
 }
 
 const EmptyState = ({
-	className,
+  className,
 
-	icon,
+  icon,
 
-	title,
+  title,
 
-	description,
+  description,
 
-	action,
+  action,
 
-	size = "md",
+  size = "md",
 
-	...props
+  ...props
 }: EmptyStateProps) => {
-	return (
-		<div
-			className={cn(
-				emptyStateVariants({
-					size,
-				}),
+  return (
+    <div
+      className={cn(
+        emptyStateVariants({
+          size,
+        }),
 
-				className,
-			)}
-			{...props}
-		>
-			{icon && (
-				<div
-					className={emptyStateIconVariants({
-						size,
-					})}
-				>
-					{icon}
-				</div>
-			)}
+        className,
+      )}
+      {...props}
+    >
+      {icon && (
+        <div
+          className={emptyStateIconVariants({
+            size,
+          })}
+        >
+          {icon}
+        </div>
+      )}
 
-			<div
-				className="
-					flex
-					flex-col
-					gap-1
-          items-center
-				"
-			>
-				<Typography as="h3" variant="h3">
-					{title}
-				</Typography>
+      <div
+        className="flex flex-col gap-1 items-center">
+        <Typography as="h3" variant="h3">
+          {title}
+        </Typography>
 
-				{description && (
-					<Typography as="p" variant="bodySm"
-					className="text-text-disabled">
-						{description}
-					</Typography>
-				)}
-			</div>
+        {description && (
+          <Typography as="p" variant="bodySm" className="text-text-disabled">
+            {description}
+          </Typography>
+        )}
+      </div>
 
-			{action && <div className="mt-2">{action}</div>}
-		</div>
-	);
+      {action && <div className="mt-2">{action}</div>}
+    </div>
+  );
 };
 
 export default EmptyState;

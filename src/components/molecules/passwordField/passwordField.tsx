@@ -3,66 +3,66 @@
 import { forwardRef, useState, type ComponentProps } from "react";
 
 import { Eye, EyeOff } from "lucide-react";
+import Icon from "@/foundations/icon";
 
 import Input from "@/components/atoms/input";
 
 import { cn } from "@/lib/utils";
 
 import {
-	passwordFieldVariants,
-	type PasswordFieldSize,
+  passwordFieldVariants,
+  type PasswordFieldSize,
 } from "./passwordField.constants";
+import Button from "@/components/atoms/button";
 
 export interface PasswordFieldProps extends Omit<
-	ComponentProps<typeof Input>,
-	"type"
+  ComponentProps<typeof Input>,
+  "type"
 > {
-	toggleLabel?: string;
+  toggleLabel?: string;
 
-	iconSize?: PasswordFieldSize;
+  iconSize?: PasswordFieldSize;
 }
 
 const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
-	(
-		{
-			className,
+  (
+    {
+      className,
 
-			toggleLabel = "Show password",
+      toggleLabel = "Show password",
 
-			iconSize = "lg",
+      iconSize = "lg",
 
-			...props
-		},
-		ref,
-	) => {
-		const [showPassword, setShowPassword] = useState(false);
+      ...props
+    },
+    ref,
+  ) => {
+    const [showPassword, setShowPassword] = useState(false);
 
-		const togglePassword = () => {
-			setShowPassword((previous) => !previous);
-		};
+    const togglePassword = () => {
+      setShowPassword((previous) => !previous);
+    };
 
-		return (
-			<Input
-				ref={ref}
-				type={showPassword ? "text" : "password"}
-				className={cn(className)}
-				endAdornment={
-					<button
-						type="button"
-						onClick={togglePassword}
-						className={passwordFieldVariants({
-							size: iconSize,
-						})}
-						aria-label={showPassword ? "Hide password" : toggleLabel}
-						aria-pressed={showPassword}
-					>
-						{showPassword ? <Eye /> : <EyeOff />}
-					</button>
-				}
-				{...props}
-			/>
-		);
-	},
+    return (
+      <Input
+        ref={ref}
+        type={showPassword ? "text" : "password"}
+        className={cn(className)}
+        endAdornment={
+          <Button
+            type="button"
+            variant="text"
+            iconOnly
+            icon={<Icon icon={showPassword ? Eye : EyeOff} size={iconSize} />}
+            onClick={togglePassword}
+            aria-label={showPassword ? "Hide password" : toggleLabel}
+            aria-pressed={showPassword}
+          />
+        }
+        {...props}
+      />
+    );
+  },
 );
 
 PasswordField.displayName = "PasswordField";
