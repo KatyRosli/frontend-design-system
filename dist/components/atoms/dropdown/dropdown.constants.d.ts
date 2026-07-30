@@ -6,6 +6,4 @@ export declare const dropdownTriggerVariants: (props?: ({
     size?: "sm" | "md" | null | undefined;
     state?: "default" | "error" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
-export declare const dropdownContentVariants: (props?: ({
-    size?: "sm" | "md" | null | undefined;
-} & import('class-variance-authority/types').ClassProp) | undefined) => string;
+export declare const dropdownContentVariants: (props?: import('class-variance-authority/types').ClassProp | undefined) => string;

@@ -28,12 +28,11 @@ export declare const avatarStatusStyles: {
     };
     readonly busy: {
         readonly label: "Busy";
-        readonly className: "bg-destructive";
+        readonly className: "bg-danger";
     };
     readonly offline: {
         readonly label: "Offline";
-        readonly className: "bg-offline";
+        readonly className: "bg-text-disabled";
     };
 };
 export type AvatarStatus = keyof typeof avatarStatusStyles;
-export declare const avatarFallbackImage = "https://avatars.githubusercontent.com/u/96566968?s=400&u=10a4cfb65e5de63911ba0362bda8096f1bbfeb63&v=4";
