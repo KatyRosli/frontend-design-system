@@ -8,8 +8,6 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { UserRound } from "lucide-react";
 
-import Image from "next/image";
-
 import Typography from "@/foundations/typography";
 
 import { cn } from "@/lib/utils";
@@ -138,7 +136,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
           )}
         >
           {src ? (
-            <Image src={src} alt={alt} className="size-full object-cover" />
+            <img src={src} alt={alt} className="size-full object-cover" />
           ) : initials ? (
             <Typography as="span" variant="labelMd">
               {initials}
