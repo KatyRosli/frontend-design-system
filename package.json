@@ -19,8 +19,8 @@
     "chromatic": "chromatic --project-token=chpt_7b158c5cc523965"
   },
   "peerDependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "dependencies": {
   "@base-ui/react": "^1.6.0",
@@ -41,8 +41,8 @@
     "@storybook/nextjs-vite": "^10.4.6",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
     "@vitest/browser-playwright": "^4.1.10",
     "@vitest/coverage-v8": "^4.1.10",
     "chromatic": "^18.1.0",
