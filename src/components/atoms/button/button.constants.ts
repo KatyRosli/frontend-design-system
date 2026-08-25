@@ -16,15 +16,12 @@ export const buttonSizes = {
 
 export const buttonVariants = [
   "primary",
-
   "secondary",
-
+  "tertiary",
+  "outline",
   "success",
-
   "danger",
-
   "text",
-
   "link",
 ] as const;
 

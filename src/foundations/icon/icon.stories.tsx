@@ -10,6 +10,8 @@ import {
   Trash2,
   Check,
   AlertCircle,
+  Moon,
+  Sun,
 } from "lucide-react";
 
 import Icon from "./icon";
@@ -131,6 +133,10 @@ export const CommonIcons: Story = {
       items-center
       gap-6
     ">
+
+      <Icon icon={Moon}/>
+
+      <Icon icon={Sun}/>
 
       <Icon icon={User}/>
 

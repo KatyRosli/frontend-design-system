@@ -12,7 +12,7 @@ export declare const buttonSizes: {
         readonly icon: "size-5";
     };
 };
-export declare const buttonVariants: readonly ["primary", "secondary", "success", "danger", "text", "link"];
+export declare const buttonVariants: readonly ["primary", "secondary", "tertiary", "outline", "success", "danger", "text", "link"];
 export declare const buttonWidths: readonly ["auto", "full"];
 export type ButtonSize = keyof typeof buttonSizes;
 export type ButtonVariant = (typeof buttonVariants)[number];

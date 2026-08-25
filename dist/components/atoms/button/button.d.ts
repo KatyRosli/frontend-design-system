@@ -1,7 +1,7 @@
 import { VariantProps } from 'class-variance-authority';
 import { ComponentProps, ReactNode } from 'react';
 declare const buttonStyles: (props?: ({
-    variant?: "link" | "text" | "primary" | "secondary" | "success" | "danger" | null | undefined;
+    variant?: "link" | "text" | "primary" | "secondary" | "tertiary" | "outline" | "success" | "danger" | null | undefined;
     size?: "sm" | "lg" | null | undefined;
     width?: "auto" | "full" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;

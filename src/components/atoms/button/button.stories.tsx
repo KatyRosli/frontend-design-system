@@ -93,6 +93,22 @@ export const Secondary: Story = {
   },
 };
 
+export const Tertiary: Story = {
+  args: {
+    variant: "tertiary",
+
+    children: "Tertiary button",
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    variant: "outline",
+
+    children: "Outline button",
+  },
+};
+
 export const Text: Story = {
   args: {
     variant: "text",

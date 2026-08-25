@@ -35,16 +35,12 @@ const buttonStyles = cva(
     variants: {
       variant: {
         primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
-
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary-hover",
-
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-hover",
+        tertiary: "bg-tertiary text-tertiary-foreground hover:bg-tertiary-hover",
+        outline: "border border-border bg-transparent text-text-primary hover:bg-surface-subtle",
         success: "bg-success text-success-foreground hover:bg-success-hover",
-
         danger: "bg-danger text-danger-foreground hover:bg-danger-hover",
-
         text: "text-text-primary hover:bg-surface-subtle",
-
         link: "text-primary underline underline-offset-4",
       },
 

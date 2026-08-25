@@ -1,36 +1,46 @@
 @theme inline {
   /*
   =====================
-  Colors
+  Brand Colors
+  =====================
+  */
+
+  --color-lemon-icing: var(--lemon-icing);
+  --color-nimbus-cloud: var(--nimbus-cloud);
+  --color-raindrops-roses: var(--raindrops-roses);
+  --color-cloud-dancer: var(--cloud-dancer);
+  --color-ice-melt: var(--ice-melt);
+  --color-peach-dust: var(--peach-dust);
+  --color-almost-aqua: var(--almost-aqua);
+  --color-orchid-tint: var(--orchid-tint);
+
+  /*
+  =====================
+  Semantic Colors
   =====================
   */
 
   --color-background: var(--background);
-
   --color-foreground: var(--foreground);
 
   --color-primary: var(--primary);
-
   --color-primary-foreground: var(--primary-foreground);
-
   --color-primary-hover: var(--primary-hover);
 
   --color-secondary: var(--secondary);
-
   --color-secondary-hover: var(--secondary-hover);
-
   --color-secondary-foreground: var(--secondary-foreground);
 
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
+  --color-tertiary-hover: var(--tertiary-hover);
+
   --color-surface: var(--surface);
-
   --color-surface-elevated: var(--surface-elevated);
-
   --color-surface-subtle: var(--surface-subtle);
 
   --color-text-primary: var(--text-primary);
-
   --color-text-secondary: var(--text-secondary);
-
   --color-text-disabled: var(--text-disabled);
 
   --color-border: var(--border);
