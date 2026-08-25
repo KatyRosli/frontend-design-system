@@ -148,6 +148,7 @@ const preview: Preview = {
             [
               "Avatar",
               "Button",
+              "Card",
               "Checkbox",
               "Dropdown",
               "Input",

@@ -10,6 +10,7 @@ export { default as Spacing } from "./foundations/spacing";
 //Atoms
 export { default as Avatar } from "./components/atoms/avatar";
 export { default as Button } from "./components/atoms/button";
+export { default as Card } from "./components/atoms/card";
 export { default as Checkbox } from "./components/atoms/checkbox";
 export { default as Dropdown } from "./components/atoms/dropdown";
 export { default as Input } from "./components/atoms/input";
