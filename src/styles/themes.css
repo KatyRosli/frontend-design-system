@@ -3,124 +3,147 @@
      Brand
   ====================== */
 
-  --primary: oklch(55% 0.28 300);
-  --primary-hover: oklch(50% 0.28 300);
-  --primary-foreground: oklch(98% 0.01 300);
+  --primary: #B98CB2;
+  --primary-hover: #AA7FA3;
+  --primary-foreground: #243229;
 
-  --secondary: oklch(65% 0.18 220);
-  --secondary-hover: oklch(60% 0.18 220);
-  --secondary-foreground: oklch(15% 0.03 220);
+  --secondary: #91B49A;
+  --secondary-hover: #82A68B;
+  --secondary-foreground: #243229;
+
+  --tertiary: #E5A88F;
+  --tertiary-hover: #D59880;
+  --tertiary-foreground: #3B2923;
 
   /* =====================
      Background
   ====================== */
 
-  --background: oklch(99% 0.005 300);
-  --foreground: oklch(18% 0.02 300);
+  --background: #FAF9F6;
+  --foreground: #28262B;
 
   /* =====================
      Surface
   ====================== */
 
-  --surface: oklch(99% 0.005 300);
-
-  --surface-elevated: oklch(100% 0 0);
-
-  --surface-subtle: oklch(95% 0.02 300);
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-subtle: #F4F2F4;
 
   /* =====================
      Text
   ====================== */
 
-  --text-primary: oklch(18% 0.02 300);
-
-  --text-secondary: oklch(45% 0.03 300);
-
-  --text-disabled: oklch(70% 0.01 300);
+  --text-primary: #28262B;
+  --text-secondary: #625D65;
+  --text-muted: #858087;
+  --text-disabled: #B8B3BA;
 
   /* =====================
      Border
   ====================== */
 
-  --border: oklch(72.869% 0.06444 298.293);
+  --border: #DDD9DE;
+  --border-strong: #C5C0C7;
 
   /* =====================
      Feedback
   ====================== */
 
-  --success: oklch(65% 0.18 145);
-  --success-hover: oklch(60% 0.18 145);
+  --success: #78B98F;
+  --success-hover: #69AA80;
+  --success-foreground: #243229;
 
-  --success-foreground: oklch(98% 0.01 145);
+  --warning: #D8B45C;
+  --warning-hover: #C9A64F;
+  --warning-foreground: #3B3020;
 
-  --warning: oklch(78% 0.17 85);
-  --warning-hover: oklch(73% 0.17 85);
+  --info: #82B8D5;
+  --info-hover: #72A9C7;
+  --info-foreground: #24313A;
 
-  --warning-foreground: oklch(25% 0.05 85);
-
-  --info: oklch(65% 0.18 240);
-  --infor-hover: oklch(60% 0.18 240);
-
-  --info-foreground: oklch(98% 0.01 240);
-
-  --danger: oklch(58% 0.22 25);
-  --danger-hover: oklch(53% 0.22 25);
-
-  --danger-foreground: oklch(98% 0.01 25);
+  --danger: #D98289;
+  --danger-hover: #C97078;
+  --danger-foreground: #3B292B;
 
   /* =====================
-   Feedback / Utility
-====================== */
+     Feedback / Utility
+  ====================== */
 
---skeleton: oklch(92% 0.015 300);
+  --skeleton: #EEECEE;
 }
 
 .dark {
-  --primary: oklch(70% 0.25 300);
-  --primary-hover: oklch(65% 0.25 300);
-  --primary-foreground: oklch(15% 0.03 300);
+  /* =====================
+     Brand
+  ====================== */
 
-  --secondary: oklch(78% 0.17 220);
-  --secondary-hover: oklch(73% 0.17 220);
-  --secondary-foreground: oklch(12% 0.02 220);
+  --primary: #D8B8D2;
+  --primary-hover: #E2C8DD;
+  --primary-foreground: #28262B;
 
-  --background: oklch(12% 0.02 300);
+  --secondary: #B8D0BE;
+  --secondary-hover: #C5D9CA;
+  --secondary-foreground: #28262B;
 
-  --foreground: oklch(96% 0.01 300);
-
-  --surface: oklch(16% 0.03 300);
-
-  --surface-elevated: oklch(20% 0.03 300);
-
-  --surface-subtle: oklch(25% 0.04 300);
-
-  --text-primary: oklch(96% 0.01 300);
-
-  --text-secondary: oklch(75% 0.02 300);
-
-  --text-disabled: oklch(50% 0.01 300);
-
-  --border: oklch(43.265% 0.08585 298.708);
-
-  --success: oklch(72% 0.18 145);
-  --success-hover: oklch(67% 0.18 145);
-  --success-foreground: oklch(15% 0.02 145);
-
-  --warning: oklch(85% 0.16 85);
-  --warning-hover: oklch(80% 0.16 85);
-  --warning-foreground: oklch(20% 0.03 85);
-
-  --info: oklch(75% 0.18 240);
-  --info-hover: oklch(70% 0.18 240);
-  --info-foreground: oklch(15% 0.03 240);
-
-  --danger: oklch(70% 0.22 25);
-  --danger-hover: oklch(65% 0.22 25);
-  --danger-foreground: oklch(18.809% 0.03296 274.728);
+  --tertiary: #F0C5B2;
+  --tertiary-hover: #F4D0C0;
+  --tertiary-foreground: #28262B;
 
   /* =====================
-   Feedback / Utility
-====================== */
+     Background
+  ====================== */
 
---skeleton: oklch(28% 0.03 300);
+  --background: #222126;
+  --foreground: #F7F3EB;
+
+  /* =====================
+     Surface
+  ====================== */
+
+  --surface: #2B292E;
+  --surface-elevated: #3B373F;
+  --surface-subtle: #343137;
+
+  /* =====================
+     Text
+  ====================== */
+
+  --text-primary: #F7F3EB;
+  --text-secondary: #C8C2CA;
+  --text-muted: #9E98A1;
+  --text-disabled: #706B72;
+
+  /* =====================
+     Border
+  ====================== */
+
+  --border: #514C54;
+  --border-strong: #69636C;
+
+  /* =====================
+     Feedback
+  ====================== */
+
+  --success: #8FC9A8;
+  --success-hover: #A0D5B5;
+  --success-foreground: #28262B;
+
+  --warning: #E7C778;
+  --warning-hover: #EBCF8B;
+  --warning-foreground: #28262B;
+
+  --info: #A8CFE5;
+  --info-hover: #B7D9EA;
+  --info-foreground: #28262B;
+
+  --danger: #E99A9D;
+  --danger-hover: #F0AAAD;
+  --danger-foreground: #28262B;
+
+  /* =====================
+     Feedback / Utility
+  ====================== */
+
+  --skeleton: #3A373D;
 }

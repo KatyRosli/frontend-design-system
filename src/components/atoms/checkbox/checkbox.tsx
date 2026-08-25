@@ -158,7 +158,7 @@ export default function Checkbox({
             "hidden",
 
             "pointer-events-none",
-            "text-primary-foreground",
+            "text-text-primary",
 
             checkboxConfig.icon,
 
@@ -175,7 +175,7 @@ export default function Checkbox({
             "hidden",
 
             "pointer-events-none",
-            "text-primary-foreground",
+            "text-text-primary",
 
             checkboxConfig.icon,
 

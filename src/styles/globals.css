@@ -3,5 +3,6 @@
 
 @import "./tokens.css";
 @import "./themes.css";
+@import "./board-colors.css";
 @import "./typography.css";
 @import "./base.css";
