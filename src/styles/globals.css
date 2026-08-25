@@ -6,3 +6,8 @@
 @import "./board-colors.css";
 @import "./typography.css";
 @import "./base.css";
+
+:root {
+    --font-body: "Inter", sans-serif;
+    --font-heading: "Montserrat", sans-serif;
+}
