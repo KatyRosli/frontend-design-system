@@ -14,7 +14,7 @@ export { default as Input } from './components/atoms/input';
 export { default as Skeleton } from './components/atoms/skeleton';
 export { default as Spinner } from './components/atoms/spinner';
 export { default as AppearanceToggle } from './components/molecules/appearanceToggle';
-export type { AppearanceToggleProps, Appearance } from './components/molecules/appearanceToggle';
+export type { AppearanceToggleProps, Appearance, } from './components/molecules/appearanceToggle';
 export { default as EmptyState } from './components/molecules/emptyState';
 export { default as FormField } from './components/molecules/formField';
 export { default as PasswordField } from './components/molecules/passwordField';

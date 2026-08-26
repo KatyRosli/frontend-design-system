@@ -1,6 +1,7 @@
 import path from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 export default defineConfig({
   resolve: {
@@ -10,6 +11,8 @@ export default defineConfig({
   },
 
   plugins: [
+    preserveDirectives(),
+
     dts({
       insertTypesEntry: true,
       exclude: [
