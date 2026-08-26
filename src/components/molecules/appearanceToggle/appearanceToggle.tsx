@@ -1,74 +1,44 @@
-"use client";
-
-import type { ButtonHTMLAttributes } from "react";
-
 import { Moon, Sun } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-
+import Button from "@/components/atoms/button";
 import Icon from "@/foundations/icon";
 
-import {
-  appearanceToggleVariants,
-  type AppearanceMode,
-  type AppearanceToggleSize,
-} from "./appearanceToggle.constants";
+export type Appearance = "light" | "dark";
 
-export interface AppearanceToggleProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> {
-  appearance: AppearanceMode;
-
-  onAppearanceChange: (
-    appearance: AppearanceMode,
-  ) => void;
-
-  size?: AppearanceToggleSize;
+export interface AppearanceToggleProps {
+  appearance: Appearance;
+  onAppearanceChange: (appearance: Appearance) => void;
+  size?: "sm" | "md" | "lg";
 }
 
 const AppearanceToggle = ({
   appearance,
-
   onAppearanceChange,
-
-  size = "md",
-
-  className,
-
-  ...props
+  size = "sm",
 }: AppearanceToggleProps) => {
-  const isDark = appearance === "dark";
-
-  const handleToggle = () => {
-    onAppearanceChange(
-      isDark ? "light" : "dark",
-    );
-  };
+  const nextAppearance =
+    appearance === "dark" ? "light" : "dark";
 
   return (
-    <button
-      type="button"
-      className={cn(
-        appearanceToggleVariants({
-          size,
-        }),
-
-        className,
-      )}
-      onClick={handleToggle}
+    <Button
+      variant="outline"
+      size="sm"
+      iconOnly
+      icon={
+        <Icon
+          icon={appearance === "dark" ? Sun : Moon}
+          size="sm"
+        />
+      }
+      onClick={() =>
+        onAppearanceChange(nextAppearance)
+      }
       aria-label={
-        isDark
+        appearance === "dark"
           ? "Switch to light mode"
           : "Switch to dark mode"
       }
-      aria-pressed={isDark}
-      {...props}
-    >
-      <Icon
-        icon={isDark ? Sun : Moon}
-        size={size === "sm" ? "sm" : "md"}
-        aria-hidden
-      />
-    </button>
+    />
   );
 };
 

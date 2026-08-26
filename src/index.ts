@@ -6,6 +6,9 @@ export { default as Motion } from "./foundations/motion";
 export { default as Radius } from "./foundations/radius";
 export { default as Spacing } from "./foundations/spacing";
 
+//Providers
+export { default as ThemeProvider, useTheme,} from "./providers/themeProvider";
+
 //Components
 //Atoms
 export { default as Avatar } from "./components/atoms/avatar";
@@ -17,6 +20,8 @@ export { default as Input } from "./components/atoms/input";
 export { default as Skeleton } from "./components/atoms/skeleton";
 export { default as Spinner } from "./components/atoms/spinner";
 //Molecules
+export { default as AppearanceToggle } from "./components/molecules/appearanceToggle";
+export type { AppearanceToggleProps, Appearance } from "./components/molecules/appearanceToggle";
 export { default as EmptyState } from "./components/molecules/emptyState";
 export { default as FormField } from "./components/molecules/formField";
 export { default as PasswordField } from "./components/molecules/passwordField";

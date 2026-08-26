@@ -1,6 +1,6 @@
 export { default } from "./appearanceToggle";
 
-export type { AppearanceToggleProps } from "./appearanceToggle";
+export type { AppearanceToggleProps, Appearance,} from "./appearanceToggle";
 
 export {
   appearanceToggleVariants,
