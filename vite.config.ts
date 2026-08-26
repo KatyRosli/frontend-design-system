@@ -11,7 +11,9 @@ export default defineConfig({
   },
 
   plugins: [
-    preserveDirectives(),
+    preserveDirectives({
+      include: ["src/**/*.{ts,tsx}"],
+    }),
 
     dts({
       insertTypesEntry: true,
