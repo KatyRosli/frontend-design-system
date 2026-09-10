@@ -6815,6 +6815,77 @@ var Vl = ({ email: e = "", password: r = "", emailError: i, passwordError: a, lo
 	]
 });
 //#endregion
-export { Nl as AppearanceToggle, Ut as Avatar, Jt as Button, Zt as Card, en as Checkbox, Dl as Dropdown, Il as EmptyState, zl as FormField, ot as Icon, kl as Input, Vl as LoginForm, dt as Motion, Bl as PasswordField, pt as Radius, Ml as Skeleton, ht as Spacing, Kt as Spinner, ct as Theme, _t as ThemeProvider, W as Typography, vt as useTheme };
+//#region src/components/organisms/signupForm/signupForm.tsx
+function Hl({ values: e = {}, firstNameError: r, lastNameError: i, emailError: a, passwordError: o, loading: s = !1, onChange: c, onSubmit: l }) {
+	return /* @__PURE__ */ n("form", {
+		onSubmit: l,
+		className: "flex w-full flex-col gap-5",
+		children: [
+			/* @__PURE__ */ n("div", {
+				className: "grid gap-5 sm:grid-cols-2",
+				children: [/* @__PURE__ */ t(zl, {
+					label: "First name",
+					required: !0,
+					errorMessage: r,
+					children: /* @__PURE__ */ t(kl, {
+						required: !0,
+						value: e.firstName ?? "",
+						onChange: (e) => c("firstName", e.target.value),
+						placeholder: "First name",
+						autoComplete: "given-name"
+					})
+				}), /* @__PURE__ */ t(zl, {
+					label: "Last name",
+					required: !0,
+					errorMessage: i,
+					children: /* @__PURE__ */ t(kl, {
+						required: !0,
+						value: e.lastName ?? "",
+						onChange: (e) => c("lastName", e.target.value),
+						placeholder: "Last name",
+						autoComplete: "family-name"
+					})
+				})]
+			}),
+			/* @__PURE__ */ n("div", {
+				className: "grid gap-5 sm:grid-cols-2",
+				children: [/* @__PURE__ */ t(zl, {
+					label: "Email",
+					required: !0,
+					errorMessage: a,
+					children: /* @__PURE__ */ t(kl, {
+						required: !0,
+						type: "email",
+						value: e.email ?? "",
+						onChange: (e) => c("email", e.target.value),
+						placeholder: "name@email.com",
+						autoComplete: "email"
+					})
+				}), /* @__PURE__ */ t(zl, {
+					label: "Password",
+					required: !0,
+					errorMessage: o,
+					children: /* @__PURE__ */ t(Bl, {
+						required: !0,
+						value: e.password ?? "",
+						onChange: (e) => c("password", e.target.value),
+						placeholder: "Create a password",
+						autoComplete: "new-password"
+					})
+				})]
+			}),
+			/* @__PURE__ */ t(Jt, {
+				type: "submit",
+				variant: "primary",
+				size: "lg",
+				width: "full",
+				loading: s,
+				children: s ? "Creating account..." : "Create account"
+			})
+		]
+	});
+}
+//#endregion
+export { Nl as AppearanceToggle, Ut as Avatar, Jt as Button, Zt as Card, en as Checkbox, Dl as Dropdown, Il as EmptyState, zl as FormField, ot as Icon, kl as Input, Vl as LoginForm, dt as Motion, Bl as PasswordField, pt as Radius, Hl as SignupForm, Ml as Skeleton, ht as Spacing, Kt as Spinner, ct as Theme, _t as ThemeProvider, W as Typography, vt as useTheme };
 
 //# sourceMappingURL=index.js.map

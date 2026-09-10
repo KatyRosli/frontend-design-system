@@ -19,3 +19,5 @@ export { default as EmptyState } from './components/molecules/emptyState';
 export { default as FormField } from './components/molecules/formField';
 export { default as PasswordField } from './components/molecules/passwordField';
 export { default as LoginForm } from './components/organisms/loginForm';
+export { default as SignupForm } from './components/organisms/signupForm';
+export type { SignupFormProps, SignupFormValues, } from './components/organisms/signupForm';

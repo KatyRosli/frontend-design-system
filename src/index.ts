@@ -38,3 +38,8 @@ export { default as PasswordField } from "./components/molecules/passwordField";
 
 // Organisms
 export { default as LoginForm } from "./components/organisms/loginForm";
+export { default as SignupForm } from "./components/organisms/signupForm";
+export type {
+  SignupFormProps,
+  SignupFormValues,
+} from "./components/organisms/signupForm";
