@@ -16,7 +16,7 @@
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --project-token=chpt_7b158c5cc523965"
+    "chromatic": "chromatic"
   },
   "peerDependencies": {
     "react": "^19.2.8",
