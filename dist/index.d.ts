@@ -15,6 +15,8 @@ export { default as Skeleton } from './components/atoms/skeleton';
 export { default as Spinner } from './components/atoms/spinner';
 export { default as AppearanceToggle } from './components/molecules/appearanceToggle';
 export type { AppearanceToggleProps, Appearance, } from './components/molecules/appearanceToggle';
+export { default as Dialog, DialogTrigger, DialogPortal, DialogBackdrop, DialogPopup, DialogTitle, DialogDescription, DialogClose, } from './components/molecules/dialog';
+export type { DialogProps, DialogTriggerProps, DialogPortalProps, DialogBackdropProps, DialogPopupProps, DialogTitleProps, DialogDescriptionProps, DialogCloseProps, DialogPopupVariant, DialogPopupSize, } from './components/molecules/dialog';
 export { default as EmptyState } from './components/molecules/emptyState';
 export { default as FormField } from './components/molecules/formField';
 export { default as PasswordField } from './components/molecules/passwordField';

@@ -34,12 +34,16 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: [
-        "react",
-        "react-dom",
-        "react/jsx-runtime",
-        "react/jsx-dev-runtime",
-      ],
+      // @base-ui/react ships dual CJS/ESM output; bundling it here can pull
+      // in its CJS files (which do a literal `require("react")`) instead of
+      // the ESM build, which breaks at runtime in the browser. Leaving it
+      // (and its @base-ui/utils dependency) external lets the consuming
+      // app's own bundler resolve it correctly, the same way react/react-dom
+      // already are.
+      external: (id) =>
+        ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"].includes(id) ||
+        id.startsWith("@base-ui/react") ||
+        id.startsWith("@base-ui/utils"),
     },
 
     sourcemap: true,
