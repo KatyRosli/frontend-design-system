@@ -16,7 +16,7 @@
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic"
+    "chromatic": "dotenv -e .env.local -- chromatic"
   },
   "peerDependencies": {
     "react": "^19.2.8",
@@ -46,9 +46,11 @@
     "@vitest/browser-playwright": "^4.1.10",
     "@vitest/coverage-v8": "^4.1.10",
     "chromatic": "^18.1.0",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9",
     "eslint-plugin-storybook": "^10.4.6",
     "playwright": "^1.61.1",
+    "rollup-plugin-preserve-directives": "^0.4.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite": "^8.1.5",
